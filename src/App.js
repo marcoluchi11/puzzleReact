@@ -1,22 +1,27 @@
 import React from "react";
 import "./bootstrap.min.css";
 import styled from "@emotion/styled";
-
-const Prueba = styled.h1`
-  font-family: "Mulish", sans-serif;
-  font-weight: 300;
+import Instrucciones from "./components/Instrucciones";
+import Puzzle from "./components/Puzzle";
+const ContenedorFondo = styled.div`
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  padding: 1rem;
+  margin-top: 2rem;
 `;
+
 function App() {
   return (
-    <div className="container">
+    <ContenedorFondo className="container">
       <div className="row">
-        <div className="col-8">1</div>
+        <div className="col-8">
+          <Puzzle />
+        </div>
         <div className="col-4">
-          instrucciones para el rompecabezad Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Voluptate, error.
+          <Instrucciones />
         </div>
       </div>
-    </div>
+    </ContenedorFondo>
   );
 }
 
