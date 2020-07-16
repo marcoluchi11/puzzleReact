@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
+import logoclick from "./../images/click.jpg";
 import imagen1 from "./../images/1.jpg";
 import imagen2 from "./../images/2.jpg";
 import imagen3 from "./../images/3.jpg";
@@ -20,12 +21,16 @@ const Imagen = styled.img`
   height: 200px;
   border: black solid 0.5px;
 `;
-const handleClick = () => {
-  let holis = prompt("Tu mama gusta de mi ?");
-  console.log(holis);
-};
-const [click, setClick] = useState(false);
+
 const Puzzle = () => {
+  const [clickardo, setClick] = useState(false);
+  const [imagenes, setImagenes] = useState([]);
+  const [contador, setContador] = useState(1);
+
+  const handleClick = () => {
+    setContador(contador + 1);
+    setImagenes([...imagenes, `imagen${contador}`]);
+  };
   return (
     <Contenedor>
       <Imagen onClick={handleClick} src={imagen7} alt="" />
@@ -36,9 +41,8 @@ const Puzzle = () => {
       <Imagen onClick={handleClick} src={imagen2} alt="" />
       <Imagen onClick={handleClick} src={imagen3} alt="" />
       <Imagen onClick={handleClick} src={imagen5} alt="" />
-      <Imagen onClick={handleClick} src="" alt="" />
+      <Imagen onClick={handleClick} value="tuvieja" src={logoclick} alt="" />
     </Contenedor>
   );
 };
-
 export default Puzzle;
