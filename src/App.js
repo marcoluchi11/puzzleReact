@@ -14,10 +14,10 @@ function App() {
   return (
     <ContenedorFondo className="container">
       <div className="row">
-        <div className="col-8">
+        <div className="col-md-8">
           <Puzzle />
         </div>
-        <div className="col-4">
+        <div className="col-md-4">
           <Instrucciones />
         </div>
       </div>
