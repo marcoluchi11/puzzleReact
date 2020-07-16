@@ -23,24 +23,30 @@ const Imagen = styled.img`
 `;
 
 const Puzzle = () => {
-  const [clickardo, setClick] = useState(false);
   const [imagenes, setImagenes] = useState([]);
   const [contador, setContador] = useState(1);
-
+  const imgs = [
+    imagen3,
+    imagen7,
+    imagen5,
+    imagen2,
+    imagen4,
+    imagen8,
+    imagen6,
+    imagen1,
+    imagen5,
+  ];
   const handleClick = () => {
+    if (imagenes.length === 8) return;
     setContador(contador + 1);
-    setImagenes([...imagenes, `imagen${contador}`]);
+    setImagenes([...imagenes, imgs[contador]]);
   };
   return (
     <Contenedor>
-      <Imagen onClick={handleClick} src={imagen7} alt="" />
-      <Imagen onClick={handleClick} src={imagen6} alt="" />
-      <Imagen onClick={handleClick} src={imagen1} alt="" />
-      <Imagen onClick={handleClick} src={imagen4} alt="" />
-      <Imagen onClick={handleClick} src={imagen8} alt="" />
-      <Imagen onClick={handleClick} src={imagen2} alt="" />
-      <Imagen onClick={handleClick} src={imagen3} alt="" />
-      <Imagen onClick={handleClick} src={imagen5} alt="" />
+      {imagenes.map((imagen) => (
+        <Imagen key={imagen} onClick={handleClick} src={imagen} alt="" />
+      ))}
+
       <Imagen onClick={handleClick} value="tuvieja" src={logoclick} alt="" />
     </Contenedor>
   );
