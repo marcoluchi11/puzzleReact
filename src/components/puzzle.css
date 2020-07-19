@@ -1,0 +1,19 @@
+div#Contenedor {
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+img#Imagen {
+  width: 200px;
+  height: 200px;
+  border: black solid 0.5px;
+}
+
+img#Imagen:hover {
+  cursor: pointer;
+}
+.active {
+  border: red solid 5px !important;
+}
