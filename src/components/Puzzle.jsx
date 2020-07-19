@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GoogleSpreadsheet } from "google-spreadsheet";
-import styled from "@emotion/styled";
 import shortid from "shortid";
+import "./puzzle.css";
 import logoclick from "./../images/click.jpg";
 import imagen1 from "./../images/1.jpg";
 import imagen2 from "./../images/2.jpg";
@@ -12,21 +12,7 @@ import imagen6 from "./../images/6.jpg";
 import imagen7 from "./../images/7.jpg";
 import imagen8 from "./../images/8.jpg";
 import negro from "./../images/negro.jpg";
-const Contenedor = styled.div`
-  display: flex;
-  justify-content: center;
 
-  flex-wrap: wrap;
-  margin-top: 1rem;
-`;
-const Imagen = styled.img`
-  width: 200px;
-  height: 200px;
-  border: black solid 0.5px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
 const doc = new GoogleSpreadsheet(
   "1BjjFhdayN24Fi7hV_0dUZK4GwW7JSTtmqpNXtDYV20Y"
 );
@@ -56,8 +42,6 @@ const Puzzle = ({
   setSeleccion2,
   imagenes,
   setImagenes,
-  active,
-  setActive,
 }) => {
   //Estados
   const [clickovich, setClickovich] = useState(false);
@@ -95,10 +79,6 @@ const Puzzle = ({
   };
   //Click para mover las piezas
   const handleClick2 = (e) => {
-    setActive(true);
-    active
-      ? (e.target.style = "border: red solid 1.5px")
-      : (e.target.style = "border: black solid 0.5px");
     //Actualiza el state al primer y segundo click
     if (seleccion1 === "") {
       setSeleccion1(e.target.src);
@@ -110,29 +90,40 @@ const Puzzle = ({
       setSeleccion2(e.target.src);
     }
   };
-
+  const toggleClass = (e) => {
+    e.target.classList.toggle("active");
+  };
   return (
-    <Contenedor>
+    <div id="Contenedor">
       {imagenes.map((imagen) => (
-        <Imagen
+        <img
           key={imagen}
-          id={shortid.generate()}
-          onClick={handleClick2}
+          id="Imagen"
+          onClick={(e) => {
+            handleClick2(e);
+            toggleClass(e);
+          }}
           src={imagen}
-          alt=""
+          alt="pieza"
         />
       ))}
       {clickovich ? (
-        <Imagen
+        <img
+          id="Imagen"
           key={shortid.generate()}
           onClick={handleClick2}
           src={negro}
-          alt=""
+          alt="Imagen negra"
         />
       ) : (
-        <Imagen onClick={handleClick} src={logoclick} alt="" />
+        <img
+          id="Imagen"
+          onClick={handleClick}
+          src={logoclick}
+          alt="Boton click"
+        />
       )}
-    </Contenedor>
+    </div>
   );
 };
 export default Puzzle;
