@@ -14,7 +14,6 @@ function App() {
   const [seleccion1, setSeleccion1] = useState("");
   const [seleccion2, setSeleccion2] = useState("");
   const [imagenes, setImagenes] = useState([]);
-  const [active, setActive] = useState(true);
   return (
     <ContenedorFondo className="container">
       <div className="row">
@@ -26,8 +25,6 @@ function App() {
             setSeleccion2={setSeleccion2}
             imagenes={imagenes}
             setImagenes={setImagenes}
-            active={active}
-            setActive={setActive}
           />
         </div>
         <div className="col-md-4 ml-0">
@@ -38,7 +35,6 @@ function App() {
             setSeleccion2={setSeleccion2}
             imagenes={imagenes}
             setImagenes={setImagenes}
-            setActive={setActive}
           />
         </div>
       </div>
