@@ -15,5 +15,5 @@ img#Imagen:hover {
   cursor: pointer;
 }
 .active {
-  border: red solid 5px !important;
+  border: red solid 3px !important;
 }
