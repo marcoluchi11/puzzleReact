@@ -54,6 +54,12 @@ const Instrucciones = ({
   ];
 
   const handleClick = () => {
+    const activo = document.querySelectorAll(".active");
+    console.log(activo);
+    activo.forEach((item) => {
+      item.classList.remove("active");
+    });
+    //POR FIN
     let imgActual;
     if (seleccion1 !== "" && seleccion2 !== "" && seleccion1 !== seleccion2) {
       const imagenesSwapeadas1 = imagenes.findIndex(
@@ -91,8 +97,6 @@ const Instrucciones = ({
       setSeleccion2("");
       setActive(false);
     }
-
-    //MOSTRAR CARTEL GANADOR FALTA
   };
   return (
     <ContenedorInstrucciones>
