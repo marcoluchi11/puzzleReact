@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
+import Cartel from "./Cartel";
 import imagen1 from "./../images/1.jpg";
 import imagen2 from "./../images/2.jpg";
 import imagen3 from "./../images/3.jpg";
@@ -28,10 +29,7 @@ const ElementoLista = styled.li`
     color: #ec6778;
   }
 `;
-const DivCartel = styled.div`
-  margin-top: 3rem;
-  font-weight: 700;
-`;
+
 const Instrucciones = ({
   seleccion1,
   seleccion2,
@@ -117,11 +115,7 @@ const Instrucciones = ({
       <button onClick={handleClick} className="btn btn-primary">
         Intercambia Piezas
       </button>
-      {cartel ? (
-        <DivCartel className="alert alert-success" role="alert">
-          {cartel}
-        </DivCartel>
-      ) : null}
+      {cartel ? <Cartel cartel={cartel} /> : null}
     </ContenedorInstrucciones>
   );
 };

@@ -29,6 +29,7 @@ const appendSpreadsheet = async (row) => {
     await doc.loadInfo();
 
     const sheet = doc.sheetsById[1202433785];
+    // eslint-disable-next-line
     const result = await sheet.addRow(row);
   } catch (e) {
     console.error("Error: ", e);
@@ -67,12 +68,12 @@ const Puzzle = ({
       return;
     }
     //MANDA DATOS A LA STYLESHEET COMENTADO POR AHORA
-    // const newRow = prompt("La pregunta va aca");
+    const newRow = prompt("La pregunta va aca");
 
-    // appendSpreadsheet({ Respuesta: newRow });
-    // setTimeout(() => {
-    //   console.log("tu mama gusta de mi");
-    // }, 2200);
+    appendSpreadsheet({ Respuesta: newRow });
+    setTimeout(() => {
+      console.log("tu mama gusta de mi");
+    }, 2200);
     //se agregan las imagenes al hacer click
     setContador(contador + 1);
     setImagenes([...imagenes, imgs[contador]]);
