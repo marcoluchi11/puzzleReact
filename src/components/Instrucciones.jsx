@@ -55,7 +55,6 @@ const Instrucciones = ({
 
   const handleClick = () => {
     const activo = document.querySelectorAll(".active");
-    console.log(activo);
     activo.forEach((item) => {
       item.classList.remove("active");
     });
@@ -84,7 +83,6 @@ const Instrucciones = ({
 
       setSeleccion2("");
 
-      setActive(false);
       console.log(imgActual);
       console.log(imgGanadora);
       console.log(JSON.stringify(imgActual) === JSON.stringify(imgGanadora));
@@ -95,7 +93,6 @@ const Instrucciones = ({
     if (seleccion1 === seleccion2) {
       setSeleccion1("");
       setSeleccion2("");
-      setActive(false);
     }
   };
   return (
