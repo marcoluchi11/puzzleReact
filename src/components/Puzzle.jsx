@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import styled from "@emotion/styled";
+import shortid from "shortid";
 import logoclick from "./../images/click.jpg";
 import imagen1 from "./../images/1.jpg";
 import imagen2 from "./../images/2.jpg";
@@ -10,6 +11,7 @@ import imagen5 from "./../images/5.jpg";
 import imagen6 from "./../images/6.jpg";
 import imagen7 from "./../images/7.jpg";
 import imagen8 from "./../images/8.jpg";
+import negro from "./../images/negro.jpg";
 const Contenedor = styled.div`
   display: flex;
   justify-content: center;
@@ -21,12 +23,14 @@ const Imagen = styled.img`
   width: 200px;
   height: 200px;
   border: black solid 0.5px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
-
 const doc = new GoogleSpreadsheet(
   "1BjjFhdayN24Fi7hV_0dUZK4GwW7JSTtmqpNXtDYV20Y"
 );
-
+//Funcion que agrega el prompt al stylesheet
 const appendSpreadsheet = async (row) => {
   try {
     console.log("entra aca");
@@ -45,38 +49,89 @@ const appendSpreadsheet = async (row) => {
   }
 };
 
-const Puzzle = () => {
-  const [imagenes, setImagenes] = useState([]);
-  const [contador, setContador] = useState(1);
+const Puzzle = ({
+  seleccion1,
+  seleccion2,
+  setSeleccion1,
+  setSeleccion2,
+  imagenes,
+  setImagenes,
+  active,
+  setActive,
+}) => {
+  //Estados
+  const [clickovich, setClickovich] = useState(false);
+
+  const [contador, setContador] = useState(0);
   const imgs = [
     imagen3,
     imagen7,
     imagen5,
     imagen2,
     imagen4,
-    imagen8,
     imagen6,
+    imagen8,
     imagen1,
     imagen5,
   ];
   const handleClick = () => {
-    if (imagenes.length === 8) return;
-    const newRow = prompt("Pregunta que haria");
+    if (seleccion1 !== "" && seleccion2 !== "") {
+    }
+    //Valida cuando llega a 8 para.
+    if (imagenes.length === 8) {
+      setClickovich(true);
+      return;
+    }
+    //MANDA DATOS A LA STYLESHEET COMENTADO POR AHORA
+    // const newRow = prompt("La pregunta va aca");
 
-    appendSpreadsheet({ Respuesta: newRow });
-    setTimeout(() => {
-      console.log("tu mama gusta de mi");
-    }, 2200);
+    // appendSpreadsheet({ Respuesta: newRow });
+    // setTimeout(() => {
+    //   console.log("tu mama gusta de mi");
+    // }, 2200);
+    //se agregan las imagenes al hacer click
     setContador(contador + 1);
     setImagenes([...imagenes, imgs[contador]]);
   };
+  //Click para mover las piezas
+  const handleClick2 = (e) => {
+    setActive(true);
+    active
+      ? (e.target.style = "border: red solid 1.5px")
+      : (e.target.style = "border: black solid 0.5px");
+    //Actualiza el state al primer y segundo click
+    if (seleccion1 === "") {
+      setSeleccion1(e.target.src);
+    }
+    if (seleccion1 === e.target.src) {
+      setSeleccion1(e.target.src);
+    }
+    if (seleccion1 !== "" && seleccion2 === "" && seleccion1 !== seleccion2) {
+      setSeleccion2(e.target.src);
+    }
+  };
+
   return (
     <Contenedor>
       {imagenes.map((imagen) => (
-        <Imagen key={imagen} onClick={handleClick} src={imagen} alt="" />
+        <Imagen
+          key={imagen}
+          id={shortid.generate()}
+          onClick={handleClick2}
+          src={imagen}
+          alt=""
+        />
       ))}
-
-      <Imagen onClick={handleClick} value="tuvieja" src={logoclick} alt="" />
+      {clickovich ? (
+        <Imagen
+          key={shortid.generate()}
+          onClick={handleClick2}
+          src={negro}
+          alt=""
+        />
+      ) : (
+        <Imagen onClick={handleClick} src={logoclick} alt="" />
+      )}
     </Contenedor>
   );
 };
