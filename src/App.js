@@ -38,6 +38,7 @@ function App() {
   return (
     <ContenedorFondo className="container">
       {opciones ? (
+        // ROMPECABEZAS
         <div className="row">
           <div className="col-md-8">
             <Puzzle
@@ -47,6 +48,7 @@ function App() {
               setSeleccion2={setSeleccion2}
               imagenes={imagenes}
               setImagenes={setImagenes}
+              user={user}
             />
           </div>
           <div className="col-md-4 ml-0">
@@ -63,6 +65,7 @@ function App() {
           </div>
         </div>
       ) : (
+        // MENU PRINCIPAL
         <div className="row">
           <div className="col-md-12 d-flex justify-content-center">
             <Titulo>Bienvenido al Rompecabezas</Titulo>
@@ -102,9 +105,9 @@ function App() {
 export default App;
 // PARTES ROMPECABEZAS REALES
 // SECCION PREGUNTAS MAS FACHERA
-// LOGUEO O OPCION ANONIMO
 // cUANDO HACES CLICK EN LA DIFICULTAD QUE TE APAREZCA UNOS SEGUNDOS LA IMAGEN COMPLETA.
-
 // explicar motivo de registro
-// EDAD NOMBRE MAIL
 // MANDAR A OTRO DOCUMENTO DISTINTO, PARA QUE VEAN LAS RTAS // FORO DE RESPUESTAS
+
+// LOGUEO O OPCION ANONIMO -- Listo
+// EDAD NOMBRE MAIL -- Listo
