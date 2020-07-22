@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 const DivCartel = styled.div`
   margin-top: 3rem;
   font-weight: 700;
@@ -13,3 +14,6 @@ const Cartel = ({ cartel }) => {
 };
 
 export default Cartel;
+Cartel.propTypes = {
+  cartel: PropTypes.string.isRequired,
+};
