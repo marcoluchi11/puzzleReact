@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Cartel from "./Cartel";
+import PropTypes from "prop-types";
 import imagen1 from "./../images/1.jpg";
 import imagen2 from "./../images/2.jpg";
 import imagen3 from "./../images/3.jpg";
@@ -9,7 +10,8 @@ import imagen5 from "./../images/5.jpg";
 import imagen6 from "./../images/6.jpg";
 import imagen7 from "./../images/7.jpg";
 import imagen8 from "./../images/8.jpg";
-const ContenedorInstrucciones = styled.div`
+import Postlogin from "./Postlogin";
+const Contenedor = styled.div`
   margin-top: 1rem;
   font-family: "Mulish", sans-serif;
   h2 {
@@ -29,7 +31,9 @@ const ElementoLista = styled.li`
     color: #ec6778;
   }
 `;
-
+const ContenedorInstrucciones = styled.div`
+  text-align: center;
+`;
 const Instrucciones = ({
   seleccion1,
   seleccion2,
@@ -37,7 +41,8 @@ const Instrucciones = ({
   setSeleccion2,
   imagenes,
   setImagenes,
-  setActive,
+  setOpciones,
+  user,
 }) => {
   const [cartel, setCartel] = useState("");
   const imgGanadora = [
@@ -94,8 +99,12 @@ const Instrucciones = ({
     }
   };
   return (
-    <ContenedorInstrucciones>
-      <h2>Instrucciones para jugar</h2>
+    <Contenedor>
+      <ContenedorInstrucciones>
+        <Postlogin user={user} />
+        <h2>Instrucciones para jugar</h2>
+      </ContenedorInstrucciones>
+
       <ListaInstrucciones>
         <ElementoLista>
           Haz click en la imagen de "Click" para responder una pregunta
@@ -115,9 +124,21 @@ const Instrucciones = ({
       <button onClick={handleClick} className="btn btn-primary">
         Intercambia Piezas
       </button>
+      <button className="btn btn-info mt-3" onClick={() => setOpciones("")}>
+        Volver al menu principal
+      </button>
       {cartel ? <Cartel cartel={cartel} /> : null}
-    </ContenedorInstrucciones>
+    </Contenedor>
   );
 };
 
 export default Instrucciones;
+Instrucciones.propTypes = {
+  setSeleccion1: PropTypes.func.isRequired,
+  setSeleccion2: PropTypes.func.isRequired,
+  setImagenes: PropTypes.func.isRequired,
+  setOpciones: PropTypes.func.isRequired,
+  imagenes: PropTypes.array.isRequired,
+  seleccion1: PropTypes.string.isRequired,
+  seleccion2: PropTypes.string.isRequired,
+};
