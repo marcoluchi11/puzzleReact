@@ -12,14 +12,13 @@ import imagen6 from "./../images/6.jpg";
 import imagen7 from "./../images/7.jpg";
 import imagen8 from "./../images/8.jpg";
 import negro from "./../images/negro.jpg";
-
+import PropTypes from "prop-types";
 const doc = new GoogleSpreadsheet(
   "1BjjFhdayN24Fi7hV_0dUZK4GwW7JSTtmqpNXtDYV20Y"
 );
 //Funcion que agrega el prompt al stylesheet
 const appendSpreadsheet = async (row) => {
   try {
-    console.log("entra aca");
     await doc.useServiceAccountAuth({
       client_email: "pruebastylesheet@prode-eb49d.iam.gserviceaccount.com",
       private_key:
@@ -128,3 +127,11 @@ const Puzzle = ({
   );
 };
 export default Puzzle;
+Puzzle.propTypes = {
+  setSeleccion1: PropTypes.func.isRequired,
+  setSeleccion2: PropTypes.func.isRequired,
+  setImagenes: PropTypes.func.isRequired,
+  imagenes: PropTypes.array.isRequired,
+  seleccion1: PropTypes.string.isRequired,
+  seleccion2: PropTypes.string.isRequired,
+};
