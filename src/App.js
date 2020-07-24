@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import Instrucciones from "./components/Instrucciones";
 import Puzzle from "./components/Puzzle";
 import Login from "./components/Login";
+import Footer from "./components/Footer";
 const ContenedorFondo = styled.div`
   background-color: #8ec5fc;
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
@@ -49,6 +50,7 @@ function App() {
               imagenes={imagenes}
               setImagenes={setImagenes}
               user={user}
+              setUser={setUser}
             />
           </div>
           <div className="col-md-4 ml-0">
@@ -72,6 +74,12 @@ function App() {
           </div>
           <div className="col-md-12 d-flex justify-content-center text-center">
             <Login user={user} setUser={setUser} />
+          </div>
+          <div className="col-md-12 d-flex justify-content-center text-center mt-1">
+            <small>
+              El login es solo para recopilar informacion, no se utilizaran
+              otros datos.
+            </small>
           </div>
           <div className="col-md-12 d-flex justify-content-center  mt-4">
             <Subtitulo>Seleccione la dificultad</Subtitulo>
@@ -98,6 +106,7 @@ function App() {
           </div>
         </div>
       )}
+      <Footer />
     </ContenedorFondo>
   );
 }
@@ -106,8 +115,8 @@ export default App;
 // PARTES ROMPECABEZAS REALES
 // SECCION PREGUNTAS MAS FACHERA
 // cUANDO HACES CLICK EN LA DIFICULTAD QUE TE APAREZCA UNOS SEGUNDOS LA IMAGEN COMPLETA.
-// explicar motivo de registro
 // MANDAR A OTRO DOCUMENTO DISTINTO, PARA QUE VEAN LAS RTAS // FORO DE RESPUESTAS
 
 // LOGUEO O OPCION ANONIMO -- Listo
 // EDAD NOMBRE MAIL -- Listo
+// explicar motivo de registro -- Listo
