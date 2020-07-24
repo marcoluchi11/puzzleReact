@@ -43,6 +43,7 @@ const Puzzle = ({
   imagenes,
   setImagenes,
   user,
+  setUser,
 }) => {
   //Estados
   const [clickovich, setClickovich] = useState(false);
@@ -59,6 +60,12 @@ const Puzzle = ({
     imagen1,
     imagen5,
   ];
+  if (user === "" || user === false) {
+    setUser({
+      displayName: "Anonimo",
+      email: "Anonimo",
+    });
+  }
   const handleClick = () => {
     if (seleccion1 !== "" && seleccion2 !== "") {
     }
@@ -70,7 +77,11 @@ const Puzzle = ({
     //MANDA DATOS A LA STYLESHEET COMENTADO POR AHORA
     const newRow = prompt("La pregunta va aca");
 
-    appendSpreadsheet({ Respuesta: newRow, Nombre: user.email });
+    appendSpreadsheet({
+      Respuesta: newRow,
+      Nombre: user.displayName,
+      Mail: user.email,
+    });
     setTimeout(() => {
       console.log("tu mama gusta de mi");
     }, 2200);
