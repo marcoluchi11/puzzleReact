@@ -139,11 +139,3 @@ const Puzzle = ({
   );
 };
 export default Puzzle;
-Puzzle.propTypes = {
-  setSeleccion1: PropTypes.func.isRequired,
-  setSeleccion2: PropTypes.func.isRequired,
-  setImagenes: PropTypes.func.isRequired,
-  imagenes: PropTypes.array.isRequired,
-  seleccion1: PropTypes.string.isRequired,
-  seleccion2: PropTypes.string.isRequired,
-};
