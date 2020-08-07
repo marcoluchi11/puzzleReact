@@ -1,4 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Input,
+  FormGroup,
+  Label,
+} from "reactstrap";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import shortid from "shortid";
 import "./puzzle.css";
@@ -12,7 +22,7 @@ import imagen6 from "./../images/6.jpg";
 import imagen7 from "./../images/7.jpg";
 import imagen8 from "./../images/8.jpg";
 import negro from "./../images/negro.jpg";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 const doc = new GoogleSpreadsheet(
   "1BjjFhdayN24Fi7hV_0dUZK4GwW7JSTtmqpNXtDYV20Y"
 );
@@ -47,7 +57,8 @@ const Puzzle = ({
 }) => {
   //Estados
   const [clickovich, setClickovich] = useState(false);
-
+  const [modal, setModal] = useState(false);
+  const [rta, setRta] = useState({ respuesta: "" });
   const [contador, setContador] = useState(0);
   const imgs = [
     imagen3,
@@ -60,34 +71,56 @@ const Puzzle = ({
     imagen1,
     imagen5,
   ];
+  const questions = [
+    "pregunta1",
+    "pregunta2",
+    "pregunta3",
+    "pregunta4",
+    "pregunta5",
+    "pregunta6",
+    "pregunta7",
+    "pregunta8",
+  ];
+  const modalStyles = {
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  };
+  const modalClick = () => {
+    appendSpreadsheet({
+      Pregunta: questions[contador],
+      Respuesta: rta.respuesta,
+      Nombre: user.displayName,
+      Mail: user.email,
+    });
+
+    //se agregan las imagenes al hacer click
+    setContador(contador + 1);
+    setImagenes([...imagenes, imgs[contador]]);
+    setModal(false);
+  };
+
   if (user === "" || user === false) {
     setUser({
       displayName: "Anonimo",
       email: "Anonimo",
     });
   }
+  const handleChange = (e) => {
+    setRta({
+      ...rta,
+      [e.target.name]: e.target.value,
+    });
+  };
   const handleClick = () => {
-    if (seleccion1 !== "" && seleccion2 !== "") {
-    }
+    setModal(true);
     //Valida cuando llega a 8 para.
     if (imagenes.length === 8) {
       setClickovich(true);
       return;
     }
     //MANDA DATOS A LA STYLESHEET COMENTADO POR AHORA
-    const newRow = prompt("La pregunta va aca");
-
-    appendSpreadsheet({
-      Respuesta: newRow,
-      Nombre: user.displayName,
-      Mail: user.email,
-    });
-    setTimeout(() => {
-      console.log("tu mama gusta de mi");
-    }, 2200);
-    //se agregan las imagenes al hacer click
-    setContador(contador + 1);
-    setImagenes([...imagenes, imgs[contador]]);
   };
   //Click para mover las piezas
   const handleClick2 = (e) => {
@@ -128,12 +161,30 @@ const Puzzle = ({
           alt="Imagen negra"
         />
       ) : (
-        <img
-          id="Imagen"
-          onClick={handleClick}
-          src={logoclick}
-          alt="Boton click"
-        />
+        <Fragment>
+          <img
+            id="Imagen"
+            onClick={handleClick}
+            src={logoclick}
+            alt="Boton click"
+          />
+          <Modal style={modalStyles} isOpen={modal}>
+            <ModalHeader>
+              <h3>Hiciste click! Ahora responde esta pregunta</h3>
+            </ModalHeader>
+            <ModalBody>
+              <FormGroup>
+                <Label>{questions[contador]}</Label>
+                <Input name="respuesta" onChange={handleChange} type="text" />
+              </FormGroup>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={modalClick}>
+                Enviar respuesta
+              </Button>
+            </ModalFooter>
+          </Modal>
+        </Fragment>
       )}
     </div>
   );
