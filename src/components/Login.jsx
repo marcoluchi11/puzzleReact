@@ -6,33 +6,7 @@ const ImagenLogeo = styled.img`
   border-radius: 50%;
   width: 100px;
 `;
-// function desloguear() {
-//   firebase
-//     .auth()
-//     .signOut()
-//     .then((result) => {
-//       console.log("Te deslogueaste");
-//       desvestirUsuario();
-//     })
-//     .catch((err) => console.log("hay error tatito"));
-// }
-// function vestirUsuario() {
-//   btn.style.display = "none";
-//   off.style.display = "inline-block";
-//   name.innerHTML = usuario.user.displayName;
-//   pic.src = usuario.user.photoURL;
-//   obtenerPuntuacionFinal();
-//   mostrarVotos();
-// }
-// function desvestirUsuario() {
-//   btn.style.display = "inline-block";
-//   off.style.display = "none";
-//   name.innerHTML = "Hola querido";
-//   pic.src = "https://www.w3schools.com/howto/img_avatar.png";
-// }
 const Login = ({ user, setUser }) => {
-  // eslint-disable-next-line
-
   var firebaseConfig = {
     apiKey: "AIzaSyDjBQY-QOtOetOqNm0iURN0YuQO42FDL-Y",
     authDomain: "breakcabezas.firebaseapp.com",
@@ -65,9 +39,6 @@ const Login = ({ user, setUser }) => {
       .auth()
       .signOut()
       .then((result) => {
-        // const Deslogin = user;
-        // Deslogin.displayName = "Ingresa para jugar";
-        // Deslogin.photoURL = "https://www.w3schools.com/howto/img_avatar.png";
         setUser(false);
       })
       .catch((err) => console.log("hay error tatito", err));
