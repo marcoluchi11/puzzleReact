@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import Error from "./Error";
 import {
   Button,
   Modal,
@@ -66,12 +67,14 @@ const Puzzle = ({
   setImagenes,
   user,
   setUser,
+  contador,
+  setContador,
 }) => {
   //Estados
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
   const [rta, setRta] = useState({ respuesta: "" });
-  const [contador, setContador] = useState(0);
+  const [error, setError] = useState(false);
   const imgs = [
     imagen3,
     imagen7,
@@ -104,6 +107,11 @@ const Puzzle = ({
     background: "#8ec5fc",
   };
   const modalClick = () => {
+    if (rta.respuesta.trim() === "") {
+      setError(true);
+      return;
+    }
+    setError(false);
     appendSpreadsheet(
       {
         Pregunta: questions[contador],
@@ -115,6 +123,7 @@ const Puzzle = ({
     );
 
     //se agregan las imagenes al hacer click
+    setRta({ respuesta: "" });
     setContador(contador + 1);
     setImagenes([...imagenes, imgs[contador]]);
     setModal(false);
@@ -189,12 +198,13 @@ const Puzzle = ({
           />
           <Modal style={modalStyles} isOpen={modal}>
             <ModalHeader style={estilo}>
-              <h3>Hiciste click! Ahora responde esta pregunta</h3>
+              <h6>Hiciste click! Ahora responde esta pregunta</h6>
             </ModalHeader>
             <ModalBody>
               <FormGroup>
                 <Label>{questions[contador]}</Label>
                 <Input name="respuesta" onChange={handleChange} type="text" />
+                {error ? <Error /> : null}
               </FormGroup>
             </ModalBody>
             <ModalFooter>
