@@ -209,7 +209,9 @@ const Puzzle = ({
               <FormGroup>
                 <Label>{questions[contador]}</Label>
                 <Input name="respuesta" onChange={handleChange} type="text" />
-                {error ? <Error /> : null}
+                {error ? (
+                  <Error mensaje="Error, Ingresa una respuesta!" />
+                ) : null}
               </FormGroup>
             </ModalBody>
             <ModalFooter>
