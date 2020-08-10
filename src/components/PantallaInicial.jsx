@@ -34,7 +34,7 @@ const PantallaInicial = ({
     setEdad({ ...edad, [e.target.name]: e.target.value });
   };
   const handleClick = () => {
-    if (edad.anios === "") {
+    if (edad.anios === "" || edad.anios > 70 || edad.anios < 5) {
       setError(true);
       return;
     }
@@ -64,7 +64,7 @@ const PantallaInicial = ({
             </span>
           </div>
           <input
-            type="text"
+            type="number"
             className="form-control"
             aria-label="Small"
             name="anios"
@@ -73,7 +73,7 @@ const PantallaInicial = ({
             placeholder="Ingrese su edad..."
           />
         </div>
-        {error ? <Error /> : null}
+        {error ? <Error mensaje="Error ! Ingresa una edad valida." /> : null}
         <div className="col-md-4"></div>
       </div>
 
