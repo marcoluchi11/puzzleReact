@@ -19,7 +19,8 @@ function App() {
   const [opciones, setOpciones] = useState("");
   const [user, setUser] = useState("");
   const [contador, setContador] = useState(0);
-  const [edad, setEdad] = useState("");
+  const [edad, setEdad] = useState({ anios: "" });
+  const [error, setError] = useState(false);
   return (
     <ContenedorFondo className="container">
       {opciones ? (
@@ -38,6 +39,8 @@ function App() {
               contador={contador}
               setContador={setContador}
               edad={edad}
+              error={error}
+              setError={setError}
             />
           </div>
           <div className="col-md-4 ml-0">
@@ -50,6 +53,7 @@ function App() {
               imagenes={imagenes}
               setImagenes={setImagenes}
               setOpciones={setOpciones}
+              setEdad={setEdad}
             />
             <ImagenFinal contador={contador} />
           </div>
@@ -62,6 +66,8 @@ function App() {
           setUser={setUser}
           setEdad={setEdad}
           edad={edad}
+          error={error}
+          setError={setError}
         />
       )}
       <Footer />
