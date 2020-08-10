@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "./Login";
 import styled from "@emotion/styled";
+import Error from "./Error";
 const Boton = styled.button`
   font-family: "Mulish", sans-serif;
   margin-right: 2rem;
@@ -12,7 +13,7 @@ const Boton = styled.button`
 const Titulo = styled.h1`
   font-family: "Mulish", sans-serif;
   text-align: center;
-  font-size: 42px;
+  font-size: 46px;
 `;
 const Subtitulo = styled.h3`
   font-family: "Mulish", sans-serif;
@@ -20,9 +21,25 @@ const Subtitulo = styled.h3`
   font-size: 22px;
   font-weight: 300px;
 `;
-const PantallaInicial = ({ setOpciones, user, setUser, setEdad, edad }) => {
+const PantallaInicial = ({
+  setOpciones,
+  user,
+  setUser,
+  setEdad,
+  edad,
+  error,
+  setError,
+}) => {
   const handleChange = (e) => {
     setEdad({ ...edad, [e.target.name]: e.target.value });
+  };
+  const handleClick = () => {
+    if (edad.anios === "") {
+      setError(true);
+      return;
+    }
+    setError(false);
+    setOpciones("something");
   };
   return (
     <div className="row">
@@ -40,15 +57,15 @@ const PantallaInicial = ({ setOpciones, user, setUser, setEdad, edad }) => {
       </div>
       <div className="col-md-4"></div>
       <div className="col-md-4  text-center">
-        <div class="input-group input-group-sm mb-3 pt-5">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">
+        <div className="input-group input-group-sm mb-3 pt-4">
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="inputGroup-sizing-sm">
               Edad
             </span>
           </div>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             aria-label="Small"
             name="anios"
             onChange={handleChange}
@@ -56,6 +73,7 @@ const PantallaInicial = ({ setOpciones, user, setUser, setEdad, edad }) => {
             placeholder="Ingrese su edad..."
           />
         </div>
+        {error ? <Error /> : null}
         <div className="col-md-4"></div>
       </div>
 
@@ -63,22 +81,13 @@ const PantallaInicial = ({ setOpciones, user, setUser, setEdad, edad }) => {
         <Subtitulo>Seleccione la dificultad</Subtitulo>
       </div>
       <div className="col-md-12 d-flex justify-content-center text-center  ">
-        <Boton
-          className="btn btn-success"
-          onClick={() => setOpciones("something")}
-        >
+        <Boton className="btn btn-success" onClick={handleClick}>
           Facil
         </Boton>
-        <Boton
-          className="btn btn-warning"
-          onClick={() => setOpciones("something")}
-        >
+        <Boton className="btn btn-warning" onClick={handleClick}>
           Media
         </Boton>
-        <Boton
-          className="btn btn-danger"
-          onClick={() => setOpciones("something")}
-        >
+        <Boton className="btn btn-danger" onClick={handleClick}>
           Dificil
         </Boton>
       </div>
