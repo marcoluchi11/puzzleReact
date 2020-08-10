@@ -43,6 +43,7 @@ const Instrucciones = ({
   setImagenes,
   setOpciones,
   user,
+  setEdad,
 }) => {
   const [cartel, setCartel] = useState("");
   const imgGanadora = [
@@ -62,6 +63,7 @@ const Instrucciones = ({
       item.classList.remove("active");
     });
     //POR FIN
+
     let imgActual;
     if (seleccion1 !== "" && seleccion2 !== "" && seleccion1 !== seleccion2) {
       const imagenesSwapeadas1 = imagenes.findIndex(
@@ -98,6 +100,10 @@ const Instrucciones = ({
       setSeleccion2("");
     }
   };
+  const volverAlMenu = () => {
+    setOpciones("");
+    setEdad({ anios: "" });
+  };
   return (
     <Contenedor>
       <ContenedorInstrucciones>
@@ -124,7 +130,7 @@ const Instrucciones = ({
       <button onClick={handleClick} className="btn btn-primary">
         Intercambia Piezas
       </button>
-      <button className="btn btn-info mt-3" onClick={() => setOpciones("")}>
+      <button className="btn btn-info mt-3" onClick={volverAlMenu}>
         Volver al menu principal
       </button>
       {cartel ? <Cartel cartel={cartel} /> : null}
