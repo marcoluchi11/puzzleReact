@@ -3,6 +3,7 @@ import "./bootstrap.min.css";
 import styled from "@emotion/styled";
 import Instrucciones from "./components/Instrucciones";
 import Puzzle from "./components/Puzzle";
+import ImagenFinal from "./components/ImagenFinal";
 import PantallaInicial from "./components/PantallaInicial";
 import Footer from "./components/Footer";
 const ContenedorFondo = styled.div`
@@ -17,6 +18,7 @@ function App() {
   const [imagenes, setImagenes] = useState([]);
   const [opciones, setOpciones] = useState("");
   const [user, setUser] = useState("");
+  const [contador, setContador] = useState(0);
   return (
     <ContenedorFondo className="container">
       {opciones ? (
@@ -32,6 +34,8 @@ function App() {
               setImagenes={setImagenes}
               user={user}
               setUser={setUser}
+              contador={contador}
+              setContador={setContador}
             />
           </div>
           <div className="col-md-4 ml-0">
@@ -45,6 +49,7 @@ function App() {
               setImagenes={setImagenes}
               setOpciones={setOpciones}
             />
+            <ImagenFinal contador={contador} />
           </div>
         </div>
       ) : (
@@ -63,7 +68,7 @@ function App() {
 export default App;
 // PARTES ROMPECABEZAS REALES
 // cUANDO HACES CLICK EN LA DIFICULTAD QUE TE APAREZCA UNOS SEGUNDOS LA IMAGEN COMPLETA.
-// Puede ser con un setTimeout que muestre 5 segundos y desaparezca
+// VER POR QUE A VECES NO ME MUESTRA CARTEL GANADOR
 
 // SECCION PREGUNTAS MAS FACHERA -- Listo
 // LOGUEO O OPCION ANONIMO -- Listo
