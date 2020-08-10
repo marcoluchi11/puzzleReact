@@ -19,6 +19,7 @@ function App() {
   const [opciones, setOpciones] = useState("");
   const [user, setUser] = useState("");
   const [contador, setContador] = useState(0);
+  const [edad, setEdad] = useState("");
   return (
     <ContenedorFondo className="container">
       {opciones ? (
@@ -36,6 +37,7 @@ function App() {
               setUser={setUser}
               contador={contador}
               setContador={setContador}
+              edad={edad}
             />
           </div>
           <div className="col-md-4 ml-0">
@@ -58,6 +60,8 @@ function App() {
           setOpciones={setOpciones}
           user={user}
           setUser={setUser}
+          setEdad={setEdad}
+          edad={edad}
         />
       )}
       <Footer />
@@ -69,6 +73,7 @@ export default App;
 // PARTES ROMPECABEZAS REALES
 // cUANDO HACES CLICK EN LA DIFICULTAD QUE TE APAREZCA UNOS SEGUNDOS LA IMAGEN COMPLETA.
 // VER POR QUE A VECES NO ME MUESTRA CARTEL GANADOR
+//AGREGAR INPUT PARA SABER LA EDAD
 
 // SECCION PREGUNTAS MAS FACHERA -- Listo
 // LOGUEO O OPCION ANONIMO -- Listo
