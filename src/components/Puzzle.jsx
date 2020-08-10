@@ -70,13 +70,15 @@ const Puzzle = ({
   contador,
   setContador,
   edad,
+  error,
+  setError,
 }) => {
   const { anios } = edad;
   //Estados
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
   const [rta, setRta] = useState({ respuesta: "" });
-  const [error, setError] = useState(false);
+
   const imgs = [
     imagen3,
     imagen7,
