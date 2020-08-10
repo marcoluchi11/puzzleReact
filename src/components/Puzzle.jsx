@@ -69,7 +69,9 @@ const Puzzle = ({
   setUser,
   contador,
   setContador,
+  edad,
 }) => {
+  const { anios } = edad;
   //Estados
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
@@ -118,6 +120,7 @@ const Puzzle = ({
         Respuesta: rta.respuesta,
         Nombre: user.displayName,
         Mail: user.email,
+        Edad: anios,
       },
       { Pregunta: questions[contador], Respuesta: rta.respuesta }
     );
