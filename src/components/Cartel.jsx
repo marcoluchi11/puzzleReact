@@ -6,6 +6,7 @@ const DivCartel = styled.div`
   font-weight: 700;
 `;
 const Cartel = ({ cartel }) => {
+  if (cartel === null) return;
   return (
     <DivCartel className="alert alert-success" role="alert">
       {cartel}
