@@ -56,44 +56,47 @@ const Instrucciones = ({
     imagen7,
     imagen8,
   ];
-
+  const comprobarGanador = (imgGanadora) => {
+    console.log(imgGanadora);
+    console.log(JSON.stringify(imagenes) === JSON.stringify(imgGanadora));
+    if (JSON.stringify(imagenes) === JSON.stringify(imgGanadora)) {
+      setCartel("Felicitaciones!, Completaste el rompecabezas");
+    } else {
+      setCartel(null);
+    }
+  };
   const handleClick = () => {
     const activo = document.querySelectorAll(".active");
     activo.forEach((item) => {
       item.classList.remove("active");
     });
     //POR FIN
-
-    let imgActual;
     if (seleccion1 !== "" && seleccion2 !== "" && seleccion1 !== seleccion2) {
       const imagenesSwapeadas1 = imagenes.findIndex(
         (img) => img === seleccion1.substring(21)
       );
       const imagenesSwapeadas2 = imagenes.findIndex(
-        (img) => img === seleccion2.substring(21) //mejorar lo de substring para que lo tome en el deploy
+        (img) => img === seleccion2.substring(21)
       );
+
       const newArray = () => {
         //SE CREA ARRAY CAMBIADO
-        const arrNuevo = [...imagenes];
-        let aux = arrNuevo[imagenesSwapeadas1];
-        arrNuevo[imagenesSwapeadas1] = arrNuevo[imagenesSwapeadas2];
-        arrNuevo[imagenesSwapeadas2] = aux;
+        let arrNuevo = [...imagenes];
+        [arrNuevo[imagenesSwapeadas1], arrNuevo[imagenesSwapeadas2]] = [
+          arrNuevo[imagenesSwapeadas2],
+          arrNuevo[imagenesSwapeadas1],
+        ];
+        // const aux = arrNuevo[imagenesSwapeadas1];
+        // arrNuevo[imagenesSwapeadas1] = arrNuevo[imagenesSwapeadas2];
+        // arrNuevo[imagenesSwapeadas2] = aux;
         return arrNuevo;
       };
       setImagenes(newArray());
 
-      imgActual = [...imagenes];
-
       setSeleccion1("");
 
       setSeleccion2("");
-
-      console.log(imgActual);
-      console.log(imgGanadora);
-      console.log(JSON.stringify(imgActual) === JSON.stringify(imgGanadora));
-      if (JSON.stringify(imgActual) === JSON.stringify(imgGanadora)) {
-        setCartel("Felicitaciones!, Completaste el rompecabezas");
-      }
+      comprobarGanador(imgGanadora);
     }
     if (seleccion1 === seleccion2) {
       setSeleccion1("");
@@ -108,7 +111,7 @@ const Instrucciones = ({
     <Contenedor>
       <ContenedorInstrucciones>
         <Postlogin user={user} />
-        <h2>Instrucciones para jugar</h2>
+        <h3>Instrucciones para jugar</h3>
       </ContenedorInstrucciones>
 
       <ListaInstrucciones>
