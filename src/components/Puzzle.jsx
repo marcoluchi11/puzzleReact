@@ -161,11 +161,12 @@ const Puzzle = ({
     if (seleccion1 === "") {
       setSeleccion1(e.target.src);
     }
-    if (seleccion1 === e.target.src) {
-      setSeleccion1(e.target.src);
-    }
-    if (seleccion1 !== "" && seleccion2 === "" && seleccion1 !== seleccion2) {
+    if (seleccion1 !== "") {
       setSeleccion2(e.target.src);
+    }
+    if (seleccion1 === e.target.src) {
+      setSeleccion1("");
+      setSeleccion2("");
     }
   };
   const toggleClass = (e) => {
