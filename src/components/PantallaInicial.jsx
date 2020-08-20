@@ -51,8 +51,8 @@ const PantallaInicial = ({
       </div>
       <div className="col-md-12 d-flex justify-content-center text-center mt-1">
         <small>
-          El login es solo para recopilar informacion, no se utilizaran otros
-          datos.
+          El login es solo para obtener tu nombre y direccion de e-mail, no se
+          utilizaran otros datos.
         </small>
       </div>
       <div className="col-md-4"></div>
