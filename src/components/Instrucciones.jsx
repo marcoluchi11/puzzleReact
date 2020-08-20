@@ -14,8 +14,9 @@ import Postlogin from "./Postlogin";
 const Contenedor = styled.div`
   margin-top: 1rem;
   font-family: "Mulish", sans-serif;
-  h2 {
+  h3 {
     font-weight: 700;
+    margin-bottom: 1.2rem;
   }
 `;
 const ListaInstrucciones = styled.ul`
