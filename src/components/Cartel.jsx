@@ -6,10 +6,18 @@ const DivCartel = styled.div`
   font-weight: 700;
 `;
 const Cartel = ({ cartel }) => {
+  const url =
+    "https://docs.google.com/spreadsheets/d/1lcnrmA9kCN78yr4aVS2VU6c7-9Z7zZ5PxnsBMRrS1Uo/edit?usp=sharing";
   if (cartel === null) return;
   return (
     <DivCartel className="alert alert-success" role="alert">
-      {cartel}
+      <p>{cartel}</p>
+      <p>
+        Puedes ver las respuestas de los demas{" "}
+        <a href={url} rel="noopener noreferrer" target="_blank">
+          aqui
+        </a>
+      </p>
     </DivCartel>
   );
 };
