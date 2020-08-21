@@ -12,6 +12,23 @@ import {
 } from "reactstrap";
 import { appendSpreadsheet } from "./../Google";
 import { shuffle } from "./../shuffle";
+import uno from "./../images/moderado/image_part_001.jpg";
+import dos from "./../images/moderado/image_part_002.jpg";
+import tres from "./../images/moderado/image_part_003.jpg";
+import cuatro from "./../images/moderado/image_part_004.jpg";
+import cinco from "./../images/moderado/image_part_005.jpg";
+import seis from "./../images/moderado/image_part_006.jpg";
+import siete from "./../images/moderado/image_part_007.jpg";
+import ocho from "./../images/moderado/image_part_008.jpg";
+import nueve from "./../images/moderado/image_part_009.jpg";
+import diez from "./../images/moderado/image_part_010.jpg";
+import once from "./../images/moderado/image_part_011.jpg";
+import doce from "./../images/moderado/image_part_012.jpg";
+import trece from "./../images/moderado/image_part_013.jpg";
+import catorce from "./../images/moderado/image_part_014.jpg";
+import quince from "./../images/moderado/image_part_015.jpg";
+import dieciseis from "./../images/moderado/image_part_016.jpg";
+
 import "./puzzle.css";
 import logoclick from "./../images/click.jpg";
 const Moderado = ({
@@ -42,6 +59,10 @@ const Moderado = ({
     diez,
     once,
     doce,
+    trece,
+    catorce,
+    quince,
+    dieciseis,
   ]);
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
@@ -64,6 +85,10 @@ const Moderado = ({
     "pregunta10",
     "pregunta11",
     "pregunta12",
+    "pregunta13",
+    "pregunta14",
+    "pregunta15",
+    "pregunta16",
   ];
   const modalStyles = {
     fontFamily: "Mulish",
@@ -114,7 +139,7 @@ const Moderado = ({
   const handleClick = () => {
     setModal(true);
     //Valida cuando llega a 12 para.
-    if (imagenes.length === 12) {
+    if (imagenes.length === 16) {
       setClickovich(true);
       return;
     }
