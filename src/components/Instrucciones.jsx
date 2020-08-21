@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Cartel from "./Cartel";
 import PropTypes from "prop-types";
-
+import ImagenFinal from "./ImagenFinal";
 import Postlogin from "./Postlogin";
 const Contenedor = styled.div`
   margin-top: 1rem;
@@ -39,6 +39,8 @@ const Instrucciones = ({
   user,
   setEdad,
   setContador,
+  opciones,
+  contador,
 }) => {
   // eslint-disable-next-line
   const [cartel, setCartel] = useState("");
@@ -110,6 +112,7 @@ const Instrucciones = ({
       <ContenedorInstrucciones>
         <Postlogin user={user} />
         <h3>Instrucciones para jugar</h3>
+        <ImagenFinal contador={contador} opciones={opciones} />
       </ContenedorInstrucciones>
 
       <ListaInstrucciones>
