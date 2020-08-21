@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./bootstrap.min.css";
 import styled from "@emotion/styled";
 import Instrucciones from "./components/Instrucciones";
-import Puzzle from "./components/Puzzle";
+//import Puzzle from "./components/Puzzle";
 import ImagenFinal from "./components/ImagenFinal";
 import PantallaInicial from "./components/PantallaInicial";
 import Footer from "./components/Footer";
+import Facil from "./components/Facil";
 const ContenedorFondo = styled.div`
   background-color: #8ec5fc;
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
@@ -27,7 +28,7 @@ function App() {
         // ROMPECABEZAS
         <div className="row">
           <div className="col-md-8">
-            <Puzzle
+            <Facil
               seleccion1={seleccion1}
               seleccion2={seleccion2}
               setSeleccion1={setSeleccion1}
