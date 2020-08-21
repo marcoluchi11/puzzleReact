@@ -100,6 +100,8 @@ function App() {
               setOpciones={setOpciones}
               setEdad={setEdad}
               setContador={setContador}
+              opciones={opciones}
+              contador={contador}
             />
           </div>
         </div>
