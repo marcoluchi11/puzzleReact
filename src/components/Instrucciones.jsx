@@ -38,6 +38,7 @@ const Instrucciones = ({
   setOpciones,
   user,
   setEdad,
+  setContador,
 }) => {
   // eslint-disable-next-line
   const [cartel, setCartel] = useState("");
@@ -101,6 +102,8 @@ const Instrucciones = ({
   const volverAlMenu = () => {
     setOpciones("");
     setEdad({ anios: "" });
+    setImagenes([]);
+    setContador(0);
   };
   return (
     <Contenedor>
@@ -128,7 +131,7 @@ const Instrucciones = ({
       <button onClick={handleClick} className="btn btn-primary">
         Intercambia Piezas
       </button>
-      <button className="btn btn-info mt-3" onClick={volverAlMenu}>
+      <button className="btn btn-danger mt-3" onClick={volverAlMenu}>
         Volver al menu principal
       </button>
       {cartel ? <Cartel cartel={cartel} /> : null}
