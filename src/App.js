@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./bootstrap.min.css";
 import styled from "@emotion/styled";
 import Instrucciones from "./components/Instrucciones";
-//import Puzzle from "./components/Puzzle";
 //import ImagenFinal from "./components/ImagenFinal";
 import PantallaInicial from "./components/PantallaInicial";
 import Footer from "./components/Footer";
@@ -100,6 +99,7 @@ function App() {
               setImagenes={setImagenes}
               setOpciones={setOpciones}
               setEdad={setEdad}
+              setContador={setContador}
             />
           </div>
         </div>
