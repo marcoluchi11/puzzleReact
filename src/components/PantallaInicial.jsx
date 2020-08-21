@@ -33,13 +33,29 @@ const PantallaInicial = ({
   const handleChange = (e) => {
     setEdad({ ...edad, [e.target.name]: e.target.value });
   };
-  const handleClick = () => {
+  const handleClickFacil = () => {
     if (edad.anios === "" || edad.anios > 70 || edad.anios < 5) {
       setError(true);
       return;
     }
     setError(false);
-    setOpciones("something");
+    setOpciones("facil");
+  };
+  const handleClickMedio = () => {
+    if (edad.anios === "" || edad.anios > 70 || edad.anios < 5) {
+      setError(true);
+      return;
+    }
+    setError(false);
+    setOpciones("medio");
+  };
+  const handleClickDificil = () => {
+    if (edad.anios === "" || edad.anios > 70 || edad.anios < 5) {
+      setError(true);
+      return;
+    }
+    setError(false);
+    setOpciones("dificil");
   };
   return (
     <div className="row">
@@ -81,13 +97,13 @@ const PantallaInicial = ({
         <Subtitulo>Seleccione la dificultad</Subtitulo>
       </div>
       <div className="col-md-12 d-flex justify-content-center text-center  ">
-        <Boton className="btn btn-success" onClick={handleClick}>
+        <Boton className="btn btn-success" onClick={handleClickFacil}>
           Facil
         </Boton>
-        <Boton className="btn btn-warning" onClick={handleClick}>
+        <Boton className="btn btn-warning" onClick={handleClickMedio}>
           Media
         </Boton>
-        <Boton className="btn btn-danger" onClick={handleClick}>
+        <Boton className="btn btn-danger" onClick={handleClickDificil}>
           Dificil
         </Boton>
       </div>
