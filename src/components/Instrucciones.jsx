@@ -2,14 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Cartel from "./Cartel";
 import PropTypes from "prop-types";
-import imagen1 from "./../images/1.jpg";
-import imagen2 from "./../images/2.jpg";
-import imagen3 from "./../images/3.jpg";
-import imagen4 from "./../images/4.jpg";
-import imagen5 from "./../images/5.jpg";
-import imagen6 from "./../images/6.jpg";
-import imagen7 from "./../images/7.jpg";
-import imagen8 from "./../images/8.jpg";
+
 import Postlogin from "./Postlogin";
 const Contenedor = styled.div`
   margin-top: 1rem;
@@ -46,26 +39,27 @@ const Instrucciones = ({
   user,
   setEdad,
 }) => {
+  // eslint-disable-next-line
   const [cartel, setCartel] = useState("");
-  const imgGanadora = [
-    imagen1,
-    imagen3,
-    imagen2,
-    imagen4,
-    imagen5,
-    imagen6,
-    imagen7,
-    imagen8,
-  ];
-  const comprobarGanador = (imgGanadora) => {
-    console.log(imgGanadora);
-    console.log(JSON.stringify(imagenes) === JSON.stringify(imgGanadora));
-    if (JSON.stringify(imagenes) === JSON.stringify(imgGanadora)) {
-      setCartel("Felicitaciones!, Completaste el rompecabezas");
-    } else {
-      setCartel(null);
-    }
-  };
+  // const imgGanadora = [
+  //   imagen1,
+  //   imagen3,
+  //   imagen2,
+  //   imagen4,
+  //   imagen5,
+  //   imagen6,
+  //   imagen7,
+  //   imagen8,
+  // ];
+  // const comprobarGanador = (imgGanadora) => {
+  //   console.log(imgGanadora);
+  //   console.log(JSON.stringify(imagenes) === JSON.stringify(imgGanadora));
+  //   if (JSON.stringify(imagenes) === JSON.stringify(imgGanadora)) {
+  //     setCartel("Felicitaciones!, Completaste el rompecabezas");
+  //   } else {
+  //     setCartel(null);
+  //   }
+  // };
   const handleClick = () => {
     const activo = document.querySelectorAll(".active");
     activo.forEach((item) => {
@@ -97,7 +91,7 @@ const Instrucciones = ({
       setSeleccion1("");
 
       setSeleccion2("");
-      comprobarGanador(imgGanadora);
+      // comprobarGanador(imgGanadora);
     }
     if (seleccion1 === seleccion2) {
       setSeleccion1("");
