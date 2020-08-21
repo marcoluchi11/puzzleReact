@@ -14,18 +14,18 @@ import { appendSpreadsheet } from "./../Google";
 import { shuffle } from "./../shuffle";
 import "./puzzle.css";
 import logoclick from "./../images/click.jpg";
-import uno from "./../images/image_part_001.jpg";
-import dos from "./../images/image_part_002.jpg";
-import tres from "./../images/image_part_003.jpg";
-import cuatro from "./../images/image_part_004.jpg";
-import cinco from "./../images/image_part_005.jpg";
-import seis from "./../images/image_part_006.jpg";
-import siete from "./../images/image_part_007.jpg";
-import ocho from "./../images/image_part_008.jpg";
-import nueve from "./../images/image_part_009.jpg";
-import diez from "./../images/image_part_010.jpg";
-import once from "./../images/image_part_011.jpg";
-import doce from "./../images/image_part_012.jpg";
+import uno from "./../images/facil/image_part_001.jpg";
+import dos from "./../images/facil/image_part_002.jpg";
+import tres from "./../images/facil/image_part_003.jpg";
+import cuatro from "./../images/facil/image_part_004.jpg";
+import cinco from "./../images/facil/image_part_005.jpg";
+import seis from "./../images/facil/image_part_006.jpg";
+import siete from "./../images/facil/image_part_007.jpg";
+import ocho from "./../images/facil/image_part_008.jpg";
+import nueve from "./../images/facil/image_part_009.jpg";
+import diez from "./../images/facil/image_part_010.jpg";
+import once from "./../images/facil/image_part_011.jpg";
+import doce from "./../images/facil/image_part_012.jpg";
 
 const Facil = ({
   seleccion1,
