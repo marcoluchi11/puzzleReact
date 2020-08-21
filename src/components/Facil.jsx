@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import Error from "./Error";
 import {
   Button,
@@ -11,7 +11,7 @@ import {
   Label,
 } from "reactstrap";
 import { appendSpreadsheet } from "./../Google";
-
+import { shuffle } from "./../shuffle";
 import "./puzzle.css";
 import logoclick from "./../images/click.jpg";
 import uno from "./../images/image_part_001.jpg";
@@ -41,13 +41,8 @@ const Facil = ({
   error,
   setError,
 }) => {
-  const { anios } = edad;
   //Estados
-  const [clickovich, setClickovich] = useState(false);
-  const [modal, setModal] = useState(false);
-  const [rta, setRta] = useState({ respuesta: "" });
-
-  const imgs = [
+  const [ImgsMezcladas, setImgsMezcladas] = useState([
     uno,
     dos,
     tres,
@@ -60,7 +55,15 @@ const Facil = ({
     diez,
     once,
     doce,
-  ];
+  ]);
+  const [clickovich, setClickovich] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [rta, setRta] = useState({ respuesta: "" });
+  useEffect(() => {
+    setImgsMezcladas(shuffle(ImgsMezcladas));
+  }, [ImgsMezcladas]);
+  const { anios } = edad;
+
   const questions = [
     "pregunta1",
     "pregunta2",
@@ -105,7 +108,7 @@ const Facil = ({
     //se agregan las imagenes al hacer click
     setRta({ respuesta: "" });
     setContador(contador + 1);
-    setImagenes([...imagenes, imgs[contador]]);
+    setImagenes([...imagenes, ImgsMezcladas[contador]]);
     setModal(false);
   };
 
