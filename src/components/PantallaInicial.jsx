@@ -98,13 +98,13 @@ const PantallaInicial = ({
       </div>
       <div className="col-md-12 d-flex justify-content-center text-center  ">
         <Boton className="btn btn-success" onClick={handleClickFacil}>
-          Facil
+          Facil (12 piezas)
         </Boton>
         <Boton className="btn btn-warning" onClick={handleClickMedio}>
-          Media
+          Media (16 piezas)
         </Boton>
         <Boton className="btn btn-danger" onClick={handleClickDificil}>
-          Dificil
+          Dificil (25 piezas)
         </Boton>
       </div>
     </div>
