@@ -7,6 +7,7 @@ import ImagenFinal from "./components/ImagenFinal";
 import PantallaInicial from "./components/PantallaInicial";
 import Footer from "./components/Footer";
 import Facil from "./components/Facil";
+import Moderado from "./components/Moderado";
 const ContenedorFondo = styled.div`
   background-color: #8ec5fc;
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
@@ -28,7 +29,7 @@ function App() {
         // ROMPECABEZAS
         <div className="row">
           <div className="col-md-8">
-            <Facil
+            <Moderado
               seleccion1={seleccion1}
               seleccion2={seleccion2}
               setSeleccion1={setSeleccion1}
@@ -80,6 +81,9 @@ export default App;
 
 // cUANDO HACES CLICK EN LA DIFICULTAD QUE TE APAREZCA UNOS SEGUNDOS LA IMAGEN COMPLETA.
 // VER POR QUE A VECES NO ME MUESTRA CARTEL GANADOR
+// VER COMO HACER PARA ALTERNAR ENTRE COMPONENTES DE DIFICULTAD
+// ELIMINAR PIKACHU DE LA VISTA PREVIA
+// AVERIGUAR SI UNA PREGUNTA POR PIEZA SIGUE SIENDO VALIDA EN EL DE 27 Y/O 18
 
 // SECCION PREGUNTAS MAS FACHERA -- Listo
 // LOGUEO O OPCION ANONIMO -- Listo
