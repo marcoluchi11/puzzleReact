@@ -9,10 +9,14 @@ import Facil from "./components/Facil";
 import Moderado from "./components/Moderado";
 import Dificil from "./components/Dificil";
 const ContenedorFondo = styled.div`
-  background-color: #8ec5fc;
-  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  -webkit-box-shadow: 4px 5px 10px 8px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 4px 5px 10px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 4px 5px 10px 8px rgba(0, 0, 0, 0.26);
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
   padding: 1rem;
   margin-top: 2rem;
+  color: #ffffff;
 `;
 function App() {
   const [seleccion1, setSeleccion1] = useState("");
@@ -124,17 +128,8 @@ function App() {
 
 export default App;
 
-// cUANDO HACES CLICK EN LA DIFICULTAD QUE TE APAREZCA UNOS SEGUNDOS LA IMAGEN COMPLETA.
 // VER POR QUE A VECES NO ME MUESTRA CARTEL GANADOR
-
+// VERIFICAR SWAP DE PIEZAS
+// COMPROBAR GANADOR EN EL PUZZLE MISMO , O EN FUNCION EXTERNA
+// MEJORAR COLORES, IR POR BLANCOS NEGROS Y GRISES
 // AVERIGUAR SI UNA PREGUNTA POR PIEZA SIGUE SIENDO VALIDA EN EL DE 27 Y/O 18
-// DIFICULTAD DIFICIL HACER MAS CHICAS LAS PIEZAS PARA QUE QUEPA 5X5 Y NO 4X5
-
-// SECCION PREGUNTAS MAS FACHERA -- Listo
-// LOGUEO O OPCION ANONIMO -- Listo
-// EDAD NOMBRE MAIL -- Listo
-// VER COMO HACER PARA ALTERNAR ENTRE COMPONENTES DE DIFICULTAD -- Listo
-//AGREGAR INPUT PARA SABER LA EDAD -- Listo
-// explicar motivo de registro -- Listo
-// MANDAR A OTRO DOCUMENTO DISTINTO, PARA QUE VEAN LAS RTAS // FORO DE RESPUESTAS -- Listo
-// PARTES ROMPECABEZAS REALES -- NO
