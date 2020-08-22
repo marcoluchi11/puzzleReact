@@ -27,23 +27,25 @@ function App() {
   const [contador, setContador] = useState(0);
   const [edad, setEdad] = useState({ anios: "" });
   const [error, setError] = useState(false);
+  const [ganador, setGanador] = useState(false);
   let eleccion;
 
   if (opciones === "facil") {
     eleccion = (
       <Facil
         seleccion1={seleccion1}
+        contador={contador}
         seleccion2={seleccion2}
-        setSeleccion1={setSeleccion1}
-        setSeleccion2={setSeleccion2}
+        edad={edad}
+        user={user}
+        error={error}
         imagenes={imagenes}
         setImagenes={setImagenes}
-        user={user}
         setUser={setUser}
-        contador={contador}
+        setGanador={setGanador}
         setContador={setContador}
-        edad={edad}
-        error={error}
+        setSeleccion1={setSeleccion1}
+        setSeleccion2={setSeleccion2}
         setError={setError}
       />
     );
@@ -52,17 +54,18 @@ function App() {
     eleccion = (
       <Moderado
         seleccion1={seleccion1}
+        contador={contador}
         seleccion2={seleccion2}
-        setSeleccion1={setSeleccion1}
-        setSeleccion2={setSeleccion2}
+        edad={edad}
+        user={user}
+        error={error}
         imagenes={imagenes}
         setImagenes={setImagenes}
-        user={user}
         setUser={setUser}
-        contador={contador}
+        setGanador={setGanador}
         setContador={setContador}
-        edad={edad}
-        error={error}
+        setSeleccion1={setSeleccion1}
+        setSeleccion2={setSeleccion2}
         setError={setError}
       />
     );
@@ -71,17 +74,18 @@ function App() {
     eleccion = (
       <Dificil
         seleccion1={seleccion1}
+        contador={contador}
         seleccion2={seleccion2}
-        setSeleccion1={setSeleccion1}
-        setSeleccion2={setSeleccion2}
+        edad={edad}
+        user={user}
+        error={error}
         imagenes={imagenes}
         setImagenes={setImagenes}
-        user={user}
         setUser={setUser}
-        contador={contador}
+        setGanador={setGanador}
         setContador={setContador}
-        edad={edad}
-        error={error}
+        setSeleccion1={setSeleccion1}
+        setSeleccion2={setSeleccion2}
         setError={setError}
       />
     );
@@ -106,6 +110,8 @@ function App() {
               setContador={setContador}
               opciones={opciones}
               contador={contador}
+              ganador={ganador}
+              setGanador={setGanador}
             />
           </div>
         </div>
@@ -128,8 +134,9 @@ function App() {
 
 export default App;
 
-// VER POR QUE A VECES NO ME MUESTRA CARTEL GANADOR
-// VERIFICAR SWAP DE PIEZAS
-// COMPROBAR GANADOR EN EL PUZZLE MISMO , O EN FUNCION EXTERNA
-// MEJORAR COLORES, IR POR BLANCOS NEGROS Y GRISES
-// AVERIGUAR SI UNA PREGUNTA POR PIEZA SIGUE SIENDO VALIDA EN EL DE 27 Y/O 18
+// VER POR QUE A VECES NO ME MUESTRA CARTEL GANADOR -- Listo
+// VERIFICAR SWAP DE PIEZAS -- Listo
+// COMPROBAR GANADOR EN EL PUZZLE MISMO , O EN FUNCION EXTERNA -- Listo
+// MEJORAR COLORES, IR POR BLANCOS NEGROS Y GRISES -- Falta
+// AVERIGUAR SI UNA PREGUNTA POR PIEZA SIGUE SIENDO VALIDA EN EL DE 27 Y/O 18 -- Falta
+// AGREGAR TRANSICION A LA IMAGEN RESUELTA -- Falta
