@@ -4,9 +4,12 @@ import Cartel from "./Cartel";
 import PropTypes from "prop-types";
 import ImagenFinal from "./ImagenFinal";
 import Postlogin from "./Postlogin";
+import Renew from "./../images/autorenew-24px.svg";
+import Back from "./../images/arrow_back_ios-24px.svg";
 const Contenedor = styled.div`
   margin-top: 1rem;
   font-family: "Mulish", sans-serif;
+
   h3 {
     font-weight: 700;
     margin-bottom: 1.2rem;
@@ -17,7 +20,7 @@ const ListaInstrucciones = styled.ul`
   list-style: none;
 `;
 const ElementoLista = styled.li`
-  color: #000040;
+  color: #ffffff;
   padding: 5px 0;
   animation: fadein 5s;
   &::before {
@@ -132,10 +135,10 @@ const Instrucciones = ({
         <ElementoLista>Premisa principal: Diviertete!!</ElementoLista>
       </ListaInstrucciones>
       <button onClick={handleClick} className="btn btn-primary">
-        Intercambia Piezas
+        <img src={Renew} alt="" /> Intercambia Piezas
       </button>
       <button className="btn btn-danger mt-3" onClick={volverAlMenu}>
-        Volver al menu principal
+        <img src={Back} alt="" /> Volver al menu principal
       </button>
       {cartel ? <Cartel cartel={cartel} /> : null}
     </Contenedor>
