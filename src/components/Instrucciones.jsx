@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import Cartel from "./Cartel";
 import PropTypes from "prop-types";
 import ImagenFinal from "./ImagenFinal";
 import Postlogin from "./Postlogin";
+import { comprobarGanador } from "./../comprobarGanador";
 import Renew from "./../images/autorenew-24px.svg";
 import Back from "./../images/arrow_back_ios-24px.svg";
+import { useEffect } from "react";
 const Contenedor = styled.div`
   margin-top: 1rem;
   font-family: "Mulish", sans-serif;
@@ -44,34 +46,18 @@ const Instrucciones = ({
   setContador,
   opciones,
   contador,
+  ganador,
+  setGanador,
 }) => {
   // eslint-disable-next-line
-  const [cartel, setCartel] = useState("");
-  // const imgGanadora = [
-  //   imagen1,
-  //   imagen3,
-  //   imagen2,
-  //   imagen4,
-  //   imagen5,
-  //   imagen6,
-  //   imagen7,
-  //   imagen8,
-  // ];
-  // const comprobarGanador = (imgGanadora) => {
-  //   console.log(imgGanadora);
-  //   console.log(JSON.stringify(imagenes) === JSON.stringify(imgGanadora));
-  //   if (JSON.stringify(imagenes) === JSON.stringify(imgGanadora)) {
-  //     setCartel("Felicitaciones!, Completaste el rompecabezas");
-  //   } else {
-  //     setCartel(null);
-  //   }
-  // };
+  useEffect(() => {
+    setGanador(comprobarGanador(imagenes, contador));
+  }, [imagenes, setGanador, contador]);
   const handleClick = () => {
     const activo = document.querySelectorAll(".active");
     activo.forEach((item) => {
       item.classList.remove("active");
     });
-    //POR FIN
     if (seleccion1 !== "" && seleccion2 !== "" && seleccion1 !== seleccion2) {
       const imagenesSwapeadas1 = imagenes.findIndex(
         (img) => img === seleccion1.substring(21)
@@ -87,9 +73,7 @@ const Instrucciones = ({
           arrNuevo[imagenesSwapeadas2],
           arrNuevo[imagenesSwapeadas1],
         ];
-        // const aux = arrNuevo[imagenesSwapeadas1];
-        // arrNuevo[imagenesSwapeadas1] = arrNuevo[imagenesSwapeadas2];
-        // arrNuevo[imagenesSwapeadas2] = aux;
+
         return arrNuevo;
       };
       setImagenes(newArray());
@@ -97,7 +81,6 @@ const Instrucciones = ({
       setSeleccion1("");
 
       setSeleccion2("");
-      // comprobarGanador(imgGanadora);
     }
     if (seleccion1 === seleccion2) {
       setSeleccion1("");
@@ -140,7 +123,7 @@ const Instrucciones = ({
       <button className="btn btn-danger mt-3" onClick={volverAlMenu}>
         <img src={Back} alt="" /> Volver al menu principal
       </button>
-      {cartel ? <Cartel cartel={cartel} /> : null}
+      {ganador ? <Cartel /> : null}
     </Contenedor>
   );
 };
