@@ -37,28 +37,23 @@ const PantallaInicial = ({
   const handleChange = (e) => {
     setEdad({ ...edad, [e.target.name]: e.target.value });
   };
-  const handleClickFacil = () => {
+  const Validar = () => {
     if (edad.anios === "" || edad.anios > 70 || edad.anios < 5) {
       setError(true);
       return;
     }
     setError(false);
+  };
+  const handleClickFacil = () => {
+    Validar();
     setOpciones("facil");
   };
   const handleClickMedio = () => {
-    if (edad.anios === "" || edad.anios > 70 || edad.anios < 5) {
-      setError(true);
-      return;
-    }
-    setError(false);
+    Validar();
     setOpciones("medio");
   };
   const handleClickDificil = () => {
-    if (edad.anios === "" || edad.anios > 70 || edad.anios < 5) {
-      setError(true);
-      return;
-    }
-    setError(false);
+    Validar();
     setOpciones("dificil");
   };
   return (
