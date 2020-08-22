@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import firebase from "firebase/app";
 import "firebase/auth";
+import Salir from "./../images/clear-24px.svg";
 const ImagenLogeo = styled.img`
   border-radius: 50%;
   width: 100px;
@@ -68,16 +69,20 @@ const Login = ({ user, setUser }) => {
       {user ? <h5>{user.displayName}</h5> : <h5>Ingresa para jugar</h5>}
 
       {user ? (
-        <button className="btn btn-secondary" onClick={deslogear}>
-          Salir
+        <button className="btn btn-secondary mb-4 mt-3" onClick={deslogear}>
+          <img src={Salir} className="mr-auto" alt="Icono" /> Salir
         </button>
       ) : (
         <button
           id="login"
-          className="btn btn-primary"
+          className="btn btn-primary  mt-3"
           onClick={logearConGoogle}
         >
-          Login
+          <img
+            src="https://img.icons8.com/officexs/20/000000/google-logo.png"
+            alt="LogoGoogle"
+          />{" "}
+          Ingresa con Google
         </button>
       )}
     </div>
