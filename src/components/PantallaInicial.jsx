@@ -13,7 +13,11 @@ const Boton = styled.button`
 const Titulo = styled.h1`
   font-family: "Mulish", sans-serif;
   text-align: center;
-  font-size: 46px;
+`;
+const Encabezado = styled.h1`
+  font-family: "Mulish", sans-serif;
+  font-size: 4.5rem;
+  margin-bottom: 2rem;
 `;
 const Subtitulo = styled.h3`
   font-family: "Mulish", sans-serif;
@@ -59,6 +63,10 @@ const PantallaInicial = ({
   };
   return (
     <div className="row">
+      <div className="col-md-12 d-flex justify-content-center">
+        <Encabezado>DIA DE LA MEMORIA</Encabezado>
+      </div>
+
       <div className="col-md-12 d-flex justify-content-center">
         <Titulo>Bienvenido al Rompecabezas</Titulo>
       </div>
