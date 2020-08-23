@@ -40,20 +40,27 @@ const PantallaInicial = ({
   const Validar = () => {
     if (edad.anios === "" || edad.anios > 70 || edad.anios < 5) {
       setError(true);
-      return;
+      return true;
     }
     setError(false);
+    return false;
   };
   const handleClickFacil = () => {
-    Validar();
+    if (Validar()) {
+      return;
+    }
     setOpciones("facil");
   };
   const handleClickMedio = () => {
-    Validar();
+    if (Validar()) {
+      return;
+    }
     setOpciones("medio");
   };
   const handleClickDificil = () => {
-    Validar();
+    if (Validar()) {
+      return;
+    }
     setOpciones("dificil");
   };
   return (
