@@ -49,7 +49,6 @@ const Instrucciones = ({
   ganador,
   setGanador,
 }) => {
-  // eslint-disable-next-line
   useEffect(() => {
     setGanador(comprobarGanador(imagenes, contador));
   }, [imagenes, setGanador, contador]);
@@ -98,6 +97,7 @@ const Instrucciones = ({
       <ContenedorInstrucciones>
         <Postlogin user={user} />
         <h3>Instrucciones para jugar</h3>
+        {ganador ? <Cartel ganador={ganador} /> : null}
         <ImagenFinal contador={contador} opciones={opciones} />
       </ContenedorInstrucciones>
 
@@ -123,7 +123,6 @@ const Instrucciones = ({
       <button className="btn btn-danger mt-3" onClick={volverAlMenu}>
         <img src={Back} alt="" /> Volver al menu principal
       </button>
-      {ganador ? <Cartel /> : null}
     </Contenedor>
   );
 };
