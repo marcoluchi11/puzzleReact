@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./bootstrap.min.css";
 import styled from "@emotion/styled";
 import Instrucciones from "./components/Instrucciones";
-//import ImagenFinal from "./components/ImagenFinal";
 import PantallaInicial from "./components/PantallaInicial";
 import Footer from "./components/Footer";
 import Facil from "./components/Facil";
@@ -136,4 +135,3 @@ export default App;
 
 // MEJORAR COLORES, IR POR BLANCOS NEGROS Y GRISES -- Falta
 // AVERIGUAR SI UNA PREGUNTA POR PIEZA SIGUE SIENDO VALIDA EN EL DE 27 Y/O 18 -- Falta
-// AGREGAR TRANSICION A LA IMAGEN RESUELTA -- Falta
