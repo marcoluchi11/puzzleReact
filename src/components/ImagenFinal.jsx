@@ -47,7 +47,7 @@ const ImagenFinal = ({ contador, opciones }) => {
   const imagen = verImagen ? (
     <Fragment>
       <div className="col-12">
-        <h6>Imagen resuelta</h6>
+        <h4>Imagen resuelta</h4>
       </div>
 
       <Imagen className="mt-3 mb-3" src={imagenFinal} alt="imagen final" />
