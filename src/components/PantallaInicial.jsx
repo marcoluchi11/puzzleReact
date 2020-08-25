@@ -16,7 +16,7 @@ const Titulo = styled.h1`
 `;
 const Encabezado = styled.h1`
   font-family: "Mulish", sans-serif;
-  font-size: 4.5rem;
+  font-size: 4.1rem;
   margin-bottom: 2rem;
 `;
 const Subtitulo = styled.h3`
@@ -65,7 +65,7 @@ const PantallaInicial = ({
   };
   return (
     <div className="row">
-      <div className="col-md-12 d-flex justify-content-center">
+      <div className="col-md-12 d-flex justify-content-center text-center">
         <Encabezado>MUSEO DE LA MEMORIA</Encabezado>
       </div>
 
