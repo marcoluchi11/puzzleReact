@@ -9,7 +9,9 @@ import Renew from "./../images/autorenew-24px.svg";
 import Back from "./../images/arrow_back_ios-24px.svg";
 import { useEffect } from "react";
 const Contenedor = styled.div`
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: -50px;
+  min-height: 100%;
   font-family: "Mulish", sans-serif;
 
   h3 {
@@ -97,6 +99,12 @@ const Instrucciones = ({
         <Postlogin user={user} />
         <h3>Instrucciones para jugar</h3>
         {ganador ? <Cartel ganador={ganador} /> : null}
+        <button onClick={handleClick} className="btn btn-primary mt-2">
+          <img src={Renew} alt="Icono Intercambio" /> Intercambia Piezas
+        </button>
+        <button className="btn btn-danger mt-3 mb-3" onClick={volverAlMenu}>
+          <img src={Back} alt="Icono vuelta" /> Volver al menu principal
+        </button>
         <ImagenFinal contador={contador} opciones={opciones} />
       </ContenedorInstrucciones>
 
@@ -116,12 +124,6 @@ const Instrucciones = ({
         </ElementoLista>
         <ElementoLista>Premisa principal: Diviertete!!</ElementoLista>
       </ListaInstrucciones>
-      <button onClick={handleClick} className="btn btn-primary">
-        <img src={Renew} alt="" /> Intercambia Piezas
-      </button>
-      <button className="btn btn-danger mt-3" onClick={volverAlMenu}>
-        <img src={Back} alt="" /> Volver al menu principal
-      </button>
     </Contenedor>
   );
 };
