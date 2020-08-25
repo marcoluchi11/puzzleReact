@@ -3,3 +3,14 @@ body {
   background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
   min-height: 100vh;
 }
+
+@media all and (max-width: 799px) and (min-width: 300px) {
+  img#Imagen {
+    height: 80px !important;
+    width: 80px !important;
+  }
+  img#ImagenDificil {
+    height: 60px !important;
+    width: 60px !important;
+  }
+}
