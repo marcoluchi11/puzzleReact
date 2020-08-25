@@ -66,11 +66,11 @@ const PantallaInicial = ({
   return (
     <div className="row">
       <div className="col-md-12 d-flex justify-content-center">
-        <Encabezado>DIA DE LA MEMORIA</Encabezado>
+        <Encabezado>MUSEO DE LA MEMORIA</Encabezado>
       </div>
 
       <div className="col-md-12 d-flex justify-content-center">
-        <Titulo>Bienvenido al Rompecabezas</Titulo>
+        <Titulo>Bienvenido al Puzzle</Titulo>
       </div>
       <div className="col-md-12 d-flex justify-content-center text-center">
         <Login user={user} setUser={setUser} />
