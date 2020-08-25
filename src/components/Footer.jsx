@@ -5,6 +5,8 @@ const Pie = styled.div`
   background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
   display: flex;
   justify-content: center;
+  height: 40px;
+  margin-top: 0.6rem;
   p {
     margin-bottom: 0;
     margin-top: 5px;
@@ -13,7 +15,7 @@ const Pie = styled.div`
 `;
 const Footer = () => {
   return (
-    <Pie className="row fixed-bottom">
+    <Pie className="row">
       <a
         href="https://cafecito.app/marcoluchi11"
         rel="noopener noreferrer"

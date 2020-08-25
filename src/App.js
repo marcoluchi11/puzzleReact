@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import "./bootstrap.min.css";
 import styled from "@emotion/styled";
 import Instrucciones from "./components/Instrucciones";
@@ -16,6 +16,7 @@ const ContenedorFondo = styled.div`
   padding: 1rem;
   margin-top: 2rem;
   color: #ffffff;
+  min-height: calc(100vh - 40px);
 `;
 function App() {
   const [seleccion1, setSeleccion1] = useState("");
@@ -90,44 +91,46 @@ function App() {
     );
   }
   return (
-    <ContenedorFondo className="container">
-      {opciones ? (
-        // ROMPECABEZAS
-        <div className="row">
-          <div className="col-md-8">{eleccion}</div>
-          <div className="col-md-4 ml-0">
-            <Instrucciones
-              user={user}
-              seleccion1={seleccion1}
-              seleccion2={seleccion2}
-              setSeleccion1={setSeleccion1}
-              setSeleccion2={setSeleccion2}
-              imagenes={imagenes}
-              setImagenes={setImagenes}
-              setOpciones={setOpciones}
-              setEdad={setEdad}
-              setContador={setContador}
-              opciones={opciones}
-              contador={contador}
-              ganador={ganador}
-              setGanador={setGanador}
-            />
+    <Fragment>
+      <ContenedorFondo className="container">
+        {opciones ? (
+          // ROMPECABEZAS
+          <div className="row">
+            <div className="col-md-8">{eleccion}</div>
+            <div className="col-md-4 ml-0">
+              <Instrucciones
+                user={user}
+                seleccion1={seleccion1}
+                seleccion2={seleccion2}
+                setSeleccion1={setSeleccion1}
+                setSeleccion2={setSeleccion2}
+                imagenes={imagenes}
+                setImagenes={setImagenes}
+                setOpciones={setOpciones}
+                setEdad={setEdad}
+                setContador={setContador}
+                opciones={opciones}
+                contador={contador}
+                ganador={ganador}
+                setGanador={setGanador}
+              />
+            </div>
           </div>
-        </div>
-      ) : (
-        // MENU PRINCIPAL
-        <PantallaInicial
-          setOpciones={setOpciones}
-          user={user}
-          setUser={setUser}
-          setEdad={setEdad}
-          edad={edad}
-          error={error}
-          setError={setError}
-        />
-      )}
+        ) : (
+          // MENU PRINCIPAL
+          <PantallaInicial
+            setOpciones={setOpciones}
+            user={user}
+            setUser={setUser}
+            setEdad={setEdad}
+            edad={edad}
+            error={error}
+            setError={setError}
+          />
+        )}
+      </ContenedorFondo>
       <Footer />
-    </ContenedorFondo>
+    </Fragment>
   );
 }
 
