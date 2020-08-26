@@ -2,8 +2,10 @@ import React from "react";
 import styled from "@emotion/styled";
 import Cartel from "./Cartel";
 import PropTypes from "prop-types";
+import Stopwatch from "./Stopwatch";
 import ImagenFinal from "./ImagenFinal";
 import Postlogin from "./Postlogin";
+import { Ranking } from "./../Google";
 import { comprobarGanador } from "./../comprobarGanador";
 import Renew from "./../images/autorenew-24px.svg";
 import Back from "./../images/arrow_back_ios-24px.svg";
@@ -50,9 +52,15 @@ const Instrucciones = ({
   contador,
   ganador,
   setGanador,
+  segundos,
+  setSegundos,
 }) => {
   useEffect(() => {
     setGanador(comprobarGanador(imagenes, contador));
+    if (comprobarGanador(imagenes, contador)) {
+      Ranking({ Nombre: user.displayName, Segundos: segundos + " Segundos" });
+    }
+    // eslint-disable-next-line
   }, [imagenes, setGanador, contador]);
   const handleClick = () => {
     const activo = document.querySelectorAll(".active");
@@ -61,10 +69,10 @@ const Instrucciones = ({
     });
     if (seleccion1 !== "" && seleccion2 !== "" && seleccion1 !== seleccion2) {
       const imagenesSwapeadas1 = imagenes.findIndex(
-        (img) => img === seleccion1.substring(28)
+        (img) => img === seleccion1.substring(21)
       );
       const imagenesSwapeadas2 = imagenes.findIndex(
-        (img) => img === seleccion2.substring(28)
+        (img) => img === seleccion2.substring(21)
       );
       const newArray = () => {
         //SE CREA ARRAY CAMBIADO
@@ -106,6 +114,12 @@ const Instrucciones = ({
           <img src={Back} alt="Icono vuelta" /> Volver al menu principal
         </button>
         <ImagenFinal contador={contador} opciones={opciones} />
+        <Stopwatch
+          segundos={segundos}
+          setSegundos={setSegundos}
+          contador={contador}
+          opciones={opciones}
+        />
       </ContenedorInstrucciones>
 
       <ListaInstrucciones>
