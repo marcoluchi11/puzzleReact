@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Login from "./Login";
 import styled from "@emotion/styled";
 import Error from "./Error";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import Nosotros from "./../images/info2.svg";
+
+const Us = styled.img`
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+`;
 const Boton = styled.button`
   font-family: "Mulish", sans-serif;
   margin-right: 2rem;
@@ -34,6 +42,23 @@ const PantallaInicial = ({
   error,
   setError,
 }) => {
+  const [modal, setModal] = useState(false);
+  const modalStyles = {
+    fontFamily: "Mulish",
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  };
+  const estiloButon = {
+    margin: "0 auto",
+  };
+  const modalColor = {
+    background: "bfbfbf",
+  };
+  const modalClick = () => {
+    setModal(false);
+  };
   const handleChange = (e) => {
     setEdad({ ...edad, [e.target.name]: e.target.value });
   };
@@ -69,9 +94,38 @@ const PantallaInicial = ({
         <Encabezado>MUSEO DE LA MEMORIA</Encabezado>
       </div>
 
-      <div className="col-md-12 d-flex justify-content-center">
+      <div className="col-md-12 d-flex justify-content-center align-items-center">
         <Titulo>Bienvenido al Puzzle</Titulo>
+        <Us
+          onClick={() => setModal(true)}
+          className="ml-3"
+          src={Nosotros}
+          alt="Us"
+        />
       </div>
+      <Modal style={modalStyles} isOpen={modal}>
+        <ModalHeader style={modalColor}>
+          <h4>¡Bienvenidos al Puzzle!</h4>
+        </ModalHeader>
+
+        <ModalBody style={modalColor}>
+          <p>
+            Este juego surge a partir de la realización del Proyecto de
+            Intervención en Residencia No Formal - 2020, en colaboración con el
+            Museo de la Memoria de la Ciudad de Rosario.
+            <br />
+            <br /> Integrantes del Proyecto:
+            <br /> Scalella, Fernando <br />
+            Tejedor, Micaela <br /> Vaio, Sabrina <br /> Vera, Yamila.
+          </p>
+        </ModalBody>
+
+        <ModalFooter style={modalColor}>
+          <Button style={estiloButon} color="primary" onClick={modalClick}>
+            Cerrar
+          </Button>
+        </ModalFooter>
+      </Modal>
       <div className="col-md-12 d-flex justify-content-center text-center">
         <Login user={user} setUser={setUser} />
       </div>
