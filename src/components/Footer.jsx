@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 const Pie = styled.div`
-  background-color: #5b6467;
+  background-color: #dbdbdb;
   background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
   display: flex;
   justify-content: center;
