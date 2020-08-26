@@ -58,7 +58,8 @@ const Instrucciones = ({
   useEffect(() => {
     setGanador(comprobarGanador(imagenes, contador));
     if (comprobarGanador(imagenes, contador)) {
-      Ranking({ Nombre: user.displayName, Segundos: segundos + " Segundos" });
+      if (user.displayName !== "Anonimo")
+        Ranking({ Nombre: user.displayName, Segundos: segundos + " s" });
     }
     // eslint-disable-next-line
   }, [imagenes, setGanador, contador]);
@@ -100,6 +101,7 @@ const Instrucciones = ({
     setEdad({ anios: "" });
     setImagenes([]);
     setContador(0);
+    setSegundos(0);
   };
   return (
     <Contenedor>
@@ -119,6 +121,7 @@ const Instrucciones = ({
           setSegundos={setSegundos}
           contador={contador}
           opciones={opciones}
+          ganador={ganador}
         />
       </ContenedorInstrucciones>
 
