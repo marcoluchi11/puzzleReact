@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react";
 import "./bootstrap.min.css";
+
 import styled from "@emotion/styled";
 import Instrucciones from "./components/Instrucciones";
 import PantallaInicial from "./components/PantallaInicial";
@@ -28,6 +29,7 @@ function App() {
   const [edad, setEdad] = useState({ anios: "" });
   const [error, setError] = useState(false);
   const [ganador, setGanador] = useState(false);
+  const [segundos, setSegundos] = useState(0);
   let eleccion;
 
   if (opciones === "facil") {
@@ -47,6 +49,7 @@ function App() {
         setSeleccion1={setSeleccion1}
         setSeleccion2={setSeleccion2}
         setError={setError}
+        segundos={segundos}
       />
     );
   }
@@ -67,6 +70,7 @@ function App() {
         setSeleccion1={setSeleccion1}
         setSeleccion2={setSeleccion2}
         setError={setError}
+        segundos={segundos}
       />
     );
   }
@@ -87,6 +91,7 @@ function App() {
         setSeleccion1={setSeleccion1}
         setSeleccion2={setSeleccion2}
         setError={setError}
+        segundos={segundos}
       />
     );
   }
@@ -102,17 +107,19 @@ function App() {
                 user={user}
                 seleccion1={seleccion1}
                 seleccion2={seleccion2}
+                imagenes={imagenes}
+                opciones={opciones}
+                contador={contador}
+                ganador={ganador}
                 setSeleccion1={setSeleccion1}
                 setSeleccion2={setSeleccion2}
-                imagenes={imagenes}
                 setImagenes={setImagenes}
                 setOpciones={setOpciones}
                 setEdad={setEdad}
                 setContador={setContador}
-                opciones={opciones}
-                contador={contador}
-                ganador={ganador}
                 setGanador={setGanador}
+                segundos={segundos}
+                setSegundos={setSegundos}
               />
             </div>
           </div>
