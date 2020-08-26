@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import PropTypes from "prop-types";
+
 import tick from "./../images/check_circle_outline-24px.svg";
 const DivCartel = styled.div`
   margin-top: 3rem;
@@ -24,6 +24,3 @@ const Cartel = () => {
 };
 
 export default Cartel;
-Cartel.propTypes = {
-  cartel: PropTypes.string.isRequired,
-};
