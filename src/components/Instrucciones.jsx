@@ -133,13 +133,13 @@ const Instrucciones = ({
           Respondiendo las preguntas se muestran las piezas del rompecabezas
         </ElementoLista>
         <ElementoLista>
-          Luego de responder las preguntas, completa el rompecabezas!!
+          Luego de responder las preguntas, completa el rompecabezas!
         </ElementoLista>
         <ElementoLista>
           Para intercambiar piezas, haz click en las dos imagenes a
           intercambiar, y luego clickea en "Intercambia Pieza"
         </ElementoLista>
-        <ElementoLista>Premisa principal: Diviertete!!</ElementoLista>
+        <ElementoLista>Premisa principal: Divertirse.</ElementoLista>
       </ListaInstrucciones>
     </Contenedor>
   );

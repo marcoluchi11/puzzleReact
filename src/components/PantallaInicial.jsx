@@ -132,7 +132,8 @@ const PantallaInicial = ({
       <div className="col-md-12 d-flex justify-content-center text-center mt-1">
         <small>
           El login es solo para obtener tu nombre y direccion de e-mail, no se
-          utilizaran otros datos.
+          utilizaran otros datos. <br /> Si no ingresas, no participaras en el
+          Ranking del Puzzle.
         </small>
       </div>
       <div className="col-md-4"></div>
