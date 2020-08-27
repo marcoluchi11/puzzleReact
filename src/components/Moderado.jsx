@@ -12,6 +12,7 @@ import {
 } from "reactstrap";
 import { appendSpreadsheet } from "./../Google";
 import { shuffle } from "./../shuffle";
+import pregunta from "./../images/pregunta.png";
 import uno from "./../images/moderado/image_part_001.jpg";
 import dos from "./../images/moderado/image_part_002.jpg";
 import tres from "./../images/moderado/image_part_003.jpg";
@@ -28,9 +29,7 @@ import trece from "./../images/moderado/image_part_013.jpg";
 import catorce from "./../images/moderado/image_part_014.jpg";
 import quince from "./../images/moderado/image_part_015.jpg";
 import dieciseis from "./../images/moderado/image_part_016.jpg";
-
 import "./puzzle.css";
-import logoclick from "./../images/click.jpg";
 const Moderado = ({
   seleccion1,
   setSeleccion1,
@@ -44,6 +43,8 @@ const Moderado = ({
   edad,
   error,
   setError,
+  modalStyles,
+  estilo,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -90,16 +91,7 @@ const Moderado = ({
     "pregunta15",
     "pregunta16",
   ];
-  const modalStyles = {
-    fontFamily: "Mulish",
-    position: "fixed",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  };
-  const estilo = {
-    background: "#8ec5fc",
-  };
+
   const modalClick = () => {
     if (rta.respuesta.trim() === "") {
       setError(true);
@@ -180,7 +172,7 @@ const Moderado = ({
           <img
             id="Imagen"
             onClick={handleClick}
-            src={logoclick}
+            src={pregunta}
             alt="Boton click"
           />
           <Modal style={modalStyles} isOpen={modal}>

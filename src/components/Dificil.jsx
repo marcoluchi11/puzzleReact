@@ -11,6 +11,7 @@ import {
   Label,
 } from "reactstrap";
 import { appendSpreadsheet } from "./../Google";
+import pregunta from "./../images/pregunta.png";
 import { shuffle } from "./../shuffle";
 import uno from "./../images/dificil/image_part_001.jpg";
 import dos from "./../images/dificil/image_part_002.jpg";
@@ -38,7 +39,6 @@ import veintitres from "./../images/dificil/image_part_016.jpg";
 import veinticuatro from "./../images/dificil/image_part_016.jpg";
 import veinticinco from "./../images/dificil/image_part_016.jpg";
 import "./puzzle.css";
-import logoclick from "./../images/click.jpg";
 const Dificil = ({
   seleccion1,
   setSeleccion1,
@@ -52,6 +52,8 @@ const Dificil = ({
   edad,
   error,
   setError,
+  modalStyles,
+  estilo,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -116,16 +118,7 @@ const Dificil = ({
     "pregunta23",
     "pregunta24",
   ];
-  const modalStyles = {
-    fontFamily: "Mulish",
-    position: "fixed",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  };
-  const estilo = {
-    background: "#8ec5fc",
-  };
+
   const modalClick = () => {
     if (rta.respuesta.trim() === "") {
       setError(true);
@@ -206,7 +199,7 @@ const Dificil = ({
           <img
             id="ImagenDificil"
             onClick={handleClick}
-            src={logoclick}
+            src={pregunta}
             alt="Boton click"
           />
           <Modal style={modalStyles} isOpen={modal}>

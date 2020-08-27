@@ -13,7 +13,7 @@ import {
 import { appendSpreadsheet } from "./../Google";
 import { shuffle } from "./../shuffle";
 import "./puzzle.css";
-import logoclick from "./../images/click.jpg";
+//import logoclick from "./../images/click.jpg";
 import pregunta from "./../images/pregunta.png";
 import uno from "./../images/facil/image_part_001.jpg";
 import dos from "./../images/facil/image_part_002.jpg";
@@ -41,6 +41,8 @@ const Facil = ({
   edad,
   error,
   setError,
+  modalStyles,
+  estilo,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -79,16 +81,7 @@ const Facil = ({
     "pregunta11",
     "pregunta12",
   ];
-  const modalStyles = {
-    fontFamily: "Mulish",
-    position: "fixed",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  };
-  const estilo = {
-    background: "#8ec5fc",
-  };
+
   const modalClick = () => {
     if (rta.respuesta.trim() === "") {
       setError(true);
@@ -169,7 +162,7 @@ const Facil = ({
           <img
             id="Imagen"
             onClick={handleClick}
-            src={logoclick}
+            src={pregunta}
             alt="Boton click"
           />
           <Modal style={modalStyles} isOpen={modal}>
