@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import Cartel from "./Cartel";
 import PropTypes from "prop-types";
@@ -9,7 +9,6 @@ import { Ranking } from "./../Google";
 import { comprobarGanador } from "./../comprobarGanador";
 import Renew from "./../images/autorenew-24px.svg";
 import Back from "./../images/arrow_back_ios-24px.svg";
-import { useEffect } from "react";
 const Contenedor = styled.div`
   margin-top: 0.5rem;
   margin-bottom: -50px;
@@ -59,7 +58,7 @@ const Instrucciones = ({
     setGanador(comprobarGanador(imagenes, contador));
     if (comprobarGanador(imagenes, contador)) {
       if (user.displayName !== "Anonimo")
-        Ranking({ Nombre: user.displayName, Segundos: segundos + " s" });
+        Ranking({ Nombre: user.displayName, Tiempo: segundos + "s" }, opciones);
     }
     // eslint-disable-next-line
   }, [imagenes, setGanador, contador]);
