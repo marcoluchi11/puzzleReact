@@ -30,6 +30,16 @@ function App() {
   const [error, setError] = useState(false);
   const [ganador, setGanador] = useState(false);
   const [segundos, setSegundos] = useState(0);
+  const modalStyles = {
+    fontFamily: "Mulish",
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  };
+  const estilo = {
+    background: "#8ec5fc",
+  };
   let eleccion;
 
   if (opciones === "facil") {
@@ -50,6 +60,8 @@ function App() {
         setSeleccion2={setSeleccion2}
         setError={setError}
         segundos={segundos}
+        modalStyles={modalStyles}
+        estilo={estilo}
       />
     );
   }
@@ -71,6 +83,8 @@ function App() {
         setSeleccion2={setSeleccion2}
         setError={setError}
         segundos={segundos}
+        modalStyles={modalStyles}
+        estilo={estilo}
       />
     );
   }
@@ -91,6 +105,8 @@ function App() {
         setSeleccion1={setSeleccion1}
         setSeleccion2={setSeleccion2}
         setError={setError}
+        modalStyles={modalStyles}
+        estilo={estilo}
       />
     );
   }
