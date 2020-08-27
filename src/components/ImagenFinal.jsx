@@ -5,8 +5,8 @@ import dificil from "./../images/imagenesFinales/dificil25.jpg";
 import medio from "./../images/imagenesFinales/moderado16.jpg";
 import facil from "./../images/imagenesFinales/facil12.jpg";
 const Imagen = styled.img`
-  width: 220px;
-  height: 220px;
+  width: 350px;
+  height: 350px;
 `;
 const ImagenFinal = ({ contador, opciones }) => {
   const [verImagen, setVerImagen] = useState(false);
@@ -26,11 +26,17 @@ const ImagenFinal = ({ contador, opciones }) => {
   useEffect(() => {
     if (contador === cant) {
       setVerImagen(true);
-      setTimeout(() => {
-        setVerImagen(false);
-      }, 8000);
+      if (opciones === "dificil") {
+        setTimeout(() => {
+          setVerImagen(false);
+        }, 13000);
+      } else {
+        setTimeout(() => {
+          setVerImagen(false);
+        }, 6000);
+      }
     }
-  }, [contador, cant]);
+  }, [contador, cant, opciones]);
   let imagenFinal;
   // eslint-disable-next-line
   switch (cant) {
