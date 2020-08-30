@@ -69,10 +69,10 @@ const Instrucciones = ({
     });
     if (seleccion1 !== "" && seleccion2 !== "" && seleccion1 !== seleccion2) {
       const imagenesSwapeadas1 = imagenes.findIndex(
-        (img) => img === seleccion1.substring(21)
+        (img) => img === seleccion1.substring(28)
       );
       const imagenesSwapeadas2 = imagenes.findIndex(
-        (img) => img === seleccion2.substring(21)
+        (img) => img === seleccion2.substring(28)
       );
       const newArray = () => {
         //SE CREA ARRAY CAMBIADO
@@ -126,7 +126,8 @@ const Instrucciones = ({
 
       <ListaInstrucciones>
         <ElementoLista>
-          Haz click en la imagen de "Click" para responder una pregunta
+          Haz click en la imagen del signo de preguntas (?) para responder una
+          pregunta
         </ElementoLista>
         <ElementoLista>
           Respondiendo las preguntas se muestran las piezas del rompecabezas
