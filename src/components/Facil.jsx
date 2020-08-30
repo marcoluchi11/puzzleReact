@@ -13,7 +13,6 @@ import {
 import { appendSpreadsheet } from "./../Google";
 import { shuffle } from "./../shuffle";
 import "./puzzle.css";
-//import logoclick from "./../images/click.jpg";
 import pregunta from "./../images/pregunta.png";
 import uno from "./../images/facil/image_part_001.jpg";
 import dos from "./../images/facil/image_part_002.jpg";
