@@ -64,9 +64,12 @@ const Login = ({ user, setUser }) => {
       {user ? (
         <ImagenLogeo src={user.photoURL} />
       ) : (
-        <ImagenLogeo src="https://www.w3schools.com/howto/img_avatar.png" />
+        <ImagenLogeo
+          src="https://www.w3schools.com/howto/img_avatar.png"
+          alt="Avatar"
+        />
       )}
-      {user ? <h5>{user.displayName}</h5> : <h5>Ingresa para jugar</h5>}
+      {user ? <h4>{user.displayName}</h4> : <h4>Ingresa para jugar</h4>}
 
       {user ? (
         <button className="btn btn-secondary mb-4 mt-3" onClick={deslogear}>
