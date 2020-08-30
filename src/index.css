@@ -8,9 +8,13 @@ body {
   img#Imagen {
     height: 80px !important;
     width: 80px !important;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
   }
   img#ImagenDificil {
     height: 60px !important;
     width: 60px !important;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
   }
 }
