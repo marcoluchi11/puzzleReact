@@ -67,7 +67,7 @@ const Moderado = ({
   ]);
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
-  const [rta, setRta] = useState({ respuesta: "" });
+  const [rta, setRta] = useState(null);
   useEffect(() => {
     setImgsMezcladas(shuffle(ImgsMezcladas));
   }, [ImgsMezcladas]);
@@ -93,7 +93,7 @@ const Moderado = ({
   ];
 
   const modalClick = () => {
-    if (rta.respuesta.trim() === "") {
+    if (rta === null) {
       setError(true);
       return;
     }
@@ -101,16 +101,16 @@ const Moderado = ({
     appendSpreadsheet(
       {
         Pregunta: questions[contador],
-        Respuesta: rta.respuesta,
+        Respuesta: rta,
         Nombre: user.displayName,
         Mail: user.email,
         Edad: anios,
       },
-      { Pregunta: questions[contador], Respuesta: rta.respuesta }
+      { Pregunta: questions[contador], Respuesta: rta }
     );
 
     //se agregan las imagenes al hacer click
-    setRta({ respuesta: "" });
+    setRta(null);
     setContador(contador + 1);
     setImagenes([...imagenes, ImgsMezcladas[contador]]);
     setModal(false);
@@ -122,11 +122,8 @@ const Moderado = ({
       email: "Anonimo",
     });
   }
-  const handleChange = (e) => {
-    setRta({
-      ...rta,
-      [e.target.name]: e.target.value,
-    });
+  const handleClickModal = (e) => {
+    setRta(e.target.value);
   };
   const handleClick = () => {
     setModal(true);
@@ -181,10 +178,45 @@ const Moderado = ({
             </ModalHeader>
             <ModalBody>
               <FormGroup>
-                <Label>{questions[contador]}</Label>
-                <Input name="respuesta" onChange={handleChange} type="text" />
+                <h5 className="mb-3">{questions[contador]}</h5>
+                <FormGroup tag="fieldset">
+                  <FormGroup check>
+                    <Label className="pb-2" check>
+                      <Input
+                        onClick={handleClickModal}
+                        type="radio"
+                        name="opciones"
+                        value="opcion1"
+                      />{" "}
+                      Option 1
+                    </Label>
+                  </FormGroup>
+                  <FormGroup check>
+                    <Label className="pb-2" check>
+                      <Input
+                        onClick={handleClickModal}
+                        type="radio"
+                        name="opciones"
+                        value="opcion2"
+                      />{" "}
+                      Option 2
+                    </Label>
+                  </FormGroup>
+                  <FormGroup check>
+                    <Label className="pb-2" check>
+                      <Input
+                        onClick={handleClickModal}
+                        type="radio"
+                        name="opciones"
+                        value="opcion3"
+                      />{" "}
+                      Option 3
+                    </Label>
+                  </FormGroup>
+                </FormGroup>
+
                 {error ? (
-                  <Error mensaje="Error, Ingresa una respuesta!" />
+                  <Error mensaje="Error, Selecciona una respuesta" />
                 ) : null}
               </FormGroup>
             </ModalBody>
