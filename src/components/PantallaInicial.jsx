@@ -24,14 +24,14 @@ const Titulo = styled.h1`
 `;
 const Encabezado = styled.h1`
   font-family: "Mulish", sans-serif;
-  font-size: 4.1rem;
+  font-size: 4rem;
   margin-bottom: 2rem;
 `;
 const Subtitulo = styled.h3`
   font-family: "Mulish", sans-serif;
   text-align: center;
-  font-size: 22px;
-  font-weight: 300px;
+  font-size: 3rem;
+  font-weight: 300;
 `;
 const PantallaInicial = ({
   setOpciones,
