@@ -14,7 +14,7 @@ const ContenedorFondo = styled.div`
   box-shadow: 4px 5px 10px 8px rgba(0, 0, 0, 0.26);
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
-  padding: 1rem;
+  padding-bottom: 4rem;
   margin-top: 2rem;
   color: #ffffff;
   min-height: calc(100vh - 40px);
@@ -157,9 +157,3 @@ function App() {
 }
 
 export default App;
-
-// AVERIGUAR SI UNA PREGUNTA POR PIEZA SIGUE SIENDO VALIDA EN EL DE 27 Y/O 18 -- Falta
-
-// MULTIPLE CHOICE INTERCALANDO, EL DE 16 , 10 PREGUNTAS Y 6 MC
-// INTENTOS PARA VER IMAGEN COMPLETA, DOS SEGUNDO, 3 INTENTOS EN MEDIO, 2 EN FACIL Y 10 DIFCIL
-// INFO CLICK EN LOGO, EL FERCHO ME TIENE QUE PASAR EL LINK
