@@ -25,10 +25,6 @@ import nueve from "./../images/moderado/image_part_009.jpg";
 import diez from "./../images/moderado/image_part_010.jpg";
 import once from "./../images/moderado/image_part_011.jpg";
 import doce from "./../images/moderado/image_part_012.jpg";
-import trece from "./../images/moderado/image_part_013.jpg";
-import catorce from "./../images/moderado/image_part_014.jpg";
-import quince from "./../images/moderado/image_part_015.jpg";
-import dieciseis from "./../images/moderado/image_part_016.jpg";
 import "./puzzle.css";
 const Moderado = ({
   seleccion1,
@@ -60,10 +56,6 @@ const Moderado = ({
     diez,
     once,
     doce,
-    trece,
-    catorce,
-    quince,
-    dieciseis,
   ]);
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
@@ -86,10 +78,6 @@ const Moderado = ({
     "pregunta10",
     "pregunta11",
     "pregunta12",
-    "pregunta13",
-    "pregunta14",
-    "pregunta15",
-    "pregunta16",
   ];
 
   const modalClick = () => {
@@ -128,7 +116,7 @@ const Moderado = ({
   const handleClick = () => {
     setModal(true);
     //Valida cuando llega a 12 para.
-    if (imagenes.length === 16) {
+    if (imagenes.length === 12) {
       setClickovich(true);
       return;
     }

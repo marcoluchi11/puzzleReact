@@ -22,11 +22,6 @@ import cinco from "./../images/facil/image_part_005.jpg";
 import seis from "./../images/facil/image_part_006.jpg";
 import siete from "./../images/facil/image_part_007.jpg";
 import ocho from "./../images/facil/image_part_008.jpg";
-import nueve from "./../images/facil/image_part_009.jpg";
-import diez from "./../images/facil/image_part_010.jpg";
-import once from "./../images/facil/image_part_011.jpg";
-import doce from "./../images/facil/image_part_012.jpg";
-
 const Facil = ({
   seleccion1,
   setSeleccion1,
@@ -53,10 +48,6 @@ const Facil = ({
     seis,
     siete,
     ocho,
-    nueve,
-    diez,
-    once,
-    doce,
   ]);
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
@@ -75,10 +66,6 @@ const Facil = ({
     "pregunta6",
     "pregunta7",
     "pregunta8",
-    "pregunta9",
-    "pregunta10",
-    "pregunta11",
-    "pregunta12",
   ];
 
   const modalClick = () => {
@@ -117,7 +104,7 @@ const Facil = ({
   const handleClick = () => {
     setModal(true);
     //Valida cuando llega a 12 para.
-    if (imagenes.length === 12) {
+    if (imagenes.length === 8) {
       setClickovich(true);
       return;
     }

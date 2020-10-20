@@ -163,13 +163,13 @@ const PantallaInicial = ({
       </div>
       <div className="col-md-12 d-flex justify-content-center text-center  ">
         <Boton className="btn btn-success" onClick={handleClickFacil}>
-          Facil (12 piezas)
+          Facil (8 piezas)
         </Boton>
         <Boton className="btn btn-warning" onClick={handleClickMedio}>
-          Media (16 piezas)
+          Media (12 piezas)
         </Boton>
         <Boton className="btn btn-danger" onClick={handleClickDificil}>
-          Dificil (25 piezas)
+          Dificil (15 piezas)
         </Boton>
       </div>
     </div>

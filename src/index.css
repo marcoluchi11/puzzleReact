@@ -11,12 +11,12 @@ body {
     margin-bottom: 1.5rem;
     margin-top: 1rem;
   }
-  img#ImagenDificil {
+  /* img#ImagenDificil {
     height: 60px !important;
     width: 60px !important;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
-  }
+  } */
   h1 {
     font-size: 2.4rem !important;
     text-align: center !important;

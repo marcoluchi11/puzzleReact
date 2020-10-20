@@ -13,13 +13,13 @@ const Stopwatch = ({ contador, opciones, segundos, setSegundos, ganador }) => {
   // eslint-disable-next-line
   switch (opciones) {
     case "facil":
-      cant = 12;
+      cant = 8;
       break;
     case "medio":
-      cant = 16;
+      cant = 12;
       break;
     case "dificil":
-      cant = 25;
+      cant = 16;
       break;
   }
   if (!estado && contador === cant) {

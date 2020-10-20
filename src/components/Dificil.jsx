@@ -29,15 +29,6 @@ import trece from "./../images/dificil/image_part_013.jpg";
 import catorce from "./../images/dificil/image_part_014.jpg";
 import quince from "./../images/dificil/image_part_015.jpg";
 import dieciseis from "./../images/dificil/image_part_016.jpg";
-import diecisiete from "./../images/dificil/image_part_016.jpg";
-import dieciocho from "./../images/dificil/image_part_016.jpg";
-import diecinueve from "./../images/dificil/image_part_016.jpg";
-import veinte from "./../images/dificil/image_part_016.jpg";
-import veintiuno from "./../images/dificil/image_part_016.jpg";
-import veintidos from "./../images/dificil/image_part_016.jpg";
-import veintitres from "./../images/dificil/image_part_016.jpg";
-import veinticuatro from "./../images/dificil/image_part_016.jpg";
-import veinticinco from "./../images/dificil/image_part_016.jpg";
 import "./puzzle.css";
 const Dificil = ({
   seleccion1,
@@ -73,15 +64,6 @@ const Dificil = ({
     catorce,
     quince,
     dieciseis,
-    diecisiete,
-    dieciocho,
-    diecinueve,
-    veinte,
-    veintiuno,
-    veintidos,
-    veintitres,
-    veinticuatro,
-    veinticinco,
   ]);
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
@@ -108,15 +90,6 @@ const Dificil = ({
     "pregunta14",
     "pregunta15",
     "pregunta16",
-    "pregunta16",
-    "pregunta17",
-    "pregunta18",
-    "pregunta19",
-    "pregunta20",
-    "pregunta21",
-    "pregunta22",
-    "pregunta23",
-    "pregunta24",
   ];
 
   const modalClick = () => {
@@ -155,7 +128,7 @@ const Dificil = ({
   const handleClick = () => {
     setModal(true);
     //Valida cuando llega a 12 para.
-    if (imagenes.length === 25) {
+    if (imagenes.length === 16) {
       setClickovich(true);
       return;
     }

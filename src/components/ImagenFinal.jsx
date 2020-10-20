@@ -14,13 +14,13 @@ const ImagenFinal = ({ contador, opciones }) => {
   // eslint-disable-next-line
   switch (opciones) {
     case "facil":
-      cant = 12;
+      cant = 8;
       break;
     case "medio":
-      cant = 16;
+      cant = 12;
       break;
     case "dificil":
-      cant = 25;
+      cant = 16;
       break;
   }
   useEffect(() => {
@@ -40,13 +40,13 @@ const ImagenFinal = ({ contador, opciones }) => {
   let imagenFinal;
   // eslint-disable-next-line
   switch (cant) {
-    case 12:
+    case 8:
       imagenFinal = facil;
       break;
-    case 16:
+    case 12:
       imagenFinal = medio;
       break;
-    case 25:
+    case 16:
       imagenFinal = dificil;
       break;
   }
