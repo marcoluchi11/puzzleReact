@@ -17,12 +17,12 @@ img#Imagen:hover {
 .active {
   border: red solid 3px !important;
 }
-img#ImagenDificil {
+img.ImagenDificil {
   width: 160px;
   height: 160px;
   border: white solid 0.5px;
 }
 
-img#ImagenDificil:hover {
+img.ImagenDificil:hover {
   cursor: pointer;
 }

@@ -56,7 +56,11 @@ const ImagenFinal = ({ contador, opciones }) => {
         <h4>Imagen resuelta</h4>
       </div>
 
-      <Imagen className="mt-3 mb-3" src={imagenFinal} alt="imagen final" />
+      <Imagen
+        className="mt-3 mb-3 phones"
+        src={imagenFinal}
+        alt="imagen final"
+      />
     </Fragment>
   ) : null;
   return imagen;

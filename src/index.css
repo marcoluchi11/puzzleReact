@@ -11,12 +11,14 @@ body {
     margin-bottom: 1.5rem;
     margin-top: 1rem;
   }
-  /* img#ImagenDificil {
-    height: 60px !important;
-    width: 60px !important;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-  } */
+  .phones {
+    height: 135px !important;
+    width: 135px !important;
+  }
+  img.ImagenDificil {
+    height: 80px !important;
+    width: 80px !important;
+  }
   h1 {
     font-size: 2.4rem !important;
     text-align: center !important;

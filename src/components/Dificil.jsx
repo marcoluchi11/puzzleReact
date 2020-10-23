@@ -155,7 +155,7 @@ const Dificil = ({
       {imagenes.map((imagen) => (
         <img
           key={imagen}
-          id="ImagenDificil"
+          className="ImagenDificil"
           onClick={(e) => {
             handleClick2(e);
             toggleClass(e);
@@ -167,7 +167,7 @@ const Dificil = ({
       {clickovich ? null : (
         <Fragment>
           <img
-            id="ImagenDificil"
+            className="ImagenDificil"
             onClick={handleClick}
             src={pregunta}
             alt="Boton click"

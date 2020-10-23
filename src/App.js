@@ -41,7 +41,6 @@ function App() {
     background: "#8ec5fc",
   };
   let eleccion;
-
   if (opciones === "facil") {
     eleccion = (
       <Facil
