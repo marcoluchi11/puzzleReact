@@ -28,7 +28,43 @@ const Footer = () => {
           alt="Invitame un café en cafecito.app"
         />
       </a>
-      <p>&copy;2020</p>
+      <div className="ml-3">
+        <a
+          href="https://cafecito.app/marcoluchi11"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            src="https://icongr.am/material/instagram.svg?size=33&color=ffffff"
+            alt=""
+          />
+        </a>
+
+        <a
+          href="https://cafecito.app/marcoluchi11"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            className="ml-3"
+            src="https://icongr.am/material/facebook.svg?size=33&color=ffffff"
+            alt=""
+          />
+        </a>
+        <a
+          href="https://cafecito.app/marcoluchi11"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            className="ml-3"
+            src="https://icongr.am/material/twitter.svg?size=33&color=ffffff"
+            alt=""
+          />
+        </a>
+      </div>
+
+      {/* <p>&copy;2020</p> */}
     </Pie>
   );
 };
