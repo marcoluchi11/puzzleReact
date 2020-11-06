@@ -2,6 +2,7 @@ body {
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 @media all and (max-width: 799px) and (min-width: 300px) {
