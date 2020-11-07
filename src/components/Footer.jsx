@@ -28,9 +28,9 @@ const Footer = () => {
           alt="Invitame un café en cafecito.app"
         />
       </a>
-      <div className="ml-3">
+      <div className="ml-3 mt-1">
         <a
-          href="https://cafecito.app/marcoluchi11"
+          href="https://instagram.com/museo_memoria?igshid=we2k4g92dv7z"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -41,7 +41,7 @@ const Footer = () => {
         </a>
 
         <a
-          href="https://cafecito.app/marcoluchi11"
+          href="https://www.facebook.com/MuseodelaMemoria/"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -52,19 +52,17 @@ const Footer = () => {
           />
         </a>
         <a
-          href="https://cafecito.app/marcoluchi11"
+          href="https://www.museodelamemoria.gob.ar"
           rel="noopener noreferrer"
           target="_blank"
         >
           <img
             className="ml-3"
-            src="https://icongr.am/material/twitter.svg?size=33&color=ffffff"
+            src="https://icongr.am/material/web.svg?size=33&color=ffffff"
             alt=""
           />
         </a>
       </div>
-
-      {/* <p>&copy;2020</p> */}
     </Pie>
   );
 };
