@@ -1,9 +1,9 @@
 import React, { useState, useEffect, Fragment } from "react";
 
 import styled from "@emotion/styled";
-import dificil from "./../images/imagenesFinales/dificil25.jpg";
-import medio from "./../images/imagenesFinales/moderado16.jpg";
-import facil from "./../images/imagenesFinales/facil12.jpg";
+import dificil from "./../images/imagenesFinales/dificil16.jpg";
+import medio from "./../images/imagenesFinales/medio12.jpeg";
+import facil from "./../images/imagenesFinales/facil8.jpeg";
 const Imagen = styled.img`
   width: 350px;
   height: 350px;
