@@ -58,15 +58,22 @@ const Facil = ({
   const { anios } = edad;
 
   const questions = [
-    "pregunta1",
-    "pregunta2",
-    "pregunta3",
-    "pregunta4",
-    "pregunta5",
-    "pregunta6",
-    "pregunta7",
-    "pregunta8",
+    "¿A qué te remite la fecha del 24 de marzo? ",
+    "¿Con qué nombre se presenta la Dictadura de 1976?",
+    "¿Sabes quiénes integraban la junta militar?",
+    "¿A qué te remite la palabra desaparecidos? ",
+    "¿Cuáles crees que eran los motivos que tenían según los militares para detener y/o desaparecer a las personas?",
+
+    "¿Cuáles eran las personas que estaban desaparecidas?",
+    "Piensa…. ¿A qué te remite el término Razia?",
+    "¿Qué relación puedes establecer entre el auto Falcon verde y el golpe militar?",
   ];
+
+  // const respuestas = [
+  //   [1, 2, 3],
+  //   [1, 2, 3],
+  //   ["h", "f", "g"],
+  // ];
 
   const modalClick = () => {
     if (rta === null) {

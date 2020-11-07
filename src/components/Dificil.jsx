@@ -74,22 +74,22 @@ const Dificil = ({
   const { anios } = edad;
 
   const questions = [
-    "pregunta1",
-    "pregunta2",
-    "pregunta3",
-    "pregunta4",
-    "pregunta5",
-    "pregunta6",
-    "pregunta7",
-    "pregunta8",
-    "pregunta9",
-    "pregunta10",
-    "pregunta11",
-    "pregunta12",
-    "pregunta13",
-    "pregunta14",
-    "pregunta15",
-    "pregunta16",
+    "“Nunca más” es el nombre…",
+    "¿Qué tienen en común Montoneros y el Ejército Republicano del Pueblo (ERP)?",
+    "¿Durante la década del ‘70 solo hubo dictadura en Argentina?",
+    "La teoría de los dos demonios hace énfasis en…",
+    "En su discurso, la Junta Militar utilizó el término “desaparecido” porque…",
+    "¿Por qué se denomina “dictadura cívico-militar?",
+    "¿Por qué crees que el principal grupo a perseguir y secuestrar eran los jóvenes?",
+    "¿Cómo lograron los militares perpetrar el Golpe de Estado de 1976?",
+    "¿Por qué el sistema político no encontró una respuesta democrática al caos imperante en la sociedad?",
+    "¿Qué efectos tuvieron las políticas aplicadas por la Dictadura Militar?",
+    "¿Qué vínculo se puede plantear entre los desaparecidos, la guerra de Malvinas y las Madres y Abuelas de Plaza de Mayo?",
+    "¿A qué se llamó marcha de la Resistencia?",
+    "¿Qué relación tienen los antiguos pañales de tela y los pañuelos utilizados por las Madres y Abuelas de Plaza de Mayo?",
+    "¿De qué modo te parece que esta situación afectaba a la educación?",
+    "Las manifestaciones artísticas ¿permitieron reconstruir la historia de la Dictadura Cívico Militar?",
+    "La Comisión Nacional sobre la Desaparición de Personas (CONADEP) fue creada por el Gobierno argentino en 1983 con el objetivo de…",
   ];
 
   const modalClick = () => {

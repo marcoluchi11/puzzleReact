@@ -66,18 +66,18 @@ const Moderado = ({
   const { anios } = edad;
 
   const questions = [
-    "pregunta1",
-    "pregunta2",
-    "pregunta3",
-    "pregunta4",
-    "pregunta5",
-    "pregunta6",
-    "pregunta7",
-    "pregunta8",
-    "pregunta9",
-    "pregunta10",
-    "pregunta11",
-    "pregunta12",
+    "¿Dónde se alojaban a los detenidos/desaparecidos?",
+    "¿Quiénes empezaron a buscar a los detenidos/desaparecidos?",
+    "¿De qué manera se empezaron a manifestar las Madres de Plaza de Mayo?",
+    "¿Y las abuelas de Plaza de Mayo quiénes eran?",
+    "¿Qué relación hay entre los desaparecidos, las Madres de Plaza de Mayo y las movilizaciones sociales?",
+    "¿Cuál fue la primera gran campaña de la Dictadura para recuperar el apoyo de la sociedad argentina?",
+    "¿Cuál fue la segunda gran campaña de la Dictadura para recuperar el apoyo de la sociedad argentina?",
+    "Las Abuelas de Plaza de Mayo ¿Por qué caminaban tanto?",
+    "¿Qué significa “crimen de lesa humanidad”?",
+    "¿Qué fue la Escuela de las Américas?",
+    "¿A quién pertenece esta frase? “Sin cuerpos no hay prueba, sin pruebas no hay delito. Ni muerto, ni vivo, está desaparecido”.",
+    "Las Madres contaban con una herramienta de comunicación propia, que las defendía de la censura que les imponía el discurso dominante… ¿Cuál te parece que era?",
   ];
 
   const modalClick = () => {
