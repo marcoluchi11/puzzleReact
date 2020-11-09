@@ -1,5 +1,6 @@
 import React, { useState, Fragment, useEffect } from "react";
 import Error from "./Error";
+import shortid from "shortid";
 import {
   Button,
   Modal,
@@ -52,28 +53,74 @@ const Facil = ({
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
   const [rta, setRta] = useState(null);
-  useEffect(() => {
-    setImgsMezcladas(shuffle(ImgsMezcladas));
-  }, [ImgsMezcladas]);
-  const { anios } = edad;
-
   const questions = [
     "¿A qué te remite la fecha del 24 de marzo? ",
     "¿Con qué nombre se presenta la Dictadura de 1976?",
     "¿Sabes quiénes integraban la junta militar?",
     "¿A qué te remite la palabra desaparecidos? ",
     "¿Cuáles crees que eran los motivos que tenían según los militares para detener y/o desaparecer a las personas?",
-
     "¿Cuáles eran las personas que estaban desaparecidas?",
     "Piensa…. ¿A qué te remite el término Razia?",
     "¿Qué relación puedes establecer entre el auto Falcon verde y el golpe militar?",
   ];
-
-  // const respuestas = [
-  //   [1, 2, 3],
-  //   [1, 2, 3],
-  //   ["h", "f", "g"],
-  // ];
+  const rtasCorrectas = [
+    "Golpe cívico militar o Golpe de Estado",
+    "Proceso de Reorganización Nacional",
+    "Integrantes de las Tres fuerzas armadas",
+    "A una persona que no se sabe dónde está",
+    "Porque eran revolucionarios",
+    "Todos",
+    "A un tipo de modalidad de detención sobre las personas",
+    "Era un auto que se utilizaba para detener y secuestrar a personas",
+  ];
+  const [answers, setAnswers] = useState([
+    [
+      "Una fecha patria",
+      "Golpe cívico militar o Golpe de Estado",
+      "Conmemoración de un prócer",
+    ],
+    [
+      "Plan de reforma nacional",
+      "Plan económico, civil y político nacional",
+      "Proceso de Reorganización Nacional",
+    ],
+    [
+      "Presidentes elegidos mediante elecciones",
+      "Integrantes de las Tres fuerzas armadas",
+      "Políticos",
+    ],
+    [
+      "A una persona que se fue",
+      "A una persona que está muerta ",
+      "A una persona que no se sabe dónde está",
+    ],
+    [
+      "Porque hacían algún daño",
+      "Porque eran delincuentes",
+      "Porque eran revolucionarios",
+    ],
+    [
+      "Docentes/estudiantes",
+      "Trabajadores/sindicalistas",
+      "Militantes/grupos políticos",
+      "Todos",
+    ],
+    [
+      "A un tipo de discriminación sobre las personas",
+      "A un tipo de modalidad de detención sobre las personas",
+      "A un tipo de reconocimiento sobre las personas",
+    ],
+    [
+      "Era un auto que estaba de moda",
+      "Era un auto que usaban las familias tipo",
+      "Era un auto que se utilizaba para detener y secuestrar a personas",
+    ],
+  ]);
+  useEffect(() => {
+    setAnswers(answers.map((answer) => shuffle(answer)));
+    setImgsMezcladas(shuffle(ImgsMezcladas));
+  }, [ImgsMezcladas]);
+  const { anios } = edad;
 
   const modalClick = () => {
     if (rta === null) {
@@ -109,8 +156,10 @@ const Facil = ({
     setRta(e.target.value);
   };
   const handleClick = () => {
+    //NO SE ACTUALIZA EN EL STATE
     setModal(true);
-    //Valida cuando llega a 12 para.
+
+    //Valida cuando llega a 8 para.
     if (imagenes.length === 8) {
       setClickovich(true);
       return;
@@ -163,39 +212,19 @@ const Facil = ({
               <FormGroup>
                 <h5 className="mb-3">{questions[contador]}</h5>
                 <FormGroup tag="fieldset">
-                  <FormGroup check>
-                    <Label className="pb-2" check>
-                      <Input
-                        onClick={handleClickModal}
-                        type="radio"
-                        name="opciones"
-                        value="opcion1"
-                      />{" "}
-                      Option 1
-                    </Label>
-                  </FormGroup>
-                  <FormGroup check>
-                    <Label className="pb-2" check>
-                      <Input
-                        onClick={handleClickModal}
-                        type="radio"
-                        name="opciones"
-                        value="opcion2"
-                      />{" "}
-                      Option 2
-                    </Label>
-                  </FormGroup>
-                  <FormGroup check>
-                    <Label className="pb-2" check>
-                      <Input
-                        onClick={handleClickModal}
-                        type="radio"
-                        name="opciones"
-                        value="opcion3"
-                      />{" "}
-                      Option 3
-                    </Label>
-                  </FormGroup>
+                  {answers[contador].map((answer) => (
+                    <FormGroup key={shortid.generate()} check>
+                      <Label className="pb-2" check>
+                        <Input
+                          onClick={handleClickModal}
+                          type="radio"
+                          name="opciones"
+                          value={answer}
+                        />
+                        {answer}
+                      </Label>
+                    </FormGroup>
+                  ))}
                 </FormGroup>
 
                 {error ? (
