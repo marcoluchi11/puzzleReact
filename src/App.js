@@ -30,6 +30,7 @@ function App() {
   const [error, setError] = useState(false);
   const [ganador, setGanador] = useState(false);
   const [segundos, setSegundos] = useState(0);
+  const [contadorRtas, setContadorRtas] = useState(0);
   const modalStyles = {
     fontFamily: "Mulish",
     position: "fixed",
@@ -61,6 +62,8 @@ function App() {
         segundos={segundos}
         modalStyles={modalStyles}
         estilo={estilo}
+        setContadorRtas={setContadorRtas}
+        contadorRtas={contadorRtas}
       />
     );
   }
@@ -134,6 +137,7 @@ function App() {
                 setGanador={setGanador}
                 segundos={segundos}
                 setSegundos={setSegundos}
+                contadorRtas={contadorRtas}
               />
             </div>
           </div>
