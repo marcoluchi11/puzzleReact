@@ -38,6 +38,8 @@ const Facil = ({
   setError,
   modalStyles,
   estilo,
+  setContadorRtas,
+  contadorRtas,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -53,6 +55,7 @@ const Facil = ({
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
   const [rta, setRta] = useState(null);
+
   const questions = [
     "¿A qué te remite la fecha del 24 de marzo? ",
     "¿Con qué nombre se presenta la Dictadura de 1976?",
@@ -73,6 +76,7 @@ const Facil = ({
     "A un tipo de modalidad de detención sobre las personas",
     "Era un auto que se utilizaba para detener y secuestrar a personas",
   ];
+
   const [answers, setAnswers] = useState([
     [
       "Una fecha patria",
@@ -115,10 +119,12 @@ const Facil = ({
       "Era un auto que usaban las familias tipo",
       "Era un auto que se utilizaba para detener y secuestrar a personas",
     ],
+    [],
   ]);
   useEffect(() => {
     setAnswers(answers.map((answer) => shuffle(answer)));
     setImgsMezcladas(shuffle(ImgsMezcladas));
+    // eslint-disable-next-line
   }, [ImgsMezcladas]);
   const { anios } = edad;
 
@@ -140,7 +146,10 @@ const Facil = ({
     );
 
     //se agregan las imagenes al hacer click
-    setRta(null);
+
+    if (rta === rtasCorrectas[contador]) {
+      setContadorRtas(contadorRtas + 1);
+    }
     setContador(contador + 1);
     setImagenes([...imagenes, ImgsMezcladas[contador]]);
     setModal(false);
@@ -154,11 +163,18 @@ const Facil = ({
   }
   const handleClickModal = (e) => {
     setRta(e.target.value);
+
+    //TENGO QUE VER POR QUE NO ME SETEA LA RESPUESTA, Y QUEDA COMO NULL
   };
   const handleClick = () => {
     //NO SE ACTUALIZA EN EL STATE
     setModal(true);
-
+    // console.log(rta === rtasCorrectas[contador]);
+    // console.log(rta);
+    // console.log(rtasCorrectas[contador]);
+    // if (rta === rtasCorrectas[contador]) {
+    //   setContadorRtas(contadorRtas + 1);
+    // }
     //Valida cuando llega a 8 para.
     if (imagenes.length === 8) {
       setClickovich(true);
