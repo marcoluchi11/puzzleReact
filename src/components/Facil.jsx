@@ -144,9 +144,6 @@ const Facil = ({
       },
       { Pregunta: questions[contador], Respuesta: rta }
     );
-
-    //se agregan las imagenes al hacer click
-
     if (rta === rtasCorrectas[contador]) {
       setContadorRtas(contadorRtas + 1);
     }
@@ -163,18 +160,9 @@ const Facil = ({
   }
   const handleClickModal = (e) => {
     setRta(e.target.value);
-
-    //TENGO QUE VER POR QUE NO ME SETEA LA RESPUESTA, Y QUEDA COMO NULL
   };
   const handleClick = () => {
-    //NO SE ACTUALIZA EN EL STATE
     setModal(true);
-    // console.log(rta === rtasCorrectas[contador]);
-    // console.log(rta);
-    // console.log(rtasCorrectas[contador]);
-    // if (rta === rtasCorrectas[contador]) {
-    //   setContadorRtas(contadorRtas + 1);
-    // }
     //Valida cuando llega a 8 para.
     if (imagenes.length === 8) {
       setClickovich(true);
