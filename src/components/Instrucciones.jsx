@@ -53,6 +53,7 @@ const Instrucciones = ({
   setGanador,
   segundos,
   setSegundos,
+  contadorRtas,
 }) => {
   useEffect(() => {
     setGanador(comprobarGanador(imagenes, contador));
@@ -74,6 +75,7 @@ const Instrucciones = ({
       const imagenesSwapeadas2 = imagenes.findIndex(
         (img) => img === seleccion2.substring(28)
       );
+
       const newArray = () => {
         //SE CREA ARRAY CAMBIADO
         let arrNuevo = [...imagenes];
@@ -107,7 +109,9 @@ const Instrucciones = ({
       <ContenedorInstrucciones>
         <Postlogin user={user} />
         <h3>Instrucciones para jugar</h3>
-        {ganador ? <Cartel ganador={ganador} /> : null}
+        {ganador ? (
+          <Cartel ganador={ganador} contadorRtas={contadorRtas} />
+        ) : null}
         <button onClick={handleClick} className="btn btn-primary mt-2">
           <img src={Renew} alt="Icono Intercambio" /> Intercambia Piezas
         </button>
