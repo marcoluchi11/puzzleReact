@@ -35,7 +35,7 @@ export async function Ranking(row, options) {
     }
 
     // eslint-disable-next-line
-    const result = await sheetRanking.addRow(row);
+    await sheetRanking.addRow(row);
   } catch (e) {
     console.error("Error: ", e);
   }
@@ -65,10 +65,9 @@ export async function appendSpreadsheet(row, row2) {
     const sheet = doc.sheetsById[1202433785];
     const sheetAlumnos = docAlumnos.sheetsById[687274045];
 
-    // eslint-disable-next-line
-    const result = await sheet.addRow(row);
-    // eslint-disable-next-line
-    const result2 = await sheetAlumnos.addRow(row2);
+    await sheet.addRow(row);
+
+    await sheetAlumnos.addRow(row2);
   } catch (e) {
     console.error("Error: ", e);
   }
