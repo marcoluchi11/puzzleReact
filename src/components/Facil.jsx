@@ -15,14 +15,14 @@ import { appendSpreadsheet } from "./../Google";
 import { shuffle } from "./../shuffle";
 import "./puzzle.css";
 import pregunta from "./../images/pregunta.png";
-import uno from "./../images/facil/image_part_001.jpg";
-import dos from "./../images/facil/image_part_002.jpg";
-import tres from "./../images/facil/image_part_003.jpg";
-import cuatro from "./../images/facil/image_part_004.jpg";
-import cinco from "./../images/facil/image_part_005.jpg";
-import seis from "./../images/facil/image_part_006.jpg";
-import siete from "./../images/facil/image_part_007.jpg";
-import ocho from "./../images/facil/image_part_008.jpg";
+import uno from "./../images/facil/image_part_001.png";
+import dos from "./../images/facil/image_part_002.png";
+import tres from "./../images/facil/image_part_003.png";
+import cuatro from "./../images/facil/image_part_004.png";
+import cinco from "./../images/facil/image_part_005.png";
+import seis from "./../images/facil/image_part_006.png";
+import siete from "./../images/facil/image_part_007.png";
+import ocho from "./../images/facil/image_part_008.png";
 const Facil = ({
   seleccion1,
   setSeleccion1,
@@ -147,6 +147,7 @@ const Facil = ({
     if (rta === rtasCorrectas[contador]) {
       setContadorRtas(contadorRtas + 1);
     }
+    setRta(null);
     setContador(contador + 1);
     setImagenes([...imagenes, ImgsMezcladas[contador]]);
     setModal(false);
@@ -196,7 +197,7 @@ const Facil = ({
             handleClick2(e);
             toggleClass(e);
           }}
-          src={imagen}
+          SRC={imagen}
           alt="pieza"
         />
       ))}
