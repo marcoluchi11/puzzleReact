@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import Error from "./Error";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import Nosotros from "./../images/info2.svg";
-
+import logovich from "./../images/logoMuseo.jpeg";
 const Us = styled.img`
   width: 30px;
   height: 30px;
@@ -21,11 +21,6 @@ const Boton = styled.button`
 const Titulo = styled.h1`
   font-family: "Mulish", sans-serif;
   text-align: center;
-`;
-const Encabezado = styled.h1`
-  font-family: "Mulish", sans-serif;
-  font-size: 4rem;
-  margin-bottom: 2rem;
 `;
 const Subtitulo = styled.h3`
   font-family: "Mulish", sans-serif;
@@ -90,8 +85,8 @@ const PantallaInicial = ({
   };
   return (
     <div className="row">
-      <div className="col-md-12 d-flex justify-content-center text-center">
-        <Encabezado>MUSEO DE LA MEMORIA</Encabezado>
+      <div className="col-md-12 d-flex justify-content-center mb-2">
+        <img src={logovich} className="bordeimagen" alt="Logo" />
       </div>
 
       <div className="col-md-12 d-flex justify-content-center align-items-center">
