@@ -70,10 +70,10 @@ const Instrucciones = ({
     });
     if (seleccion1 !== "" && seleccion2 !== "" && seleccion1 !== seleccion2) {
       const imagenesSwapeadas1 = imagenes.findIndex(
-        (img) => img === seleccion1.substring(28)
+        (img) => img === seleccion1.substring(21)
       );
       const imagenesSwapeadas2 = imagenes.findIndex(
-        (img) => img === seleccion2.substring(28)
+        (img) => img === seleccion2.substring(21)
       );
 
       const newArray = () => {
