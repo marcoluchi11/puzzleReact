@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
+import shortid from "shortid";
 import Error from "./Error";
 import {
   Button,
@@ -45,6 +46,8 @@ const Dificil = ({
   setError,
   modalStyles,
   estilo,
+  setContadorRtas,
+  contadorRtas,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -69,7 +72,9 @@ const Dificil = ({
   const [modal, setModal] = useState(false);
   const [rta, setRta] = useState(null);
   useEffect(() => {
+    setAnswers(answers.map((answer) => shuffle(answer)));
     setImgsMezcladas(shuffle(ImgsMezcladas));
+    // eslint-disable-next-line
   }, [ImgsMezcladas]);
   const { anios } = edad;
 
@@ -91,7 +96,110 @@ const Dificil = ({
     "Las manifestaciones artísticas ¿permitieron reconstruir la historia de la Dictadura Cívico Militar?",
     "La Comisión Nacional sobre la Desaparición de Personas (CONADEP) fue creada por el Gobierno argentino en 1983 con el objetivo de…",
   ];
+  const rtasCorrectas = [
+    "Que designó la CONADEP (Comisión Nacional sobre la Desaparición de Personas) para el informe final sobre el Proceso de Reorganización Nacional y su accionar",
+    "Ambas son correctas",
+    "No, formó parte de un plan sistemático más grande para erradicar el comunismo en América Latina",
+    "Que la violencia de las organizaciones guerrilleras y la de las FF. AA fueron iguales y comparables",
+    "Todas son correctas",
+    "Porque hubo sectores de la sociedad cómplices de la dictadura",
+    "Por su compromiso e idealismo político",
+    "Todas son correctas",
+    "Las fuerzas armadas eran considerados los salvadores de la patria",
+    "Todas",
+    "Las madres y abuelas de Plaza de Mayo salieron a reclamar por los hijos y nietos desaparecidos y por los soldados obligados a combatir en la guerra de Malvinas",
+    "Manifestaciones públicas organizadas en Argentina desde 1981 con el fin de reclamar por la vigencia de los derechos humanos",
+    `Símbolo de las Madres y Abuelas en su "Manifestación pública" por la búsqueda de sus hijos secuestrados`,
+    "Fuerte presencia de control y disciplinamiento sobre el ámbito educativo",
+    "Sí, porque permite reconstruir la propia identidad cultural argentina y de alguna manera sensibilizan respecto a las cuestiones candentes de la sociedad",
+    "Aclarar e investigar la desaparición forzada de personas producidas por la dictadura cívico militar en Argentina",
+  ];
 
+  const [answers, setAnswers] = useState([
+    [
+      "De una canción famosa en la dictadura",
+      "Que designó la CONADEP (Comisión Nacional sobre la Desaparición de Personas) para el informe final sobre el Proceso de Reorganización Nacional y su accionar",
+      "De una frase prohibida",
+    ],
+    [
+      "Eran organizaciones guerrilleras armadas que querían acabar con el imperialismo",
+      "Ambas son correctas",
+      "Fueron consideradas el enemigo interno a eliminar sistemáticamente por la Alianza Anticomunista Argentina (AAA) y por las Fuerzas Armadas (FF.AA.)",
+    ],
+    [
+      "Sí, se desarrolló solo en Argentina",
+      "No, muchos países del mundo estaban en dictadura",
+      "No, formó parte de un plan sistemático más grande para erradicar el comunismo en América Latina ",
+    ],
+    [
+      "Que el conflicto tenía matices religiosos",
+      "Que la violencia de las organizaciones guerrilleras y la de las FF. AA fueron iguales y comparables",
+      "Que los delitos de lesa humanidad no deberían haber sido juzgados",
+    ],
+    [
+      "Todas son correctas",
+      "Para no dejar pruebas del delito",
+      "De esta forma eran eximidos de un juicio justo",
+      "Aprovechaba cierto “vacío legal” con respecto al conocimiento de su paradero",
+    ],
+    [
+      "Porque se reprimía la educación cívica en todas las escuelas",
+      "Porque hubo sectores de la sociedad cómplices de la dictadura ",
+      "Porque los dictadores querían reformar a la sociedad para civilizarla",
+    ],
+    [
+      "Por su compromiso e idealismo político",
+      "Por su extracción social",
+      "Por su extravagante vestimenta y tener el pelo largo",
+    ],
+    [
+      "Todas son correctas ",
+      "La creciente violencia uno de los argumentos para el Golpe, era fomentada en gran medida por la propia derecha.",
+      "Porque había un plan para imponer un determinado modelo socio-económico en Latinoamérica ",
+      "Porque el gobierno de Isabel Perón era muy débil",
+    ],
+    [
+      "Porque no había líderes políticos",
+      "Las fuerzas armadas eran considerados los salvadores de la patria",
+      "Los partidos políticos no creían en la democracia",
+    ],
+    [
+      "Todas",
+      "Aparecen nuevos actores: acreedores externos, acompañados por organismos como el FMI y el Banco Mundial",
+      "Desprestigio del sindicalismo, precarización laboral, degradación de la fuerza de trabajo, desocupación, desindustrialización…",
+    ],
+    [
+      "Las madres y las abuelas fueron indiferentes a la guerra de Malvinas",
+      "Las madres y abuelas de Plaza de Mayo salieron a reclamar por los hijos y nietos desaparecidos y por los soldados obligados a combatir en la guerra de Malvinas",
+      "No hay relación alguna",
+    ],
+    [
+      "Conjunto de personas dedicadas a apoyar a un gobierno por medio del uso de la fuerza",
+      "Movimiento que se opone a un gobierno de un Estado Soberano",
+      "Manifestaciones públicas organizadas en Argentina desde 1981 con el fin de reclamar por la vigencia de los derechos humanos",
+    ],
+    [
+      `Símbolo de las Madres y Abuelas en su "Manifestación pública" por la búsqueda de sus hijos secuestrados`,
+      "Símbolo de queja para incorporar el uso de pañales descartables",
+      "Símbolo de apoyo a las políticas implementadas en ese entonces",
+    ],
+    [
+      "Fuerte presencia de control y disciplinamiento sobre el ámbito educativo",
+      "Formar personas que viven en sociedad, que se constituyen como sujetos activos y participativos de su historia",
+      "Permitir que los docentes elijan el contenido a impartir",
+    ],
+    [
+      "No, porque los artistas fueron indiferentes a lo acontecido durante la dictadura",
+      "Sí, porque permite reconstruir la propia identidad cultural argentina y de alguna manera sensibilizan respecto a las cuestiones candentes de la sociedad",
+      "No, porque durante la democracia las manifestaciones artísticas continuaban prohibidas",
+    ],
+    [
+      "Olvidar lo que pasó en la dictadura y propiciar la reconstrucción nacional",
+      "Aclarar e investigar la desaparición forzada de personas producidas por la dictadura cívico militar en Argentina",
+      "Elaborar una lista solamente de los sobrevivientes del Terrorismo de Estado",
+    ],
+    [],
+  ]);
   const modalClick = () => {
     if (rta === null) {
       setError(true);
@@ -108,7 +216,9 @@ const Dificil = ({
       },
       { Pregunta: questions[contador], Respuesta: rta }
     );
-
+    if (rta === rtasCorrectas[contador]) {
+      setContadorRtas(contadorRtas + 1);
+    }
     //se agregan las imagenes al hacer click
     setRta(null);
     setContador(contador + 1);
@@ -180,41 +290,20 @@ const Dificil = ({
               <FormGroup>
                 <h5 className="mb-3">{questions[contador]}</h5>
                 <FormGroup tag="fieldset">
-                  <FormGroup check>
-                    <Label className="pb-2" check>
-                      <Input
-                        onClick={handleClickModal}
-                        type="radio"
-                        name="opciones"
-                        value="opcion1"
-                      />{" "}
-                      Option 1
-                    </Label>
-                  </FormGroup>
-                  <FormGroup check>
-                    <Label className="pb-2" check>
-                      <Input
-                        onClick={handleClickModal}
-                        type="radio"
-                        name="opciones"
-                        value="opcion2"
-                      />{" "}
-                      Option 2
-                    </Label>
-                  </FormGroup>
-                  <FormGroup check>
-                    <Label className="pb-2" check>
-                      <Input
-                        onClick={handleClickModal}
-                        type="radio"
-                        name="opciones"
-                        value="opcion3"
-                      />{" "}
-                      Option 3
-                    </Label>
-                  </FormGroup>
+                  {answers[contador].map((answer) => (
+                    <FormGroup key={shortid.generate()} check>
+                      <Label className="pb-2" check>
+                        <Input
+                          onClick={handleClickModal}
+                          type="radio"
+                          name="opciones"
+                          value={answer}
+                        />
+                        {answer}
+                      </Label>
+                    </FormGroup>
+                  ))}
                 </FormGroup>
-
                 {error ? (
                   <Error mensaje="Error, Selecciona una respuesta" />
                 ) : null}

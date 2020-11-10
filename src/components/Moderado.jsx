@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import Error from "./Error";
+import shortid from "shortid";
 import {
   Button,
   Modal,
@@ -41,6 +42,8 @@ const Moderado = ({
   setError,
   modalStyles,
   estilo,
+  setContadorRtas,
+  contadorRtas,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -61,7 +64,9 @@ const Moderado = ({
   const [modal, setModal] = useState(false);
   const [rta, setRta] = useState(null);
   useEffect(() => {
+    setAnswers(answers.map((answer) => shuffle(answer)));
     setImgsMezcladas(shuffle(ImgsMezcladas));
+    // eslint-disable-next-line
   }, [ImgsMezcladas]);
   const { anios } = edad;
 
@@ -79,7 +84,69 @@ const Moderado = ({
     "¿A quién pertenece esta frase? “Sin cuerpos no hay prueba, sin pruebas no hay delito. Ni muerto, ni vivo, está desaparecido”.",
     "Las Madres contaban con una herramienta de comunicación propia, que las defendía de la censura que les imponía el discurso dominante… ¿Cuál te parece que era?",
   ];
+  const rtasCorrectas = [
+    "En los centros clandestinos",
+    "Las Madres de Plaza de Mayo",
+    "Caminando por la Plaza de Mayo",
+    "Las abuelas de los bebés desaparecidos",
+    "Simbolizan la lucha de la sociedad argentina ante la violencia implementada por la dictadura",
+    "La utilización del Mundial del ’78 como pantalla de encubrimiento",
+    "Publicidades que presentaban a la Argentina como vencedora de la Guerra de Malvinas. ",
+    "Porque si dejaban de caminar eran detenidas",
+    "Todas son correctas",
+    "Una escuela de entrenamiento militar promovida por los EEUU a las fuerzas militares de Latinoamérica",
+    "Jorge Rafael Videla",
+    "Periódico",
+  ];
 
+  const [answers, setAnswers] = useState([
+    ["En los hospitales", "En las cárceles", "En los centros clandestinos"],
+    ["Un detective judicial", "Las Madres de Plaza de Mayo", "La sociedad"],
+    [
+      "Recorriendo la ciudad",
+      "Haciendo manifestaciones",
+      "Caminando por la Plaza de Mayo",
+    ],
+    [
+      "Las abuelas de los desaparecidos detenidos",
+      "Las abuelas de los bebés desaparecidos",
+      "Las abuelas de la sociedad",
+    ],
+    [
+      "Simbolizan la lucha de la sociedad argentina ante la violencia implementada por la dictadura",
+      "No están relacionados",
+      "Son entidades políticas que representaban las ideas de los militares",
+    ],
+    [
+      "La utilización del Mundial del ’78 como pantalla de encubrimiento",
+      "El recibimiento del presidente Jimmy Carter (EEUU) a la Argentina",
+      "La implementación de medidas económicas de corto plazo",
+    ],
+    [
+      "Publicidades que presentaban a la Argentina como vencedora de la Guerra de Malvinas",
+      "Publicidades que favorecían la importación de productos",
+      "Publicidades que favorecían al cuidado de la propiedad privada",
+    ],
+    [
+      "Porque si dejaban de caminar eran detenidas",
+      "Porque era una promesa que debían cumplir",
+      "Porque las fuerzas militares las obligaban a hacerlo como castigo",
+    ],
+    [
+      "Un crimen que agravia, ofende e injuria a la humanidad",
+      "Crimen que nunca prescribe",
+      "Delitos especialmente atroces y de carácter inhumano, que forman parte de un ataque generalizado o sistemático contra una población civil",
+      "Todas son correctas",
+    ],
+    [
+      "Una escuela de entrenamiento militar promovida por los EEUU a las fuerzas militares de Latinoamérica",
+      "Una escuela de Latinoamérica que educaba y formaba a docentes de todo el continente americano",
+      "Una escuela de formación universitaria de los EEUU",
+    ],
+    ["Orlando Ramón Agosti", "Emilio Eduardo Massera", "Jorge Rafael Videla"],
+    ["Radio", "Periódico", "Pintadas"],
+    [],
+  ]);
   const modalClick = () => {
     if (rta === null) {
       setError(true);
@@ -96,9 +163,10 @@ const Moderado = ({
       },
       { Pregunta: questions[contador], Respuesta: rta }
     );
-
+    if (rta === rtasCorrectas[contador]) {
+      setContadorRtas(contadorRtas + 1);
+    }
     //se agregan las imagenes al hacer click
-    setRta(null);
     setContador(contador + 1);
     setImagenes([...imagenes, ImgsMezcladas[contador]]);
     setModal(false);
@@ -168,41 +236,20 @@ const Moderado = ({
               <FormGroup>
                 <h5 className="mb-3">{questions[contador]}</h5>
                 <FormGroup tag="fieldset">
-                  <FormGroup check>
-                    <Label className="pb-2" check>
-                      <Input
-                        onClick={handleClickModal}
-                        type="radio"
-                        name="opciones"
-                        value="opcion1"
-                      />{" "}
-                      Option 1
-                    </Label>
-                  </FormGroup>
-                  <FormGroup check>
-                    <Label className="pb-2" check>
-                      <Input
-                        onClick={handleClickModal}
-                        type="radio"
-                        name="opciones"
-                        value="opcion2"
-                      />{" "}
-                      Option 2
-                    </Label>
-                  </FormGroup>
-                  <FormGroup check>
-                    <Label className="pb-2" check>
-                      <Input
-                        onClick={handleClickModal}
-                        type="radio"
-                        name="opciones"
-                        value="opcion3"
-                      />{" "}
-                      Option 3
-                    </Label>
-                  </FormGroup>
+                  {answers[contador].map((answer) => (
+                    <FormGroup key={shortid.generate()} check>
+                      <Label className="pb-2" check>
+                        <Input
+                          onClick={handleClickModal}
+                          type="radio"
+                          name="opciones"
+                          value={answer}
+                        />
+                        {answer}
+                      </Label>
+                    </FormGroup>
+                  ))}
                 </FormGroup>
-
                 {error ? (
                   <Error mensaje="Error, Selecciona una respuesta" />
                 ) : null}
