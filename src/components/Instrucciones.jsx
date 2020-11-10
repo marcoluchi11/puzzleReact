@@ -53,13 +53,21 @@ const Instrucciones = ({
   setGanador,
   segundos,
   setSegundos,
+  setContadorRtas,
   contadorRtas,
 }) => {
   useEffect(() => {
     setGanador(comprobarGanador(imagenes, contador));
     if (comprobarGanador(imagenes, contador)) {
       if (user.displayName !== "Anonimo")
-        Ranking({ Nombre: user.displayName, Tiempo: segundos + "s" }, opciones);
+        Ranking(
+          {
+            Nombre: user.displayName,
+            Tiempo: segundos + "s",
+            Respuestas: contadorRtas + " / " + contador,
+          },
+          opciones
+        );
     }
     // eslint-disable-next-line
   }, [imagenes, setGanador, contador]);
@@ -103,6 +111,7 @@ const Instrucciones = ({
     setImagenes([]);
     setContador(0);
     setSegundos(0);
+    setContadorRtas(0);
   };
   return (
     <Contenedor>
@@ -110,7 +119,11 @@ const Instrucciones = ({
         <Postlogin user={user} />
         <h3>Instrucciones para jugar</h3>
         {ganador ? (
-          <Cartel ganador={ganador} contadorRtas={contadorRtas} />
+          <Cartel
+            ganador={ganador}
+            contadorRtas={contadorRtas}
+            contador={contador}
+          />
         ) : null}
         <button onClick={handleClick} className="btn btn-primary mt-2">
           <img src={Renew} alt="Icono Intercambio" /> Intercambia Piezas
@@ -130,7 +143,7 @@ const Instrucciones = ({
 
       <ListaInstrucciones>
         <ElementoLista>
-          Haz click en la imagen del signo de preguntas (?) para responder una
+          Haz click en la imágen del signo de preguntas (?) para responder una
           pregunta
         </ElementoLista>
         <ElementoLista>
@@ -140,8 +153,8 @@ const Instrucciones = ({
           Luego de responder las preguntas, completa el rompecabezas!
         </ElementoLista>
         <ElementoLista>
-          Para intercambiar piezas, haz click en las dos imagenes a
-          intercambiar, y luego clickea en "Intercambia Pieza"
+          Para intercambiar piezas, haz click en las dos imágenes a
+          intercambiar, y luego clickeá en "Intercambia Pieza"
         </ElementoLista>
         <ElementoLista>Premisa principal: Divertirse.</ElementoLista>
       </ListaInstrucciones>
