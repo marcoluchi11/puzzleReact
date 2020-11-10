@@ -87,6 +87,8 @@ function App() {
         segundos={segundos}
         modalStyles={modalStyles}
         estilo={estilo}
+        setContadorRtas={setContadorRtas}
+        contadorRtas={contadorRtas}
       />
     );
   }
@@ -109,6 +111,8 @@ function App() {
         setError={setError}
         modalStyles={modalStyles}
         estilo={estilo}
+        setContadorRtas={setContadorRtas}
+        contadorRtas={contadorRtas}
       />
     );
   }
