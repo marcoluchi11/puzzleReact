@@ -52,6 +52,10 @@ function App() {
         user={user}
         error={error}
         imagenes={imagenes}
+        segundos={segundos}
+        modalStyles={modalStyles}
+        estilo={estilo}
+        contadorRtas={contadorRtas}
         setImagenes={setImagenes}
         setUser={setUser}
         setGanador={setGanador}
@@ -59,11 +63,7 @@ function App() {
         setSeleccion1={setSeleccion1}
         setSeleccion2={setSeleccion2}
         setError={setError}
-        segundos={segundos}
-        modalStyles={modalStyles}
-        estilo={estilo}
         setContadorRtas={setContadorRtas}
-        contadorRtas={contadorRtas}
       />
     );
   }
@@ -141,6 +141,7 @@ function App() {
                 setGanador={setGanador}
                 segundos={segundos}
                 setSegundos={setSegundos}
+                setContadorRtas={setContadorRtas}
                 contadorRtas={contadorRtas}
               />
             </div>
