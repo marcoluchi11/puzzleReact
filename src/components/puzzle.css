@@ -20,9 +20,18 @@ img#Imagen:hover {
 img.ImagenDificil {
   width: 160px;
   height: 160px;
-  border: white solid 0.5px;
+  border: black solid 0.5px;
 }
 
 img.ImagenDificil:hover {
   cursor: pointer;
+}
+span.correctas {
+  background-color: white;
+  padding: 0.25rem;
+  border-radius: 15px;
+  letter-spacing: 2px;
+}
+.bordeimagen {
+  border-radius: 20px;
 }
