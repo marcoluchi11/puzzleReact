@@ -35,3 +35,26 @@ span.correctas {
 .bordeimagen {
   border-radius: 20px;
 }
+label {
+  /* background-color: lightgray;
+  border-radius: 15px;
+  padding: 0 0.3rem;*/
+}
+div.form-check {
+  background-color: lightgray;
+  border-radius: 15px;
+}
+.estilado {
+  margin-bottom: 0.6rem;
+}
+label input {
+  margin-right: 0.5rem !important;
+  margin-left: 0.3rem !important;
+}
+label {
+  padding: 0.1rem;
+  margin-bottom: 0 !important;
+}
+.correcta {
+  background-color: limegreen;
+}
