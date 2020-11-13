@@ -150,6 +150,7 @@ const Facil = ({
     setRta(null);
     setContador(contador + 1);
     setImagenes([...imagenes, ImgsMezcladas[contador]]);
+
     setModal(false);
   };
 
@@ -197,7 +198,7 @@ const Facil = ({
             handleClick2(e);
             toggleClass(e);
           }}
-          SRC={imagen}
+          src={imagen}
           alt="pieza"
         />
       ))}
@@ -211,18 +212,21 @@ const Facil = ({
           />
           <Modal style={modalStyles} isOpen={modal}>
             <ModalHeader style={estilo}>
-              <h4>Hiciste click! Ahora responde esta pregunta</h4>
+              <h5>{questions[contador]}</h5>
             </ModalHeader>
             <ModalBody>
               <FormGroup>
-                <h5 className="mb-3">{questions[contador]}</h5>
                 <FormGroup tag="fieldset">
                   {answers[contador].map((answer) => (
-                    <FormGroup key={shortid.generate()} check>
-                      <Label className="pb-2" check>
+                    <FormGroup
+                      className="estilado"
+                      key={shortid.generate()}
+                      check
+                    >
+                      <Label>
                         <Input
                           onClick={handleClickModal}
-                          type="radio"
+                          type="checkbox"
                           name="opciones"
                           value={answer}
                         />
