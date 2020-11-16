@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, Fragment, useEffect, useRef } from "react";
 import Error from "./Error";
 import shortid from "shortid";
 import {
@@ -7,9 +7,7 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Input,
   FormGroup,
-  Label,
 } from "reactstrap";
 import { appendSpreadsheet } from "./../Google";
 import { shuffle } from "./../shuffle";
@@ -55,7 +53,6 @@ const Facil = ({
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
   const [rta, setRta] = useState(null);
-
   const questions = [
     "¿A qué te remite la fecha del 24 de marzo? ",
     "¿Con qué nombre se presenta la Dictadura de 1976?",
@@ -76,7 +73,6 @@ const Facil = ({
     "A un tipo de modalidad de detención sobre las personas",
     "Era un auto que se utilizaba para detener y secuestrar a personas",
   ];
-
   const [answers, setAnswers] = useState([
     [
       "Una fecha patria",
@@ -129,11 +125,13 @@ const Facil = ({
   const { anios } = edad;
 
   const modalClick = () => {
+    // POR SI NO INGRESA RTA
     if (rta === null) {
       setError(true);
       return;
     }
     setError(false);
+    // SE MANDA TODO AL STYLESHEET
     appendSpreadsheet(
       {
         Pregunta: questions[contador],
@@ -144,13 +142,13 @@ const Facil = ({
       },
       { Pregunta: questions[contador], Respuesta: rta }
     );
+    //SE SUMAN LAS RTAS SI SON IGUALES
     if (rta === rtasCorrectas[contador]) {
       setContadorRtas(contadorRtas + 1);
     }
     setRta(null);
     setContador(contador + 1);
     setImagenes([...imagenes, ImgsMezcladas[contador]]);
-
     setModal(false);
   };
 
@@ -188,6 +186,7 @@ const Facil = ({
   const toggleClass = (e) => {
     e.target.classList.toggle("active");
   };
+  const inputRef = useRef(null);
   return (
     <div id="Contenedor">
       {imagenes.map((imagen) => (
@@ -216,25 +215,23 @@ const Facil = ({
             </ModalHeader>
             <ModalBody>
               <FormGroup>
-                <FormGroup tag="fieldset">
-                  {answers[contador].map((answer) => (
-                    <FormGroup
-                      className="estilado"
+                {answers[contador].map((answer) => {
+                  return (
+                    <label
+                      className="d-block w-100 mb-2 estilado"
                       key={shortid.generate()}
-                      check
+                      ref={inputRef}
                     >
-                      <Label>
-                        <Input
-                          onClick={handleClickModal}
-                          type="checkbox"
-                          name="opciones"
-                          value={answer}
-                        />
-                        {answer}
-                      </Label>
-                    </FormGroup>
-                  ))}
-                </FormGroup>
+                      <input
+                        onClick={handleClickModal}
+                        type="checkbox"
+                        name="opciones"
+                        value={answer}
+                      />
+                      {answer}
+                    </label>
+                  );
+                })}
 
                 {error ? (
                   <Error mensaje="Error, Selecciona una respuesta" />
@@ -242,7 +239,13 @@ const Facil = ({
               </FormGroup>
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" onClick={modalClick}>
+              <Button
+                color="primary"
+                onClick={() => {
+                  console.log(inputRef.current);
+                  modalClick();
+                }}
+              >
                 Enviar respuesta
               </Button>
             </ModalFooter>

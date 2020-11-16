@@ -7,9 +7,7 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Input,
   FormGroup,
-  Label,
 } from "reactstrap";
 import { appendSpreadsheet } from "./../Google";
 import { shuffle } from "./../shuffle";
@@ -236,19 +234,22 @@ const Moderado = ({
               <FormGroup>
                 <h5 className="mb-3">{questions[contador]}</h5>
                 <FormGroup tag="fieldset">
-                  {answers[contador].map((answer) => (
-                    <FormGroup key={shortid.generate()} check>
-                      <Label className="pb-2" check>
-                        <Input
+                  {answers[contador].map((answer) => {
+                    return (
+                      <label
+                        className="d-block w-100 mb-2 estilado"
+                        key={shortid.generate()}
+                      >
+                        <input
                           onClick={handleClickModal}
-                          type="radio"
+                          type="checkbox"
                           name="opciones"
                           value={answer}
                         />
                         {answer}
-                      </Label>
-                    </FormGroup>
-                  ))}
+                      </label>
+                    );
+                  })}
                 </FormGroup>
                 {error ? (
                   <Error mensaje="Error, Selecciona una respuesta" />
