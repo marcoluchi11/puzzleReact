@@ -78,10 +78,10 @@ const Instrucciones = ({
     });
     if (seleccion1 !== "" && seleccion2 !== "" && seleccion1 !== seleccion2) {
       const imagenesSwapeadas1 = imagenes.findIndex(
-        (img) => img === seleccion1.substring(21)
+        (img) => img === seleccion1.substring(28)
       );
       const imagenesSwapeadas2 = imagenes.findIndex(
-        (img) => img === seleccion2.substring(21)
+        (img) => img === seleccion2.substring(28)
       );
 
       const newArray = () => {
@@ -172,3 +172,8 @@ Instrucciones.propTypes = {
   seleccion1: PropTypes.string.isRequired,
   seleccion2: PropTypes.string.isRequired,
 };
+// BOTON RANKING EN LAS INSTRUCCIONES
+
+// VER COLORES
+
+// QUE TE AVISE SI RESPONDES INCORRECTAMENTE Y QUE SIGA ADELANTE
