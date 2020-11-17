@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import Error from "./Error";
-import shortid from "shortid";
+import CorrectaIncorrecta from "./CorrectaIncorrecta";
+import { nanoid } from "nanoid";
 import {
   Button,
   Modal,
@@ -60,6 +61,8 @@ const Moderado = ({
   ]);
   const [clickovich, setClickovich] = useState(false);
   const [modal, setModal] = useState(false);
+  const [correcta, setCorrecta] = useState(null);
+  const [incorrecta, setIncorrecta] = useState(false);
   const [rta, setRta] = useState(null);
   useEffect(() => {
     setAnswers(answers.map((answer) => shuffle(answer)));
@@ -163,11 +166,20 @@ const Moderado = ({
     );
     if (rta === rtasCorrectas[contador]) {
       setContadorRtas(contadorRtas + 1);
+      setCorrecta(true);
+      setIncorrecta(false);
+    } else {
+      setCorrecta(false);
+      setIncorrecta(true);
     }
-    //se agregan las imagenes al hacer click
-    setContador(contador + 1);
-    setImagenes([...imagenes, ImgsMezcladas[contador]]);
-    setModal(false);
+
+    setTimeout(() => {
+      setContador(contador + 1);
+      setImagenes([...imagenes, ImgsMezcladas[contador]]);
+      setCorrecta(false);
+      setIncorrecta(false);
+      setModal(null);
+    }, 2500);
   };
 
   if (user === "" || user === false) {
@@ -238,12 +250,11 @@ const Moderado = ({
                     return (
                       <label
                         className="d-block w-100 mb-2 estilado"
-                        key={shortid.generate()}
+                        key={nanoid()}
                       >
                         <input
                           onClick={handleClickModal}
                           type="checkbox"
-                          name="opciones"
                           value={answer}
                         />
                         {answer}
@@ -257,6 +268,20 @@ const Moderado = ({
               </FormGroup>
             </ModalBody>
             <ModalFooter>
+              {correcta ? (
+                <CorrectaIncorrecta
+                  mensaje="Respuesta Correcta!"
+                  correcta={correcta}
+                  incorrecta={incorrecta}
+                />
+              ) : null}
+              {incorrecta ? (
+                <CorrectaIncorrecta
+                  correcta={correcta}
+                  incorrecta={incorrecta}
+                  mensaje={`Respuesta Incorrecta. La respuesta correcta era "${rtasCorrectas[contador]}"`}
+                />
+              ) : null}
               <Button color="primary" onClick={modalClick}>
                 Enviar respuesta
               </Button>

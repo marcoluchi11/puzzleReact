@@ -1,6 +1,6 @@
-import React, { useState, Fragment, useEffect, useRef } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import Error from "./Error";
-import shortid from "shortid";
+import { nanoid } from "nanoid";
 import {
   Button,
   Modal,
@@ -21,6 +21,7 @@ import cinco from "./../images/facil/image_part_005.png";
 import seis from "./../images/facil/image_part_006.png";
 import siete from "./../images/facil/image_part_007.png";
 import ocho from "./../images/facil/image_part_008.png";
+import CorrectaIncorrecta from "./CorrectaIncorrecta";
 const Facil = ({
   seleccion1,
   setSeleccion1,
@@ -29,6 +30,7 @@ const Facil = ({
   setImagenes,
   user,
   setUser,
+  opciones,
   contador,
   setContador,
   edad,
@@ -63,6 +65,8 @@ const Facil = ({
     "Piensa…. ¿A qué te remite el término Razia?",
     "¿Qué relación puedes establecer entre el auto Falcon verde y el golpe militar?",
   ];
+  const [correcta, setCorrecta] = useState(null);
+  const [incorrecta, setIncorrecta] = useState(false);
   const rtasCorrectas = [
     "Golpe cívico militar o Golpe de Estado",
     "Proceso de Reorganización Nacional",
@@ -116,6 +120,7 @@ const Facil = ({
       "Era un auto que se utilizaba para detener y secuestrar a personas",
     ],
     [],
+    [],
   ]);
   useEffect(() => {
     setAnswers(answers.map((answer) => shuffle(answer)));
@@ -145,11 +150,20 @@ const Facil = ({
     //SE SUMAN LAS RTAS SI SON IGUALES
     if (rta === rtasCorrectas[contador]) {
       setContadorRtas(contadorRtas + 1);
+      setCorrecta(true);
+      setIncorrecta(false);
+    } else {
+      setCorrecta(false);
+      setIncorrecta(true);
     }
-    setRta(null);
-    setContador(contador + 1);
-    setImagenes([...imagenes, ImgsMezcladas[contador]]);
-    setModal(false);
+
+    setTimeout(() => {
+      setContador(contador + 1);
+      setImagenes([...imagenes, ImgsMezcladas[contador]]);
+      setCorrecta(false);
+      setIncorrecta(false);
+      setModal(null);
+    }, 2500);
   };
 
   if (user === "" || user === false) {
@@ -186,7 +200,7 @@ const Facil = ({
   const toggleClass = (e) => {
     e.target.classList.toggle("active");
   };
-  const inputRef = useRef(null);
+
   return (
     <div id="Contenedor">
       {imagenes.map((imagen) => (
@@ -219,13 +233,11 @@ const Facil = ({
                   return (
                     <label
                       className="d-block w-100 mb-2 estilado"
-                      key={shortid.generate()}
-                      ref={inputRef}
+                      key={nanoid()}
                     >
                       <input
                         onClick={handleClickModal}
                         type="checkbox"
-                        name="opciones"
                         value={answer}
                       />
                       {answer}
@@ -239,10 +251,23 @@ const Facil = ({
               </FormGroup>
             </ModalBody>
             <ModalFooter>
+              {correcta ? (
+                <CorrectaIncorrecta
+                  mensaje="Respuesta Correcta!"
+                  correcta={correcta}
+                  incorrecta={incorrecta}
+                />
+              ) : null}
+              {incorrecta ? (
+                <CorrectaIncorrecta
+                  correcta={correcta}
+                  incorrecta={incorrecta}
+                  mensaje={`Respuesta Incorrecta. La respuesta correcta era "${rtasCorrectas[contador]}"`}
+                />
+              ) : null}
               <Button
                 color="primary"
                 onClick={() => {
-                  console.log(inputRef.current);
                   modalClick();
                 }}
               >

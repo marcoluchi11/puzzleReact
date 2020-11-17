@@ -1,5 +1,4 @@
 import React, { useEffect, useState, Fragment } from "react";
-import shortid from "shortid";
 import Error from "./Error";
 import {
   Button,
@@ -10,6 +9,8 @@ import {
   FormGroup,
 } from "reactstrap";
 import { appendSpreadsheet } from "./../Google";
+import CorrectaIncorrecta from "./CorrectaIncorrecta";
+import { nanoid } from "nanoid";
 import pregunta from "./../images/pregunta.png";
 import { shuffle } from "./../shuffle";
 import uno from "./../images/dificil/image_part_001.jpg";
@@ -67,6 +68,8 @@ const Dificil = ({
     dieciseis,
   ]);
   const [clickovich, setClickovich] = useState(false);
+  const [correcta, setCorrecta] = useState(null);
+  const [incorrecta, setIncorrecta] = useState(false);
   const [modal, setModal] = useState(false);
   const [rta, setRta] = useState(null);
   useEffect(() => {
@@ -216,12 +219,20 @@ const Dificil = ({
     );
     if (rta === rtasCorrectas[contador]) {
       setContadorRtas(contadorRtas + 1);
+      setCorrecta(true);
+      setIncorrecta(false);
+    } else {
+      setCorrecta(false);
+      setIncorrecta(true);
     }
-    //se agregan las imagenes al hacer click
-    setRta(null);
-    setContador(contador + 1);
-    setImagenes([...imagenes, ImgsMezcladas[contador]]);
-    setModal(false);
+
+    setTimeout(() => {
+      setContador(contador + 1);
+      setImagenes([...imagenes, ImgsMezcladas[contador]]);
+      setCorrecta(false);
+      setIncorrecta(false);
+      setModal(null);
+    }, 2500);
   };
 
   if (user === "" || user === false) {
@@ -292,12 +303,11 @@ const Dificil = ({
                     return (
                       <label
                         className="d-block w-100 mb-2 estilado"
-                        key={shortid.generate()}
+                        key={nanoid()}
                       >
                         <input
                           onClick={handleClickModal}
                           type="checkbox"
-                          name="opciones"
                           value={answer}
                         />
                         {answer}
@@ -311,6 +321,20 @@ const Dificil = ({
               </FormGroup>
             </ModalBody>
             <ModalFooter>
+              {correcta ? (
+                <CorrectaIncorrecta
+                  mensaje="Respuesta Correcta!"
+                  correcta={correcta}
+                  incorrecta={incorrecta}
+                />
+              ) : null}
+              {incorrecta ? (
+                <CorrectaIncorrecta
+                  correcta={correcta}
+                  incorrecta={incorrecta}
+                  mensaje={`Respuesta Incorrecta. La respuesta correcta era "${rtasCorrectas[contador]}"`}
+                />
+              ) : null}
               <Button color="primary" onClick={modalClick}>
                 Enviar respuesta
               </Button>
