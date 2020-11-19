@@ -10,7 +10,6 @@ import {
 } from "reactstrap";
 import { appendSpreadsheet } from "./../Google";
 import CorrectaIncorrecta from "./CorrectaIncorrecta";
-import { nanoid } from "nanoid";
 import pregunta from "./../images/pregunta.png";
 import { shuffle } from "./../shuffle";
 import uno from "./../images/dificil/image_part_001.jpg";
@@ -227,12 +226,13 @@ const Dificil = ({
     }
 
     setTimeout(() => {
+      setRta(null);
       setContador(contador + 1);
       setImagenes([...imagenes, ImgsMezcladas[contador]]);
       setCorrecta(false);
       setIncorrecta(false);
       setModal(null);
-    }, 2500);
+    }, 2300);
   };
 
   if (user === "" || user === false) {
@@ -274,7 +274,7 @@ const Dificil = ({
       {imagenes.map((imagen) => (
         <img
           key={imagen}
-          className="ImagenDificil"
+          className="Imagen"
           onClick={(e) => {
             handleClick2(e);
             toggleClass(e);
@@ -286,8 +286,8 @@ const Dificil = ({
       {clickovich ? null : (
         <Fragment>
           <img
-            className="ImagenDificil"
             onClick={handleClick}
+            className="Imagen"
             src={pregunta}
             alt="Boton click"
           />
@@ -303,7 +303,7 @@ const Dificil = ({
                     return (
                       <label
                         className="d-block w-100 mb-2 estilado"
-                        key={nanoid()}
+                        //      key={nanoid()}
                       >
                         <input
                           onClick={handleClickModal}

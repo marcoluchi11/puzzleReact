@@ -1,6 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
 import Error from "./Error";
-import { nanoid } from "nanoid";
 import {
   Button,
   Modal,
@@ -158,12 +157,13 @@ const Facil = ({
     }
 
     setTimeout(() => {
+      setRta(null);
       setContador(contador + 1);
       setImagenes([...imagenes, ImgsMezcladas[contador]]);
       setCorrecta(false);
       setIncorrecta(false);
       setModal(null);
-    }, 2500);
+    }, 2300);
   };
 
   if (user === "" || user === false) {
@@ -206,7 +206,7 @@ const Facil = ({
       {imagenes.map((imagen) => (
         <img
           key={imagen}
-          id="Imagen"
+          className="Imagen"
           onClick={(e) => {
             handleClick2(e);
             toggleClass(e);
@@ -218,7 +218,7 @@ const Facil = ({
       {clickovich ? null : (
         <Fragment>
           <img
-            id="Imagen"
+            className="Imagen"
             onClick={handleClick}
             src={pregunta}
             alt="Boton click"
@@ -233,7 +233,7 @@ const Facil = ({
                   return (
                     <label
                       className="d-block w-100 mb-2 estilado"
-                      key={nanoid()}
+                      //    key={nanoid()}
                     >
                       <input
                         onClick={handleClickModal}
