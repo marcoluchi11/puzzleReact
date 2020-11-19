@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Stopwatch from "./Stopwatch";
 import ImagenFinal from "./ImagenFinal";
 import Postlogin from "./Postlogin";
-import { Ranking } from "./../Google";
+import { Ranking, RankingDatos } from "./../Google";
 import { comprobarGanador } from "./../comprobarGanador";
 import Renew from "./../images/autorenew-24px.svg";
 import Back from "./../images/arrow_back_ios-24px.svg";
@@ -34,7 +34,10 @@ const ElementoLista = styled.li`
   }
 `;
 const ContenedorInstrucciones = styled.div`
-  text-align: center;
+  display: flex;
+  place-content: space-around;
+  align-items: center;
+  flex-direction: column;
 `;
 const Instrucciones = ({
   seleccion1,
@@ -56,6 +59,10 @@ const Instrucciones = ({
   setContadorRtas,
   contadorRtas,
 }) => {
+  useEffect(() => {
+    RankingDatos(opciones);
+    //HABRIA QUE MAPEAR EL ARREGLO CON LAS FILAS Y MOSTRARLO EN UN PSEUDO RANKING
+  }, [opciones]);
   useEffect(() => {
     setGanador(comprobarGanador(imagenes, contador));
     if (comprobarGanador(imagenes, contador)) {
@@ -117,7 +124,7 @@ const Instrucciones = ({
     <Contenedor>
       <ContenedorInstrucciones>
         <Postlogin user={user} />
-        <h3>Instrucciones para jugar</h3>
+
         {ganador ? (
           <Cartel
             ganador={ganador}
@@ -125,12 +132,13 @@ const Instrucciones = ({
             contador={contador}
           />
         ) : null}
-        <button onClick={handleClick} className="btn btn-primary mt-2">
+        <button className="btn btn-danger mt-3 mb-3" onClick={volverAlMenu}>
+          <img src={Back} alt="Icono vuelta" /> Volver al menú principal
+        </button>
+        <button onClick={handleClick} className="btn btn-primary mb-2">
           <img src={Renew} alt="Icono Intercambio" /> Intercambia Piezas
         </button>
-        <button className="btn btn-danger mt-3 mb-3" onClick={volverAlMenu}>
-          <img src={Back} alt="Icono vuelta" /> Volver al menu principal
-        </button>
+
         <ImagenFinal contador={contador} opciones={opciones} />
         <Stopwatch
           segundos={segundos}
@@ -140,7 +148,7 @@ const Instrucciones = ({
           ganador={ganador}
         />
       </ContenedorInstrucciones>
-
+      <h3 className="mt-1">Instrucciones para jugar</h3>
       <ListaInstrucciones>
         <ElementoLista>
           Haz click en la imágen del signo de preguntas (?) para responder una
@@ -172,8 +180,3 @@ Instrucciones.propTypes = {
   seleccion1: PropTypes.string.isRequired,
   seleccion2: PropTypes.string.isRequired,
 };
-// BOTON RANKING EN LAS INSTRUCCIONES
-
-// VER COLORES
-
-// QUE TE AVISE SI RESPONDES INCORRECTAMENTE Y QUE SIGA ADELANTE
