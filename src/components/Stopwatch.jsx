@@ -3,8 +3,9 @@ import styled from "@emotion/styled";
 
 const Cronometro = styled.h5`
   border: 3px black solid;
-  padding: 3px;
+  padding: 1rem;
   background-color: #dbdbdb;
+  border-radius: 15px;
   color: black;
 `;
 const Stopwatch = ({ contador, opciones, segundos, setSegundos, ganador }) => {
