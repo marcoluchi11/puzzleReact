@@ -5,27 +5,19 @@ div#Contenedor {
   flex-wrap: wrap;
   margin-top: 1rem;
 }
-img#Imagen {
+img.Imagen {
   width: 160px;
   height: 160px;
   border: black solid 0.5px;
 }
 
-img#Imagen:hover {
+img.Imagen:hover {
   cursor: pointer;
 }
 .active {
   border: red solid 3px !important;
 }
-img.ImagenDificil {
-  width: 160px;
-  height: 160px;
-  border: black solid 0.5px;
-}
 
-img.ImagenDificil:hover {
-  cursor: pointer;
-}
 span.correctas {
   background-color: white;
   padding: 0.25rem;
