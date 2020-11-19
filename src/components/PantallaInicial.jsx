@@ -90,7 +90,7 @@ const PantallaInicial = ({
       </div>
 
       <div className="col-md-12 d-flex justify-content-center align-items-center">
-        <Titulo>Bienvenido al Puzzle</Titulo>
+        <Titulo>¡Bienvenidos y bienvenidas al Puzzle!</Titulo>
         <Us
           onClick={() => setModal(true)}
           className="ml-3"
@@ -158,13 +158,13 @@ const PantallaInicial = ({
       </div>
       <div className="col-md-12 d-flex justify-content-center text-center  ">
         <Boton className="btn btn-success" onClick={handleClickFacil}>
-          Facil (8 piezas)
+          Fácil (8 piezas)
         </Boton>
         <Boton className="btn btn-warning" onClick={handleClickMedio}>
           Media (12 piezas)
         </Boton>
         <Boton className="btn btn-danger" onClick={handleClickDificil}>
-          Dificil (15 piezas)
+          Difícil (16 piezas)
         </Boton>
       </div>
     </div>
