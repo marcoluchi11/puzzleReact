@@ -8,21 +8,34 @@ const DivCartel = styled.div`
   color: #000000;
 `;
 
-const Cartel = ({ contadorRtas, contador }) => {
-  const url =
-    "https://docs.google.com/spreadsheets/d/1lcnrmA9kCN78yr4aVS2VU6c7-9Z7zZ5PxnsBMRrS1Uo/edit?usp=sharing";
+const Cartel = ({ contadorRtas, contador, opciones }) => {
+  let id;
+  switch (opciones) {
+    case "facil":
+      id = 680153586;
+      break;
+    case "medio":
+      id = 1670556542;
+      break;
+    case "dificil":
+      id = 224129004;
+      break;
+    default:
+      break;
+  }
+  const url = `https://docs.google.com/spreadsheets/d/1lcnrmA9kCN78yr4aVS2VU6c7-9Z7zZ5PxnsBMRrS1Uo/edit#gid=${id}`;
   return (
     <DivCartel className="alert alert-success" role="alert">
       <img src={tick} alt="Correcto" />
-      <p>Felicitaciones! , completaste el rompecabezas!</p>
+      <p>¡Felicitaciones! ¡Completaste el rompecabezas!</p>
       <p>
-        Cantidad de Respuestas correctas:{" "}
+        Respuestas correctas:{" "}
         <span className="correctas">
           {contadorRtas}/{contador}
         </span>{" "}
       </p>
       <p>
-        Puedes ver las respuestas de los demás y el Ranking Final{" "}
+        Puedes ver el Ranking y las respuestas de los demás{" "}
         <a href={url} rel="noopener noreferrer" target="_blank">
           aquí
         </a>
