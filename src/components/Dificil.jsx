@@ -307,7 +307,8 @@ const Dificil = ({
                       >
                         <input
                           onClick={handleClickModal}
-                          type="checkbox"
+                          type="radio"
+                          name="option"
                           value={answer}
                         />
                         {answer}
