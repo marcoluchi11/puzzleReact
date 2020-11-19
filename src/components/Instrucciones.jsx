@@ -127,6 +127,7 @@ const Instrucciones = ({
 
         {ganador ? (
           <Cartel
+            opciones={opciones}
             ganador={ganador}
             contadorRtas={contadorRtas}
             contador={contador}
