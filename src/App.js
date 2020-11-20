@@ -30,6 +30,7 @@ function App() {
   const [edad, setEdad] = useState({ anios: "" });
   const [error, setError] = useState(false);
   const [ganador, setGanador] = useState(false);
+  const [count, setCount] = useState(0);
   const [segundos, setSegundos] = useState(0);
   const [contadorRtas, setContadorRtas] = useState(0);
   const modalStyles = {
@@ -62,6 +63,8 @@ function App() {
         setGanador={setGanador}
         setContador={setContador}
         setSeleccion1={setSeleccion1}
+        count={count}
+        setCount={setCount}
         setSeleccion2={setSeleccion2}
         setError={setError}
         setContadorRtas={setContadorRtas}
@@ -85,6 +88,8 @@ function App() {
         setSeleccion1={setSeleccion1}
         setSeleccion2={setSeleccion2}
         setError={setError}
+        count={count}
+        setCount={setCount}
         segundos={segundos}
         modalStyles={modalStyles}
         estilo={estilo}
@@ -110,6 +115,8 @@ function App() {
         setSeleccion1={setSeleccion1}
         setSeleccion2={setSeleccion2}
         setError={setError}
+        setCount={setCount}
+        count={count}
         modalStyles={modalStyles}
         estilo={estilo}
         setContadorRtas={setContadorRtas}
@@ -146,6 +153,8 @@ function App() {
                 contadorRtas={contadorRtas}
                 ranking={ranking}
                 setRanking={setRanking}
+                count={count}
+                setCount={setCount}
               />
             </div>
           </div>
