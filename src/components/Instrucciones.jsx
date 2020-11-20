@@ -61,6 +61,8 @@ const Instrucciones = ({
   setContadorRtas,
   contadorRtas,
   ranking,
+  count,
+  setCount,
   setRanking,
 }) => {
   useEffect(() => {
@@ -110,7 +112,7 @@ const Instrucciones = ({
           arrNuevo[imagenesSwapeadas2],
           arrNuevo[imagenesSwapeadas1],
         ];
-
+        setCount(0);
         return arrNuevo;
       };
       setImagenes(newArray());
