@@ -100,7 +100,7 @@ const PantallaInicial = ({
       </div>
       <Modal style={modalStyles} isOpen={modal}>
         <ModalHeader style={modalColor}>
-          <h4>¡Bienvenidos al Puzzle!</h4>
+          <h4>¡Bienvenidos y bienvenidas al Puzzle!</h4>
         </ModalHeader>
 
         <ModalBody style={modalColor}>
@@ -158,13 +158,16 @@ const PantallaInicial = ({
       </div>
       <div className="col-md-12 d-flex justify-content-center text-center  ">
         <Boton className="btn btn-success" onClick={handleClickFacil}>
-          Fácil (8 piezas)
+          <p className="m-0">Fácil</p>
+          <p className="m-0">(8 piezas)</p>
         </Boton>
         <Boton className="btn btn-warning" onClick={handleClickMedio}>
-          Media (12 piezas)
+          <p className="m-0">Media</p>
+          <p className="m-0">(12 piezas)</p>
         </Boton>
         <Boton className="btn btn-danger" onClick={handleClickDificil}>
-          Difícil (16 piezas)
+          <p className="m-0">Difícil</p>
+          <p className="m-0">(16 piezas)</p>
         </Boton>
       </div>
     </div>
