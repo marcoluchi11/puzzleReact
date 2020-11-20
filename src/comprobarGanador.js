@@ -34,7 +34,6 @@ import fortytwo from "./images/dificil/image_part_013.jpg";
 import fortythree from "./images/dificil/image_part_014.jpg";
 import fortyfour from "./images/dificil/image_part_015.jpg";
 import fortysix from "./images/dificil/image_part_016.jpg";
-import fortyseven from "./images/dificil/image_part_016.jpg";
 
 const imgGanadoraFacil = [uno, dos, tres, cuatro, cinco, seis, siete, ocho];
 const imgGanadoraMedio = [
@@ -68,7 +67,6 @@ const imgGanadoraDificil = [
   fortythree,
   fortyfour,
   fortysix,
-  fortyseven,
 ];
 
 export function comprobarGanador(imgActual, cant) {
