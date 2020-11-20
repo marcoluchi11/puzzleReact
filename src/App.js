@@ -20,6 +20,7 @@ const ContenedorFondo = styled.div`
   min-height: calc(100vh - 40px);
 `;
 function App() {
+  const [ranking, setRanking] = useState(null);
   const [seleccion1, setSeleccion1] = useState("");
   const [seleccion2, setSeleccion2] = useState("");
   const [imagenes, setImagenes] = useState([]);
@@ -143,6 +144,8 @@ function App() {
                 setSegundos={setSegundos}
                 setContadorRtas={setContadorRtas}
                 contadorRtas={contadorRtas}
+                ranking={ranking}
+                setRanking={setRanking}
               />
             </div>
           </div>
