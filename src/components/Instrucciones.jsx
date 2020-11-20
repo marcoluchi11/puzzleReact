@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import styled from "@emotion/styled";
 import Cartel from "./Cartel";
+import Spinner from "./Spinner";
+import TablaRanking from "./TablaRanking";
 import PropTypes from "prop-types";
 import Stopwatch from "./Stopwatch";
 import ImagenFinal from "./ImagenFinal";
@@ -58,11 +60,21 @@ const Instrucciones = ({
   setSegundos,
   setContadorRtas,
   contadorRtas,
+  ranking,
+  setRanking,
 }) => {
   useEffect(() => {
-    RankingDatos(opciones);
-    //HABRIA QUE MAPEAR EL ARREGLO CON LAS FILAS Y MOSTRARLO EN UN PSEUDO RANKING
-  }, [opciones]);
+    RankingDatos(opciones).then((data) => {
+      const datosRank = data.map((datovich) => datovich._rawData);
+      // TRAE EL ARRAY COMPLETO DE ESE NIVEL
+      console.log(datosRank);
+      const datosRank2 = datosRank.sort(
+        (a, b) => parseInt(a[1]) - parseInt(b[1])
+      );
+      //ME ORDENA EL ARRAY
+      setRanking(datosRank2);
+    });
+  }, [opciones, setRanking]);
   useEffect(() => {
     setGanador(comprobarGanador(imagenes, contador));
     if (comprobarGanador(imagenes, contador)) {
@@ -118,6 +130,7 @@ const Instrucciones = ({
     setImagenes([]);
     setContador(0);
     setSegundos(0);
+    setRanking(null);
     setContadorRtas(0);
   };
   return (
@@ -159,7 +172,7 @@ const Instrucciones = ({
           Respondiendo las preguntas se muestran las piezas del Puzzle
         </ElementoLista>
         <ElementoLista>
-          Luego de responder las preguntas, completa el Puzzle!
+          Luego de responder las preguntas, ¡completá el Puzzle!
         </ElementoLista>
         <ElementoLista>
           Para intercambiar piezas, haz click en las dos imágenes a
@@ -167,6 +180,9 @@ const Instrucciones = ({
         </ElementoLista>
         <ElementoLista>Premisa principal: Divertirse.</ElementoLista>
       </ListaInstrucciones>
+      <div className=" text-center">
+        {ranking ? <TablaRanking ranking={ranking} /> : <Spinner />}
+      </div>
     </Contenedor>
   );
 };
