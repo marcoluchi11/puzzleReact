@@ -45,7 +45,7 @@ const Stopwatch = ({ contador, opciones, segundos, setSegundos, ganador }) => {
   }, [contador, segundos]);
   return (
     <Cronometro>
-      Cronometro: <br /> {segundos} segundos
+      Cronómetro: <br /> {segundos} segundos
     </Cronometro>
   );
 };
