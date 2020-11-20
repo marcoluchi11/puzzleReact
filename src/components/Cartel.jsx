@@ -35,7 +35,7 @@ const Cartel = ({ contadorRtas, contador, opciones }) => {
         </span>{" "}
       </p>
       <p>
-        Puedes ver el Ranking y las respuestas de los demás{" "}
+        Puedes ver el Ranking completo y las respuestas de los demás{" "}
         <a href={url} rel="noopener noreferrer" target="_blank">
           aquí
         </a>
