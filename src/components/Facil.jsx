@@ -254,7 +254,7 @@ const Facil = ({
             <ModalFooter>
               {correcta ? (
                 <CorrectaIncorrecta
-                  mensaje="Respuesta Correcta!"
+                  mensaje="¡Respuesta Correcta!"
                   correcta={correcta}
                   incorrecta={incorrecta}
                 />

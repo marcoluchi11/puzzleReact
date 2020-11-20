@@ -241,29 +241,27 @@ const Moderado = ({
           />
           <Modal style={modalStyles} isOpen={modal}>
             <ModalHeader style={estilo}>
-              <h6>Hiciste click! Ahora responde esta pregunta</h6>
+              <h5>{questions[contador]}</h5>
             </ModalHeader>
             <ModalBody>
               <FormGroup>
-                <h5 className="mb-3">{questions[contador]}</h5>
-                <FormGroup tag="fieldset">
-                  {answers[contador].map((answer) => {
-                    return (
-                      <label
-                        className="d-block w-100 mb-2 estilado"
-                        //    key={nanoid()}
-                      >
-                        <input
-                          onClick={handleClickModal}
-                          type="radio"
-                          name="option"
-                          value={answer}
-                        />
-                        {answer}
-                      </label>
-                    );
-                  })}
-                </FormGroup>
+                {answers[contador].map((answer) => {
+                  return (
+                    <label
+                      className="d-block w-100 mb-2 estilado"
+                      //    key={nanoid()}
+                    >
+                      <input
+                        onClick={handleClickModal}
+                        type="radio"
+                        name="option"
+                        value={answer}
+                      />
+                      {answer}
+                    </label>
+                  );
+                })}
+
                 {error ? (
                   <Error mensaje="Error, Selecciona una respuesta" />
                 ) : null}
@@ -272,7 +270,7 @@ const Moderado = ({
             <ModalFooter>
               {correcta ? (
                 <CorrectaIncorrecta
-                  mensaje="Respuesta Correcta!"
+                  mensaje="¡Respuesta Correcta!"
                   correcta={correcta}
                   incorrecta={incorrecta}
                 />

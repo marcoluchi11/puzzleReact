@@ -80,7 +80,7 @@ const Dificil = ({
 
   const questions = [
     "“Nunca más” es el nombre…",
-    "¿Qué tienen en común Montoneros y el Ejército Republicano del Pueblo (ERP)?",
+    "¿Qué tienen en común Montoneros y el Ejército Revolucionario del Pueblo (ERP)?",
     "¿Durante la década del ‘70 solo hubo dictadura en Argentina?",
     "La teoría de los dos demonios hace énfasis en…",
     "En su discurso, la Junta Militar utilizó el término “desaparecido” porque…",
@@ -106,7 +106,7 @@ const Dificil = ({
     "Por su compromiso e idealismo político",
     "Todas son correctas",
     "Las fuerzas armadas eran considerados los salvadores de la patria",
-    "Todas",
+    "Todas son correctas",
     "Las madres y abuelas de Plaza de Mayo salieron a reclamar por los hijos y nietos desaparecidos y por los soldados obligados a combatir en la guerra de Malvinas",
     "Manifestaciones públicas organizadas en Argentina desde 1981 con el fin de reclamar por la vigencia de los derechos humanos",
     `Símbolo de las Madres y Abuelas en su "Manifestación pública" por la búsqueda de sus hijos secuestrados`,
@@ -164,7 +164,7 @@ const Dificil = ({
       "Los partidos políticos no creían en la democracia",
     ],
     [
-      "Todas",
+      "Todas son correctas",
       "Aparecen nuevos actores: acreedores externos, acompañados por organismos como el FMI y el Banco Mundial",
       "Desprestigio del sindicalismo, precarización laboral, degradación de la fuerza de trabajo, desocupación, desindustrialización…",
     ],
@@ -246,7 +246,6 @@ const Dificil = ({
   };
   const handleClick = () => {
     setModal(true);
-    //Valida cuando llega a 12 para.
     if (imagenes.length === 16) {
       setClickovich(true);
       return;
@@ -293,29 +292,27 @@ const Dificil = ({
           />
           <Modal style={modalStyles} isOpen={modal}>
             <ModalHeader style={estilo}>
-              <h6>Hiciste click! Ahora responde esta pregunta</h6>
+              <h5>{questions[contador]}</h5>
             </ModalHeader>
             <ModalBody>
               <FormGroup>
-                <h5 className="mb-3">{questions[contador]}</h5>
-                <FormGroup tag="fieldset">
-                  {answers[contador].map((answer) => {
-                    return (
-                      <label
-                        className="d-block w-100 mb-2 estilado"
-                        //      key={nanoid()}
-                      >
-                        <input
-                          onClick={handleClickModal}
-                          type="radio"
-                          name="option"
-                          value={answer}
-                        />
-                        {answer}
-                      </label>
-                    );
-                  })}
-                </FormGroup>
+                {answers[contador].map((answer) => {
+                  return (
+                    <label
+                      className="d-block w-100 mb-2 estilado"
+                      //      key={nanoid()}
+                    >
+                      <input
+                        onClick={handleClickModal}
+                        type="radio"
+                        name="option"
+                        value={answer}
+                      />
+                      {answer}
+                    </label>
+                  );
+                })}
+
                 {error ? (
                   <Error mensaje="Error, Selecciona una respuesta" />
                 ) : null}
@@ -324,7 +321,7 @@ const Dificil = ({
             <ModalFooter>
               {correcta ? (
                 <CorrectaIncorrecta
-                  mensaje="Respuesta Correcta!"
+                  mensaje="¡Respuesta Correcta!"
                   correcta={correcta}
                   incorrecta={incorrecta}
                 />
