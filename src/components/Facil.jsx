@@ -39,6 +39,8 @@ const Facil = ({
   estilo,
   setContadorRtas,
   contadorRtas,
+  count,
+  setCount,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -186,6 +188,7 @@ const Facil = ({
   //Click para mover las piezas
   const handleClick2 = (e) => {
     //Actualiza el state al primer y segundo click
+    if (count >= 2) return;
     if (seleccion1 === "") {
       setSeleccion1(e.target.src);
     }
@@ -193,12 +196,18 @@ const Facil = ({
       setSeleccion2(e.target.src);
     }
     if (seleccion1 === e.target.src) {
+      setCount(0);
       setSeleccion1("");
       setSeleccion2("");
     }
   };
+
   const toggleClass = (e) => {
+    if (count >= 2) {
+      return;
+    }
     e.target.classList.toggle("active");
+    setCount(count + 1);
   };
 
   return (

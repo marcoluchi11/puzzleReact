@@ -46,6 +46,8 @@ const Dificil = ({
   estilo,
   setContadorRtas,
   contadorRtas,
+  count,
+  setCount,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -153,7 +155,7 @@ const Dificil = ({
       "Por su extravagante vestimenta y tener el pelo largo",
     ],
     [
-      "Todas son correctas ",
+      "Todas son correctas",
       "La creciente violencia uno de los argumentos para el Golpe, era fomentada en gran medida por la propia derecha.",
       "Porque había un plan para imponer un determinado modelo socio-económico en Latinoamérica",
       "Porque el gobierno de Isabel Perón era muy débil",
@@ -225,14 +227,14 @@ const Dificil = ({
       setIncorrecta(true);
     }
 
-    setTimeout(() => {
-      setRta(null);
-      setContador(contador + 1);
-      setImagenes([...imagenes, ImgsMezcladas[contador]]);
-      setCorrecta(false);
-      setIncorrecta(false);
-      setModal(null);
-    }, 2300);
+    // setTimeout(() => {
+    setRta(null);
+    setContador(contador + 1);
+    setImagenes([...imagenes, ImgsMezcladas[contador]]);
+    setCorrecta(false);
+    setIncorrecta(false);
+    setModal(null);
+    //   }, 2300);
   };
 
   if (user === "" || user === false) {
@@ -254,6 +256,7 @@ const Dificil = ({
   //Click para mover las piezas
   const handleClick2 = (e) => {
     //Actualiza el state al primer y segundo click
+    if (count >= 2) return;
     if (seleccion1 === "") {
       setSeleccion1(e.target.src);
     }
@@ -261,12 +264,18 @@ const Dificil = ({
       setSeleccion2(e.target.src);
     }
     if (seleccion1 === e.target.src) {
+      setCount(0);
       setSeleccion1("");
       setSeleccion2("");
     }
   };
+
   const toggleClass = (e) => {
+    if (count >= 2) {
+      return;
+    }
     e.target.classList.toggle("active");
+    setCount(count + 1);
   };
   return (
     <div id="Contenedor">
