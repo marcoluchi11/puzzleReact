@@ -27,7 +27,7 @@ const Cartel = ({ contadorRtas, contador, opciones }) => {
   return (
     <DivCartel className="alert alert-success" role="alert">
       <img src={tick} alt="Correcto" />
-      <p>¡Felicitaciones! ¡Completaste el rompecabezas!</p>
+      <p>¡Felicitaciones! ¡Completaste el Puzzle!</p>
       <p>
         Respuestas correctas:{" "}
         <span className="correctas">
