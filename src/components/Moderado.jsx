@@ -92,7 +92,7 @@ const Moderado = ({
     "Las abuelas de los bebés desaparecidos",
     "Simbolizan la lucha de la sociedad argentina ante la violencia implementada por la dictadura",
     "La utilización del Mundial del ’78 como pantalla de encubrimiento",
-    "Publicidades que presentaban a la Argentina como vencedora de la Guerra de Malvinas. ",
+    "Publicidades que presentaban a la Argentina como vencedora de la Guerra de Malvinas",
     "Porque si dejaban de caminar eran detenidas",
     "Todas son correctas",
     "Una escuela de entrenamiento militar promovida por los EEUU a las fuerzas militares de Latinoamérica",

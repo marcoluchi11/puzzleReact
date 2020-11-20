@@ -129,7 +129,7 @@ const Dificil = ({
     [
       "Sí, se desarrolló solo en Argentina",
       "No, muchos países del mundo estaban en dictadura",
-      "No, formó parte de un plan sistemático más grande para erradicar el comunismo en América Latina ",
+      "No, formó parte de un plan sistemático más grande para erradicar el comunismo en América Latina",
     ],
     [
       "Que el conflicto tenía matices religiosos",
@@ -144,7 +144,7 @@ const Dificil = ({
     ],
     [
       "Porque se reprimía la educación cívica en todas las escuelas",
-      "Porque hubo sectores de la sociedad cómplices de la dictadura ",
+      "Porque hubo sectores de la sociedad cómplices de la dictadura",
       "Porque los dictadores querían reformar a la sociedad para civilizarla",
     ],
     [
@@ -155,7 +155,7 @@ const Dificil = ({
     [
       "Todas son correctas ",
       "La creciente violencia uno de los argumentos para el Golpe, era fomentada en gran medida por la propia derecha.",
-      "Porque había un plan para imponer un determinado modelo socio-económico en Latinoamérica ",
+      "Porque había un plan para imponer un determinado modelo socio-económico en Latinoamérica",
       "Porque el gobierno de Isabel Perón era muy débil",
     ],
     [

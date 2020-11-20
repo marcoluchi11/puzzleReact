@@ -156,10 +156,10 @@ const Instrucciones = ({
           pregunta
         </ElementoLista>
         <ElementoLista>
-          Respondiendo las preguntas se muestran las piezas del rompecabezas
+          Respondiendo las preguntas se muestran las piezas del Puzzle
         </ElementoLista>
         <ElementoLista>
-          Luego de responder las preguntas, completa el rompecabezas!
+          Luego de responder las preguntas, completa el Puzzle!
         </ElementoLista>
         <ElementoLista>
           Para intercambiar piezas, haz click en las dos imágenes a
