@@ -40,3 +40,7 @@ label {
   padding: 0.1rem;
   margin-bottom: 0 !important;
 }
+table tr td,
+table tr th {
+  color: #ffffff !important;
+}
