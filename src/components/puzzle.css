@@ -1,3 +1,26 @@
+@keyframes transicionImagen {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*  se aplica la animacion */
+.transicion {
+  animation-name: transicionImagen;
+  animation-duration: 1s;
+}
+.transicionBackwards {
+  animation-name: transicionImagen;
+  animation-duration: 1s;
+}
 div#Contenedor {
   display: flex;
   justify-content: center;
@@ -6,6 +29,7 @@ div#Contenedor {
   margin-top: 1rem;
 }
 img.Imagen {
+  opacity: 1;
   width: 160px;
   height: 160px;
   border: black solid 0.5px;
