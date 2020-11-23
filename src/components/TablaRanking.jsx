@@ -4,7 +4,7 @@ const TablaRanking = ({ ranking }) => {
   return (
     <Fragment>
       <h4>Ranking</h4>
-      <table className="table table-bordered">
+      <table className="table table-bordered transicion">
         <thead>
           <tr>
             <th>#</th>

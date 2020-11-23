@@ -15,7 +15,11 @@ const DivCartel = styled.div`
 const CorrectaIncorrecta = ({ mensaje, correcta }) => {
   return (
     <DivCartel
-      className={correcta ? "alert alert-success w-100" : "alert alert-danger"}
+      className={
+        correcta
+          ? "alert alert-success w-100 transicion"
+          : "alert alert-danger transicion"
+      }
       role="alert"
     >
       {correcta ? <img src={tick} alt="tick" /> : <img src={cruz} alt="cruz" />}

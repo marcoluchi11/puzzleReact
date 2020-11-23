@@ -57,7 +57,7 @@ const ImagenFinal = ({ contador, opciones }) => {
       </div>
 
       <Imagen
-        className="mt-3 mb-3 phones"
+        className="mt-3 mb-3 phones transicionBackwards"
         src={imagenFinal}
         alt="imagen final"
       />

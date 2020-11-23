@@ -25,7 +25,7 @@ const Cartel = ({ contadorRtas, contador, opciones }) => {
   }
   const url = `https://docs.google.com/spreadsheets/d/1lcnrmA9kCN78yr4aVS2VU6c7-9Z7zZ5PxnsBMRrS1Uo/edit#gid=${id}`;
   return (
-    <DivCartel className="alert alert-success" role="alert">
+    <DivCartel className="alert alert-success transicionBackwards" role="alert">
       <img src={tick} alt="Correcto" />
       <p>¡Felicitaciones! ¡Completaste el Puzzle!</p>
       <p>
