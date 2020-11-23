@@ -184,7 +184,7 @@ const Moderado = ({
       setCorrecta(false);
       setIncorrecta(false);
       setModal(null);
-    }, 2300);
+    }, 2800);
   };
 
   if (user === "" || user === false) {
@@ -234,7 +234,7 @@ const Moderado = ({
       {imagenes.map((imagen) => (
         <img
           key={imagen}
-          className="Imagen"
+          className="Imagen transicion"
           onClick={(e) => {
             handleClick2(e);
             toggleClass(e);
