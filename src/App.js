@@ -33,6 +33,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [segundos, setSegundos] = useState(0);
   const [contadorRtas, setContadorRtas] = useState(0);
+  const [incompleto, setIncompleto] = useState(false);
   const modalStyles = {
     fontFamily: "Mulish",
     position: "fixed",
@@ -68,6 +69,8 @@ function App() {
         setSeleccion2={setSeleccion2}
         setError={setError}
         setContadorRtas={setContadorRtas}
+        setIncompleto={setIncompleto}
+        incompleto={incompleto}
       />
     );
   }
@@ -95,6 +98,8 @@ function App() {
         estilo={estilo}
         setContadorRtas={setContadorRtas}
         contadorRtas={contadorRtas}
+        setIncompleto={setIncompleto}
+        incompleto={incompleto}
       />
     );
   }
@@ -121,6 +126,8 @@ function App() {
         estilo={estilo}
         setContadorRtas={setContadorRtas}
         contadorRtas={contadorRtas}
+        setIncompleto={setIncompleto}
+        incompleto={incompleto}
       />
     );
   }

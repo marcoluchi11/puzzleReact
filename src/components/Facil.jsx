@@ -41,6 +41,8 @@ const Facil = ({
   contadorRtas,
   count,
   setCount,
+  incompleto,
+  setIncompleto,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -182,6 +184,7 @@ const Facil = ({
     //Valida cuando llega a 8 para.
     if (imagenes.length === 8) {
       setClickovich(true);
+      setIncompleto(true);
       return;
     }
   };
@@ -189,6 +192,7 @@ const Facil = ({
   const handleClick2 = (e) => {
     //Actualiza el state al primer y segundo click
     if (count >= 2) return;
+    if (incompleto === false) return;
     if (seleccion1 === "") {
       setSeleccion1(e.target.src);
     }
@@ -203,9 +207,8 @@ const Facil = ({
   };
 
   const toggleClass = (e) => {
-    if (count >= 2) {
-      return;
-    }
+    if (incompleto === false) return;
+    if (count >= 2) return;
     e.target.classList.toggle("active");
     setCount(count + 1);
   };

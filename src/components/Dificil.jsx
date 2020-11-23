@@ -48,6 +48,8 @@ const Dificil = ({
   contadorRtas,
   count,
   setCount,
+  incompleto,
+  setIncompleto,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -227,14 +229,14 @@ const Dificil = ({
       setIncorrecta(true);
     }
 
-    // setTimeout(() => {
-    setRta(null);
-    setContador(contador + 1);
-    setImagenes([...imagenes, ImgsMezcladas[contador]]);
-    setCorrecta(false);
-    setIncorrecta(false);
-    setModal(null);
-    //   }, 2300);
+    setTimeout(() => {
+      setRta(null);
+      setContador(contador + 1);
+      setImagenes([...imagenes, ImgsMezcladas[contador]]);
+      setCorrecta(false);
+      setIncorrecta(false);
+      setModal(null);
+    }, 2300);
   };
 
   if (user === "" || user === false) {
@@ -250,6 +252,7 @@ const Dificil = ({
     setModal(true);
     if (imagenes.length === 16) {
       setClickovich(true);
+      setIncompleto(true);
       return;
     }
   };
@@ -257,6 +260,7 @@ const Dificil = ({
   const handleClick2 = (e) => {
     //Actualiza el state al primer y segundo click
     if (count >= 2) return;
+    if (incompleto === false) return;
     if (seleccion1 === "") {
       setSeleccion1(e.target.src);
     }
@@ -271,9 +275,8 @@ const Dificil = ({
   };
 
   const toggleClass = (e) => {
-    if (count >= 2) {
-      return;
-    }
+    if (count >= 2) return;
+    if (incompleto === false) return;
     e.target.classList.toggle("active");
     setCount(count + 1);
   };

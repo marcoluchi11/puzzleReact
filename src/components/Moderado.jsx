@@ -45,6 +45,8 @@ const Moderado = ({
   estilo,
   setContadorRtas,
   contadorRtas,
+  incompleto,
+  setIncompleto,
 }) => {
   //Estados
   const [ImgsMezcladas, setImgsMezcladas] = useState([
@@ -199,6 +201,7 @@ const Moderado = ({
     //Valida cuando llega a 12 para.
     if (imagenes.length === 12) {
       setClickovich(true);
+      setIncompleto(true);
       return;
     }
   };
@@ -206,6 +209,7 @@ const Moderado = ({
   const handleClick2 = (e) => {
     //Actualiza el state al primer y segundo click
     if (count >= 2) return;
+    if (incompleto === false) return;
     if (seleccion1 === "") {
       setSeleccion1(e.target.src);
     }
@@ -220,9 +224,8 @@ const Moderado = ({
   };
 
   const toggleClass = (e) => {
-    if (count >= 2) {
-      return;
-    }
+    if (count >= 2) return;
+    if (incompleto === false) return;
     e.target.classList.toggle("active");
     setCount(count + 1);
   };
