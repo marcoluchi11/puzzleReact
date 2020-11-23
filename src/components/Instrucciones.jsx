@@ -68,8 +68,6 @@ const Instrucciones = ({
   useEffect(() => {
     RankingDatos(opciones).then((data) => {
       const datosRank = data.map((datovich) => datovich._rawData);
-      // TRAE EL ARRAY COMPLETO DE ESE NIVEL
-      console.log(datosRank);
       const datosRank2 = datosRank.sort(
         (a, b) => parseInt(a[1]) - parseInt(b[1])
       );
@@ -94,8 +92,12 @@ const Instrucciones = ({
   }, [imagenes, setGanador, contador]);
   const handleClick = () => {
     const activo = document.querySelectorAll(".active");
+    const transi = document.querySelectorAll(".transicion");
     activo.forEach((item) => {
       item.classList.remove("active");
+    });
+    transi.forEach((item) => {
+      item.classList.remove("transicion");
     });
     if (seleccion1 !== "" && seleccion2 !== "" && seleccion1 !== seleccion2) {
       const imagenesSwapeadas1 = imagenes.findIndex(
