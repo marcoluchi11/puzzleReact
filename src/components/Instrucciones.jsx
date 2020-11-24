@@ -11,6 +11,7 @@ import { Ranking, RankingDatos } from "./../Google";
 import { comprobarGanador } from "./../comprobarGanador";
 import Renew from "./../images/autorenew-24px.svg";
 import Back from "./../images/arrow_back_ios-24px.svg";
+import CartelPregunta from "./CartelPregunta";
 const Contenedor = styled.div`
   margin-top: 0.5rem;
   margin-bottom: -50px;
@@ -64,6 +65,7 @@ const Instrucciones = ({
   count,
   setCount,
   setRanking,
+  incompleto,
 }) => {
   useEffect(() => {
     RankingDatos(opciones).then((data) => {
@@ -141,7 +143,9 @@ const Instrucciones = ({
     <Contenedor>
       <ContenedorInstrucciones>
         <Postlogin user={user} />
-
+        {incompleto ? null : (
+          <CartelPregunta mensaje="Haz click en el (?) hasta responder todas las preguntas y que desaparezca." />
+        )}
         {ganador ? (
           <Cartel
             opciones={opciones}
@@ -185,7 +189,11 @@ const Instrucciones = ({
         <ElementoLista>Premisa principal: Divertirse.</ElementoLista>
       </ListaInstrucciones>
       <div className=" text-center">
-        {ranking ? <TablaRanking ranking={ranking} /> : <Spinner />}
+        {ranking ? (
+          <TablaRanking ranking={ranking} />
+        ) : (
+          <Spinner mensaje="Cargando Ranking..." />
+        )}
       </div>
     </Contenedor>
   );
