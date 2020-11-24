@@ -280,11 +280,15 @@ const Dificil = ({
     e.target.classList.toggle("active");
     setCount(count + 1);
   };
+  const addTransition = (e) => {
+    e.target.classList.add("transicion");
+  };
   return (
     <div id="Contenedor">
       {imagenes.map((imagen) => (
         <img
           key={imagen}
+          onLoad={addTransition}
           className="Imagen transicion"
           onClick={(e) => {
             handleClick2(e);

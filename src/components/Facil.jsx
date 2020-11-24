@@ -76,7 +76,7 @@ const Facil = ({
     "Integrantes de las Tres fuerzas armadas",
     "A una persona que no se sabe dónde está",
     "Porque eran revolucionarios",
-    "Todos",
+    "Todas son correctas",
     "A un tipo de modalidad de detención sobre las personas",
     "Era un auto que se utilizaba para detener y secuestrar a personas",
   ];
@@ -110,7 +110,7 @@ const Facil = ({
       "Docentes/estudiantes",
       "Trabajadores/sindicalistas",
       "Militantes/grupos políticos",
-      "Todos",
+      "Todas son correctas",
     ],
     [
       "A un tipo de discriminación sobre las personas",
@@ -213,12 +213,17 @@ const Facil = ({
     setCount(count + 1);
   };
 
+  const addTransition = (e) => {
+    e.target.classList.add("transicion");
+  };
+
   return (
     <div id="Contenedor">
       {imagenes.map((imagen) => (
         <img
           key={imagen}
-          className="Imagen transicion"
+          onLoad={addTransition}
+          className="Imagen"
           onClick={(e) => {
             handleClick2(e);
             toggleClass(e);
