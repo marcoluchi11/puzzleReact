@@ -162,6 +162,7 @@ function App() {
                 setRanking={setRanking}
                 count={count}
                 setCount={setCount}
+                incompleto={incompleto}
               />
             </div>
           </div>
