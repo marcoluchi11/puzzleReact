@@ -1,6 +1,6 @@
 import React from "react";
 import "./spinner.css";
-const Spinner = () => {
+const Spinner = ({ mensaje }) => {
   return (
     <div className="d-flex justify-content-center">
       <div className=" sk-chase">
@@ -11,6 +11,7 @@ const Spinner = () => {
         <div className="sk-chase-dot"></div>
         <div className="sk-chase-dot"></div>
       </div>
+      <p className="d-block ml-3">{mensaje}</p>
     </div>
   );
 };
