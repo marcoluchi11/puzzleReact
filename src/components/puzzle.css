@@ -17,9 +17,9 @@
   animation-name: transicionImagen;
   animation-duration: 1s;
 }
-.transicionBackwards {
-  animation-name: transicionImagen;
-  animation-duration: 1s;
+.respuesta{
+  font-size: 1.2rem;
+  padding:.7rem;
 }
 div#Contenedor {
   display: flex;
@@ -55,6 +55,9 @@ span.correctas {
 .estilado {
   background-color: lightgray;
   border-radius: 15px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  
 }
 label input {
   margin-right: 0.5rem !important;

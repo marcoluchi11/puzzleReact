@@ -16,8 +16,14 @@ body {
     width: 66px !important;
   }
   .phones {
-    height: 125px !important;
-    width: 125px !important;
+    height: 155px !important;
+    width: 290px !important;
+  }
+  .estilado {
+  
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    
   }
 }
 @media all and (max-width: 440px) and (min-width: 300px) {
@@ -35,7 +41,12 @@ body {
     height: 135px !important;
     width: 135px !important;
   }
-
+  .estilado {
+  
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    
+  }
   h1 {
     font-size: 2.4rem !important;
     text-align: center !important;
@@ -61,8 +72,14 @@ body {
     width: 100px !important;
   }
   .phones {
-    height: 125px !important;
-    width: 125px !important;
+    height: 180px !important;
+    width: 305px !important;
+  }
+  .estilado {
+  
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    
   }
 }
 @media all and (max-width: 549px) and (min-width: 525px) {
@@ -77,8 +94,14 @@ body {
     width: 110px !important;
   }
   .phones {
-    height: 125px !important;
-    width: 125px !important;
+    height: 180px !important;
+    width: 325px !important;
+  }
+  .estilado {
+  
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    
   }
 }
 @media all and (max-width: 649px) and (min-width: 550px) {
@@ -93,8 +116,17 @@ body {
     width: 120px !important;
   }
   .phones {
-    height: 125px !important;
-    width: 125px !important;
+    height: 180px !important;
+    width: 350px !important;
+  }
+  .estilado {
+  
+    padding: 1.5rem !important;
+    font-size: 1.45rem !important;
+    
+  }
+  h5{
+    font-size: 1.5rem !important;
   }
 }
 @media all and (max-width: 750px) and (min-width: 650px) {
@@ -109,8 +141,17 @@ body {
     width: 120px !important;
   }
   .phones {
-    height: 125px !important;
-    width: 125px !important;
+    height: 180px !important;
+    width: 305px !important;
+  }
+  .estilado {
+  
+    padding: 1.5rem !important;
+    font-size: 1.8rem !important;
+    
+  }
+  h5{
+    font-size: 1.5rem !important;
   }
 }
 @media all and (max-width: 780px) and (min-width: 751px) {
@@ -125,8 +166,17 @@ body {
     width: 110px !important;
   }
   .phones {
-    height: 155px !important;
-    width: 155px !important;
+    height: 180px !important;
+    width: 305px !important;
+  }
+  .estilado {
+  
+    padding: 1.5rem !important;
+    font-size: 1.8rem !important;
+    
+  }
+  h5{
+    font-size: 1.5rem !important;
   }
 }
 
@@ -142,8 +192,8 @@ body {
     width: 110px !important;
   }
   .phones {
-    height: 205px !important;
-    width: 205px !important;
+    height: 180px !important;
+    width: 305px !important;
   }
 }
 @media all and (max-width: 1500px) and (min-width: 990px) {
@@ -158,8 +208,8 @@ body {
     width: 150px !important;
   }
   .phones {
-    height: 350px !important;
-    width: 350px !important;
+    height: 180px !important;
+    width: 305px !important;
   }
 }
 /* // PANTALLA MUY PEQUEñA */

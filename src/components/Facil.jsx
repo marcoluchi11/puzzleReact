@@ -284,6 +284,7 @@ const Facil = ({
                 />
               ) : null}
               <Button
+                className="respuesta"
                 color="primary"
                 onClick={() => {
                   modalClick();

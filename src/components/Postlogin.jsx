@@ -5,7 +5,9 @@ const Imagenovich = styled.img`
   width: 50px;
 `;
 const Postlogin = ({ user }) => {
-  return <Imagenovich src={user.photoURL} alt="" />;
+  return (
+    <Imagenovich src={user.photoURL} alt="imgLogin" className="imagenLogin" />
+  );
 };
 
 export default Postlogin;

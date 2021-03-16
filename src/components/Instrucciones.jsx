@@ -41,6 +41,21 @@ const ContenedorInstrucciones = styled.div`
   place-content: space-around;
   align-items: center;
   flex-direction: column;
+  @media all and (max-width: 800px) {
+    img.imagenLogin {
+      display: none;
+    }
+  }
+`;
+
+const Inverso = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  .intercambio {
+    margin: 1rem;
+    padding: 1.5rem;
+    font-size: 1.3rem;
+  }
 `;
 const Instrucciones = ({
   seleccion1,
@@ -154,12 +169,17 @@ const Instrucciones = ({
             contador={contador}
           />
         ) : null}
-        <button className="btn btn-danger mt-3 mb-3" onClick={volverAlMenu}>
-          <img src={Back} alt="Icono vuelta" /> Volver al menú principal
-        </button>
-        <button onClick={handleClick} className="btn btn-primary mb-2">
-          <img src={Renew} alt="Icono Intercambio" /> Intercambia Piezas
-        </button>
+        <Inverso>
+          <button className="btn btn-danger mt-3 mb-3 " onClick={volverAlMenu}>
+            <img src={Back} alt="Icono volver" /> Volver al menú principal
+          </button>
+          <button
+            onClick={handleClick}
+            className="btn btn-primary mb-2 intercambio"
+          >
+            <img src={Renew} alt="Icono Intercambio" /> Intercambia Piezas
+          </button>
+        </Inverso>
 
         <ImagenFinal contador={contador} opciones={opciones} />
         <Stopwatch

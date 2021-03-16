@@ -33,7 +33,7 @@ const ImagenFinal = ({ contador, opciones }) => {
       } else {
         setTimeout(() => {
           setVerImagen(false);
-        }, 6000);
+        }, 10000000000000);
       }
     }
   }, [contador, cant, opciones]);
@@ -53,11 +53,11 @@ const ImagenFinal = ({ contador, opciones }) => {
   const imagen = verImagen ? (
     <Fragment>
       <div className="col-12">
-        <h4>Imagen resuelta</h4>
+        <h4 className="text-center">Imagen resuelta</h4>
       </div>
 
       <Imagen
-        className="mt-3 mb-3 phones transicionBackwards"
+        className="mt-3 mb-3 phones"
         src={imagenFinal}
         alt="imagen final"
       />
